@@ -11,7 +11,7 @@
         "run-dev": "yarn workspace @isteam/app run run-dev"
     },
     "workspaces": [
-        "./data-accessor",
+        "./data",
         "./app"
     ],
     "devDependencies": {
