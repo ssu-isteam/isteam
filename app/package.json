@@ -2,7 +2,8 @@
     "name": "@isteam/app",
     "version": "1.0.0",
     "scripts": {
-        "run-dev": "next dev"
+        "run-dev": "next dev",
+        "build": "tsc"
     },
     "dependencies": {
         "next": "9.3.5",

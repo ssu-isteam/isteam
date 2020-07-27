@@ -1,13 +1,11 @@
-import { Model, DefaultValue, ModelWithDataAccessor } from "./model";
-import { DataType, DataTypes } from 'sequelize';
+import { Table, Column, Model, DataType } from "sequelize-typescript";
+import sequelize from "../util/sequelize";
 
-@Model
-class User extends ModelWithDataAccessor {
+@Table
+export class User extends Model<User> {
 
-    id = DataTypes.NUMBER.UNSIGNED
-
-    @DefaultValue("John")
-    name = DataTypes.STRING
+    @Column(DataType.TEXT)
+    name: string;
 }
 
-const user = new User();
+sequelize.addModels([User]);
