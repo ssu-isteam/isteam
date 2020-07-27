@@ -1,3 +1,5 @@
+import { userDataAccessor } from "@isteam/data";
+
 export default function Home({ username }) {
     return (
         <>
@@ -7,8 +9,6 @@ export default function Home({ username }) {
 }
 
 export async function getStaticProps() {
-    const { userDataAccessor } = require("@isteam/data");
-
     const username = await userDataAccessor.findById(1)
         .then(user => user.getDataValue("name"))
 
