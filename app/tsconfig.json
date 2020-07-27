@@ -7,8 +7,6 @@
     "moduleResolution": "node",
     "outDir": "dist",
     "declaration": true,
-    "composite": true,
-    "esModuleInterop": true,
     "lib": [
       "dom",
       "dom.iterable",
@@ -20,7 +18,8 @@
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true
+    "noEmit": true,
+    "esModuleInterop": true
   },
   "exclude": [
     "node_modules"
@@ -28,6 +27,7 @@
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx",
+    "next.config.js"
   ]
 }

@@ -8,10 +8,10 @@
     "license": "MIT",
     "private": "true",
     "scripts": {
-        "run-dev": "yarn workspace @isteam/app run run-dev"
+        "dev": "yarn workspace @isteam/app dev"
     },
     "workspaces": [
-        "./data-accessor",
+        "./data",
         "./app"
     ],
     "devDependencies": {
