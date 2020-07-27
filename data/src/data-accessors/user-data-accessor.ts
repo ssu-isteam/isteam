@@ -14,6 +14,10 @@ export class UserDataAccessor extends DataAccessor<User> {
     findAllByName(name: string) {
         return this.repository.findAll<User>({
             where: { name }
-        })
+        });
+    }
+
+    save(user: User) {
+        return this.repository.create(user);
     }
 }

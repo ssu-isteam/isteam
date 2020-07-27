@@ -7,5 +7,3 @@ export class User extends Model<User> {
     @Column(DataType.TEXT)
     name: string;
 }
-
-sequelize.addModels([User]);

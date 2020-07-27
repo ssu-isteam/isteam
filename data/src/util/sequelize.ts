@@ -1,17 +1,10 @@
 import { Sequelize } from "sequelize-typescript";
-import dotenv from "dotenv";
-
-const result = dotenv.config();
-
-if (result.error) {
-    throw result.error;
-}
-
-const env = result.parsed;
+import { env } from "process";
 
 let sequelize: Sequelize;
 
 if (!sequelize) {
+    console.log('creating instance');
     sequelize = new Sequelize({
         host: env.DB_HOST,
         database: env.DB_NAME,

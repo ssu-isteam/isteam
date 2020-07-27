@@ -9,7 +9,6 @@
         "build": "tsc"
     },
     "dependencies": {
-        "dotenv": "^8.2.0",
         "mysql2": "2.1.0",
         "reflect-metadata": "^0.1.13",
         "sequelize": "^5.1.0",
