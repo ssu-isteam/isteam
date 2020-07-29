@@ -1,9 +1,0 @@
-{
-    "references": [
-        { "path": "./app" },
-        { "path": "./data-accessor" }
-    ],
-    "compilerOptions": {
-        "esModuleInterop": true
-    }
-}

@@ -5,23 +5,15 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Launch NextJS app",
+            "name": "Python: Django",
+            "type": "python",
             "request": "launch",
-            "runtimeArgs": [
-                "run",
-                "dev"
+            "program": "${workspaceFolder}/isteam/manage.py",
+            "args": [
+                "runserver",
+                "--noreload"
             ],
-            "env": {
-                "DB_HOST": "localhost",
-                "DB_USER": "root",
-                "DB_PASS": "1234",
-                "DB_NAME": "isteam"
-            },
-            "runtimeExecutable": "yarn",
-            "skipFiles": [
-                "<node_internals>/**"
-            ],
-            "type": "pwa-node",
+            "django": true
         }
     ]
 }

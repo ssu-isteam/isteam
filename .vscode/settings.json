@@ -1,4 +1,3 @@
 {
-    "npm.packageManager": "yarn",
-    "eslint.packageManager": "yarn"
+    "python.pythonPath": "venv/bin/python"
 }
