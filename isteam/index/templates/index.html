@@ -1,0 +1,92 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ISTeam</title>
+        <link href="{% static 'styles/index.css' %}" type="text/css" rel="stylesheet" >
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+            <header class="main-title section main-intro">
+                <div class="section-container">
+                    <div class="right-top-container">
+                        <div>
+                            부원 그룹웨어
+                        </div>
+                        <div>
+                            Git repository
+                        </div>
+                    </div>
+                    <h1 class="title-txt">
+                        <img src="{% static 'logos/isteam.svg' %}" class="title-logo"> ISteam
+                    </h1>
+                    
+                    <div class="subtitle">
+                        <p>
+                            <span class="subtitle-word">숭실대학교</span>
+                            <span class="subtitle-word">소프트웨어학부</span>
+                        </p>
+                        <p>
+                            공식 소모임
+                        </p>
+                         
+                    </div>
+                    <div>
+                        부원 신청하기
+                    </div>
+                </div>
+            </header>
+            
+            <main>
+                
+                <section class="section recent-activity">
+                    <div class="section-container">
+                        <h3 class="section-title">
+                        최근 활동
+                        </h3>
+                        <div>
+                            <div class="section-title__timeline">
+                                <div class="timeline__content-container">
+                                    <h4 class="timeline__content-title">2020년 5월 31일</h4>
+                                    <div class="timeline__content-card">
+                                        <div class="timeline__content-card__img-cover">
+                                            <img src="https://images.unsplash.com/photo-1519241047957-be31d7379a5d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" class="timeline__content-card__img">
+                                        </div>
+                                        <div class="timeline__content-card__text">
+                                            <div class="timeline__content-card__title">2020 오세유 세미나</div>
+                                            <div class="timeline__content-card__text__summary">
+                                                <ul>
+                                                    <li>Lorem ipsum</li>
+                                                    <li>Lorem ipsum</li>
+                                                    <li>Lorem ipsum</li>
+                                                    <li>Lorem ipsum</li>
+                                                    <li>Lorem ipsum</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="section recent-activity">
+                    <div class="section-container">
+                        <h3 class="section-title">
+                        ISteam 소개
+                        </h3>
+                        <div>
+                            <h2>숭실대학교 공식 소모임</h2>
+                        </div>
+                        <div>
+                            <h2>Naver D2 Campus</h2>
+                        </div>
+                    </div>
+                </section>
+                
+            </main>
+            
+    </body>
+</html>
