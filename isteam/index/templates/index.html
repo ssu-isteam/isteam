@@ -47,26 +47,30 @@
                         </h3>
                         <div>
                             <div class="section-title__timeline">
+                                {% for activity in activities %}
+
                                 <div class="timeline__content-container">
-                                    <h4 class="timeline__content-title">2020년 5월 31일</h4>
+                                    <h4 class="timeline__content-title"></h4>
                                     <div class="timeline__content-card">
                                         <div class="timeline__content-card__img-cover">
                                             <img src="https://images.unsplash.com/photo-1519241047957-be31d7379a5d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" class="timeline__content-card__img">
                                         </div>
                                         <div class="timeline__content-card__text">
-                                            <div class="timeline__content-card__title">2020 오세유 세미나</div>
+                                            <div class="timeline__content-card__title">{{ activity.title }}</div>
                                             <div class="timeline__content-card__text__summary">
                                                 <ul>
-                                                    <li>Lorem ipsum</li>
-                                                    <li>Lorem ipsum</li>
-                                                    <li>Lorem ipsum</li>
-                                                    <li>Lorem ipsum</li>
-                                                    <li>Lorem ipsum</li>
+                                                    {% for session in activity.sessions %}
+
+                                                    <li>{{ session.title }}</li>
+
+                                                    {% endfor %}
                                                 </ul>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+
+                                {% endfor %}
                             </div>
                         </div>
                     </div>

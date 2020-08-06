@@ -9,5 +9,7 @@ class User(AbstractUser):
 
     email = models.CharField(max_length=30)
 
+    active = models.BooleanField(default=True)
+
     def __str__(self):
-        return f'{self.student_id} {self.name}<{self.email}>'
+        return f'Student id: {self.student_id}\nName: {self.name}'

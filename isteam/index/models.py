@@ -5,17 +5,24 @@ from django.contrib.auth.models import AbstractUser
 from groupware.models import User
 
 
+class Activity(models.Model):
+    start_date = models.DateField(null=True, blank=False)
+
+    end_date = models.DateField(null=True, blank=True)
+
+    title = models.CharField(max_length=30)
+
+    cover_photo_url = models.CharField(max_length=100, default='')
+
+    sessions = []
+
+    def __str__(self):
+        return f'Title: {self.title}'
+
+
 class Session(models.Model):
     title = models.CharField(max_length=30)
 
-    description = models.TextField
+    description = models.TextField(null=True, blank=False)
 
-
-class Activity(models.Model):
-    start_date = models.DateField
-
-    end_date = models.DateField
-
-    title = models.CharField(max_length=30)
-
-    sessions = models.ForeignKey(Session, on_delete=models.PROTECT)
+    activity = models.ForeignKey(Activity, on_delete=models.CASCADE, null=True, blank=True)
