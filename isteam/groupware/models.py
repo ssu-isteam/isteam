@@ -9,7 +9,7 @@ class User(AbstractUser):
 
     password = models.CharField(max_length=128)
 
-    active = models.BooleanField(default=True)
+    is_active = models.BooleanField(default=False)
 
     def __str__(self):
         return f'Student id: {self.student_id}\nName: {self.username}'
