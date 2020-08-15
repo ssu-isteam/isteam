@@ -2,7 +2,7 @@ from django.db import models
 from django import forms
 from django.contrib.auth.models import AbstractUser
 
-from user.models import User
+from user.models import Member
 
 
 class Activity(models.Model):
