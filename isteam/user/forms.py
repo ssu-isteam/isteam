@@ -3,7 +3,7 @@ from .models import User
 from django.contrib.auth.hashers import make_password
 
 
-class RegisterForm(forms.Form):
+class SignUpForm(forms.Form):
     nickname = forms.CharField(
         error_messages={
             'required': '닉네임을 입력해주세요.'
