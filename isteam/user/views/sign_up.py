@@ -1,16 +1,13 @@
-from django.shortcuts import render
-from django.views.generic import FormView, CreateView
-from django.http import HttpResponseServerError, HttpResponse
-from django.contrib.sites.shortcuts import get_current_site
+from django.views.generic import FormView
 from django.utils.http import urlsafe_base64_encode
-from django.utils.encoding import force_bytes, force_text
+from django.contrib.sites.shortcuts import get_current_site
 from django.contrib.auth.hashers import make_password
-from django.shortcuts import redirect
+from django.http import HttpResponseServerError
 
-from .models import Member
-from .forms import SignUpForm
-from .utils.email import build_template_email
-from .tokens import account_activation_token
+from user.models import Member
+from user.forms import SignUpForm
+from user.tokens import account_activation_token
+from user.utils.email import build_template_email
 
 
 class SignUp(FormView):
@@ -51,18 +48,3 @@ class SignUp(FormView):
         except:
             member.delete()
             return HttpResponseServerError("500 내부 서버 오류. 이메일 전송에 실패하였습니다. 회원가입을 다시 진행해 주세요.")
-
-
-def validate_email():
-    try:
-        uid = force_text(urlsafe_base64_decode(uidb64))
-        user = User.objects.get(pk=uid)
-    except(TypeError, ValueError, OverflowError, User.DoesNotExsit):
-        user = None
-
-    if user is not None and account_activation_token.check_token(user, token):
-        user.is_active = True
-        user.save()
-        return redirect('index')
-    else:
-        return redirect('index')
