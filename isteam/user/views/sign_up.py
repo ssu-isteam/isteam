@@ -6,7 +6,7 @@ from django.http import HttpResponseServerError
 from django.utils.encoding import force_bytes
 
 from user.models import Member
-from user.forms import SignUpForm
+from user.forms.sign_up import SignUpForm
 from user.tokens import account_activation_token
 from user.utils.email import build_template_email
 
