@@ -7,7 +7,7 @@
 </head>
 <body>
     <div style="width: auto; height: 50px;">
-        {% include 'includes/isteam_logo.html' with custom_name='sign-up' %}
+        {% include 'includes/isteam_logo.html' with custom_name='sign-in' %}
     </div>
     
     <form action="." method="post">
@@ -21,7 +21,7 @@
             <span style="color: red">{{ field.errors }}</span>
         {% endif %}
         {% endfor %}
-        <button type="submit" class="btn btn-primary">회원가입</button>
+        <button type="submit" class="btn btn-primary">로그인</button>
     </form>
 </body>
 </html>
