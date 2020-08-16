@@ -1,29 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 557.045 150.413">
-  <defs>
-    <style>
-      .cls-1 {
-        fill: #00567d;
-      }
-
-      .cls-2 {
-        fill: #4cbab7;
-      }
-
-      .cls-3 {
-        fill: #5d5d5d;
-        font-size: 115px;
-        font-family: LexendDeca-Regular, Lexend Deca;
-        letter-spacing: -0.015em;
-      }
-    </style>
-  </defs>
-  <g id="그룹_3" data-name="그룹 3" transform="translate(-18.955 -25)">
-    <g id="그룹_1" data-name="그룹 1">
-      <path id="패스_1" data-name="패스 1" class="cls-1" d="M105.883,100.529l-21.59,13.8v61.08l65.337-41.773V72.562Z"/>
-      <path id="패스_2" data-name="패스 2" class="cls-2" d="M84.294,86.954,100.619,97.39l47.773-30.539-64.1-40.977Z"/>
-      <path id="패스_3" data-name="패스 3" class="cls-2" d="M84.294,114.331,67.968,103.894,20.193,134.438l64.1,40.976Z"/>
-      <path id="패스_4" data-name="패스 4" class="cls-1" d="M18.955,67.642v61.082L62.7,100.756l21.591-13.8V25.874Z"/>
-    </g>
-    <text id="ISteam" class="cls-3" transform="translate(168 140)"><tspan x="0" y="0">ISteam {%if custom_name %} {{ custom_name }} {% endif %}</tspan></text>
-  </g>
-</svg>
+{% load static %}
+<h1 class="title">
+    <img src="{% static 'logos/isteam.svg' %}" class="title-logo">
+    <span class="title-txt"> <a href="{% url 'index' %}">ISteam</a>
+        {% if custom_name %}
+        <span class="custom-subtitle">{{ custom_name }}</span>
+        {% endif %}
+    </span>
+</h1>

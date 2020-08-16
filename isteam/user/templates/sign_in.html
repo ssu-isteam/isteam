@@ -1,27 +1,31 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link href="{% static 'styles/common.css' %}" type="text/css" rel="stylesheet" >
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ISTEAM 로그인</title>
 </head>
 <body>
-    <div style="width: auto; height: 50px;">
-        {% include 'includes/isteam_logo.html' with custom_name='sign-in' %}
-    </div>
-    
-    <form action="." method="post">
-        {% csrf_token %}
-        {% for field in form %}
-        <div>
-            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
-            <input type="{{ field.field.widget.input_type }}" id="{{ field.id_for_label }}" placeholder="{{ field.label }}" name="{{ field.name }}">
+    <div class="container">
+        <div style="width: auto; height: 50px;">
+            {% include 'includes/isteam_logo.html' with custom_name='groupware' %}
         </div>
-        {% if field.errors %}
-            <span style="color: red">{{ field.errors }}</span>
-        {% endif %}
-        {% endfor %}
-        <button type="submit" class="btn btn-primary">로그인</button>
-    </form>
+        
+        <form action="." method="post">
+            {% csrf_token %}
+            {% for field in form %}
+            <div>
+                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                <input type="{{ field.field.widget.input_type }}" id="{{ field.id_for_label }}" placeholder="{{ field.label }}" name="{{ field.name }}">
+            </div>
+            {% if field.errors %}
+                <span style="color: red">{{ field.errors }}</span>
+            {% endif %}
+            {% endfor %}
+            <button type="submit" class="btn btn-primary">로그인</button> <a href="{% url 'signup' %}">회원가입</a>
+        </form>
+    </div>
 </body>
 </html>

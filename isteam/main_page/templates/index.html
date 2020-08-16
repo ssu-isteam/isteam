@@ -4,7 +4,8 @@
 <html>
     <head>
         <title>ISTeam</title>
-        <link href="{% static 'styles/index.css' %}" type="text/css" rel="stylesheet" >
+        <link href="{% static 'styles/common.css' %}" type="text/css" rel="stylesheet">
+        <link href="{% static 'styles/index.css' %}" type="text/css" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
@@ -12,15 +13,13 @@
                 <div class="section-container">
                     <div class="right-top-container">
                         <div>
-                            부원 그룹웨어
+                            <a href="{% url 'signin' %}">부원 그룹웨어 로그인</a>
                         </div>
                         <div>
                             Git repository
                         </div>
                     </div>
-                    <h1 class="title-txt">
-                        <img src="{% static 'logos/isteam.svg' %}" class="title-logo"> ISteam
-                    </h1>
+                    {% include 'includes/isteam_logo.html' %}
                     
                     <div class="subtitle">
                         <p>
