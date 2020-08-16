@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import ListView
 
-from .models import Activity, Session
+from groupware.models import Activity, Session
 
 
 class Index(ListView):
