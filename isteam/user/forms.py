@@ -1,9 +1,8 @@
 from django import forms
-from .models import User
-from django.contrib.auth.hashers import make_password
+from .models import Member
 
 
-class RegisterForm(forms.Form):
+class SignUpForm(forms.Form):
     nickname = forms.CharField(
         error_messages={
             'required': '닉네임을 입력해주세요.'
@@ -12,19 +11,11 @@ class RegisterForm(forms.Form):
         label='닉네임'
     )
 
-    last_name = forms.CharField(
-        error_messages={
-            'required': '성을 입력해주세요.'
-        },
-        max_length=2,
-        label='성'
-    )
-
-    first_name = forms.CharField(
+    name = forms.CharField(
         error_messages={
             'required': '이름을 입력해주세요.'
         },
-        max_length=4,
+        max_length=15,
         label='이름'
     )
 
@@ -73,19 +64,9 @@ class RegisterForm(forms.Form):
 
         if password != re_password:
             self.add_error('re_password', '비밀번호가 일치하지 않습니다.')
-        elif User.objects.filter(username=nickname):
+        elif Member.objects.filter(nickname=nickname).exists():
             self.add_error('nickname', '이미 존재하는 닉네임입니다.')
-        elif User.objects.filter(email=email):
+        elif Member.objects.filter(email=email).exists():
             self.add_error('email', '이미 존재하는 이메일입니다.')
-        elif User.objects.filter(student_id=student_id):
+        elif Member.objects.filter(student_id=student_id).exists():
             self.add_error('student_id', '이미 존재하는 학번입니다.')
-        else:
-            user = User(
-                username=nickname,
-                first_name=cleaned_data.get('first_name'),
-                last_name=cleaned_data.get('last_name'),
-                student_id=student_id,
-                email=email,
-                password=make_password(password),
-            )
-            user.save()
