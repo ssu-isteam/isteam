@@ -1,5 +1,13 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-<h1>{{ member_info.username }}님 안녕하세요!</h1>
+<p>
+<h1>{{ member_info.last_name }}{{ member_info.first_name }}</h1>
+</p>
+<p>
+{{ member_info.username }}
+</p>
+
+<h1>최근 활동</h1>
+
 {% endblock %}

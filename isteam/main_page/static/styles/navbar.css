@@ -1,0 +1,16 @@
+.navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.navbar > li {
+    float: left;
+}
+
+.navbar > li > a {
+    display: block;
+    padding: 8px;
+    width: 100%;
+}
