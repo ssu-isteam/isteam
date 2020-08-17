@@ -6,7 +6,7 @@ from django.http import HttpResponseServerError
 from django.utils.encoding import force_bytes
 
 from user.models import Member
-from user.forms import SignUpForm
+from user.forms.sign_up import SignUpForm
 from user.tokens import account_activation_token
 from user.utils.email import build_template_email
 
@@ -14,7 +14,7 @@ from user.utils.email import build_template_email
 class SignUp(FormView):
     form_class = SignUpForm    
 
-    template_name = 'signup.html'
+    template_name = 'sign_up.html'
 
     success_url = '/'
 
@@ -29,8 +29,9 @@ class SignUp(FormView):
     # 이 메소드는 POST 요청일 때만 실행됨 
     def form_valid(self, form):
         member = Member(
-            nickname=form.data['nickname'],
-            username=form.data['name'],
+            last_name=form.data['name'][:1],
+            first_name=form.data['name'][1:],
+            username=form.data['nickname'],
             student_id=form.data['student_id'],
             email=form.data['email'],
             password=make_password(form.data['password']),

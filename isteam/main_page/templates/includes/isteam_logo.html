@@ -1,0 +1,9 @@
+{% load static %}
+<h1 class="title">
+    <img src="{% static 'logos/isteam.svg' %}" class="title-logo">
+    <span class="title-txt"> <a href="{% url 'index' %}">ISteam</a>
+        {% if custom_name %}
+        <span class="custom-subtitle">{{ custom_name }}</span>
+        {% endif %}
+    </span>
+</h1>
