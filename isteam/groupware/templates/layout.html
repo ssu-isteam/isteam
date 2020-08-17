@@ -1,0 +1,19 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <link href="{% static 'styles/common.css' %}" type="text/css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISTEAM 그룹웨어</title>
+</head>
+<body>
+    <div class="container">
+        <div style="width: auto; height: 50px;">
+            {% include 'includes/isteam_logo.html' with custom_name='groupware' %}
+        </div>
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>
