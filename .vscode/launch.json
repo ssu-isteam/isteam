@@ -21,7 +21,9 @@
             "program": "${workspaceFolder}/isteam/manage.py",
             "args": [
                 "runserver",
-                "--noreload"
+                "--noreload",
+                "--settings",
+                "isteam.settings.development"
             ],
             "django": true
         }
