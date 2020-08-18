@@ -23,7 +23,7 @@ class GroupwareMainPage(LoginRequiredMixin, DetailView):
         tabs = {
             'activities': '활동',
             'users': '회원명단',
-            'settings': '설정'
+            'account': '회계내역'
         }
         selected = self.request.GET.get('tab')
 
