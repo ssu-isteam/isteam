@@ -3,7 +3,7 @@ python:
 - '3.7'
 
 install:
-- pip isntall -r requirements.txt
+- pip install -r requirements.txt
 
 before_script:
 - cd isteam
