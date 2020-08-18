@@ -31,6 +31,6 @@ class GroupwareMainPage(LoginRequiredMixin, DetailView):
             context['selected'] = list(tabs.keys())[0]
         
         context['tabs'] = tabs.items()
-        self.template_name = selected + ".html"
+        self.template_name = context['selected'] + ".html"
 
         return context
