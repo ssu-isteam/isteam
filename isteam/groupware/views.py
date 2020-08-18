@@ -16,3 +16,22 @@ class GroupwareMainPage(LoginRequiredMixin, DetailView):
 
     def get_object(self):
         return self.request.user
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data()
+
+        tabs = {
+            'activities': '활동',
+            'users': '회원명단',
+            'settings': '설정'
+        }
+        selected = self.request.GET.get('tab')
+
+        if selected is not None and selected in tabs.keys():
+            context['selected'] = selected
+        else:
+            context['selected'] = list(tabs.keys())[0]
+        
+        context['tabs'] = tabs.items()
+
+        return context

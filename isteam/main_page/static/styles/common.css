@@ -17,6 +17,7 @@
 
 .title {
     margin: 0 0 0 6px;
+    vertical-align: middle;
 }
 
 .title-txt > * {
@@ -36,4 +37,9 @@
     max-width: 800px;
     margin: auto;
     padding: 25px 5px;
+}
+
+.right-top-container {
+    float: right;
+    top: 50%;
 }

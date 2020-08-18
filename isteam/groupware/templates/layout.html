@@ -9,14 +9,21 @@
 </head>
 <body>
     <div class="container">
-        <div style="width: auto; height: 50px;">
-            {% include 'includes/isteam_logo.html' with custom_name='groupware' %}
+        <div class="title">
+            <div style="font-size: 0.65em;">
+                {% include 'includes/isteam_logo.html' with custom_name='groupware' %}
+            </div>
+            <h1>{{ member_info.last_name }}{{ member_info.first_name }}</h1>
+            
         </div>
-        <ul class="navbar">
-            <li><a href="" class="btn">부원명단</a></li>
-            <li><a href="" class="btn">회계내역</a></li>
-            <li><a href="" class="btn">설정</a></li>
-        </ul>
+
+        <div class="navbar rounded-gray">
+            {% for k, v in tabs %}
+            <a class="navbar__btn center {% if k == selected %} selected {% endif %}" href="?tab={{ k }}">
+                {{ v }}
+            </a>
+            {% endfor %}
+        </div>
         {% block content %}
         {% endblock %}
     </div>
