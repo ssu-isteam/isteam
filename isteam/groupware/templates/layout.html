@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <link href="{% static 'styles/common.css' %}" type="text/css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISTEAM 그룹웨어</title>
+</head>
+<body>
+    <div class="container">
+        <div class="title">
+            <div style="font-size: 0.65em;">
+                {% include 'includes/isteam_logo.html' with custom_name='groupware' %}
+            </div>
+            <h1>{{ member_info.last_name }}{{ member_info.first_name }}</h1>
+            
+        </div>
+
+        <div class="navbar rounded-gray">
+            {% for k, v in tabs %}
+            <a class="navbar__btn center {% if k == selected %} selected {% endif %}" href="?tab={{ k }}">
+                {{ v }}
+            </a>
+            {% endfor %}
+        </div>
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+.navbar {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+}
+
+.navbar__btn {
+    flex: 100%;
+    display: block;
+    padding: 10px 0;
+    margin: 5px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: black;
+}
+
+.center {
+    width: 100%;
+    text-align: center;
+}
+
+.rounded-gray {
+    margin: 10px 0;
+    background-color: #E9E9E9;
+    border-radius: 10px;
+}
+
+.selected {
+    box-shadow: 0 0 10px #9B9B9B;
+    background-color: white;
+}

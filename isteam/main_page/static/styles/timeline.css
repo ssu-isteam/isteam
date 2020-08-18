@@ -1,54 +1,9 @@
-.recent-activity {
-    background-color: #EEEEEE;
-}
-
-.main-title {
-    margin-top: 1.5em;
-    margin-bottom: 1em;
-}
-
-.subtitle {
-    font-size: 2em;
-    padding: 1em 0;
-}
-
-.subtitle > p {
-    margin: 0;
-}
-
-.main-intro {
-    background: white;
-}
-
-.subtitle-word {
-    display: inline-block;
-}
-
-.right-top-container > * {
-    display: inline-block;
-    padding: 10px;
-}
-
-.section {
-    margin: 10px 0 0 0;
-}
-
-.section-title {
-    margin: 0 0 10px;
-}
-
-.section-container {
-    padding: 25px 5px;
-    max-width: 800px;
-    margin: auto;
-}
-
-.section-title__timeline {
+.timeline {
     position: relative;
     margin: 0 auto;
 }
 
-.section-title__timeline::after {
+.timeline::after {
     content: '';
     position: absolute;
     width: 2px;
@@ -74,17 +29,6 @@
     top: 0px;
     z-index: 1;
     border-radius: 50%;
-}
-
-.timeline__content-title {
-    margin-bottom: 0.5em;
-}
-
-.timeline__content-card {
-    display: flex;
-    width: 100%;
-    overflow: hidden;
-    margin-bottom: 30px;
 }
 
 .timeline__content-card > * {
