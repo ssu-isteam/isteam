@@ -1,12 +1,14 @@
 import json
 
-from django.test import TestCase, Client
+from django.test import TestCase, RequestFactory
+from django.contrib.auth.hashers import make_password
+from django.contrib.auth.models import AnonymousUser
 
 from user.models import Member
+from user.views.sign_in import SignIn
 
 
 class SignUpViewTest(TestCase):
-    
     def test_sign_up_and_send_email(self):
         req_body = {
             'nickname': 'asdf',
@@ -21,8 +23,9 @@ class SignUpViewTest(TestCase):
 
 
 class SignInViewTest(TestCase):
-    def setUpTestData():
-        u1 = Member.objects.create(
+    def setUp(self):
+        self.factory = RequestFactory()
+        self.member = Member.objects.create_user(
             username='1234',
             first_name='이',
             last_name='정현',
@@ -31,13 +34,20 @@ class SignInViewTest(TestCase):
             email_verified=True
         )
 
-        u1.save()
-
-    def test_user_sign_in(self):
+    def test_user_sign_in_success(self):
         req_body = {
             'nickname': '1234',
             'password': '1234'
         }
-        response = self.client.post('/user/signin/', req_body)
-        print(response)
-        self.assertEqual(response.status_code, 200)
+
+        response = self.client.post('/user/signin/', data=req_body, follow=True)
+        self.assertNotEqual(response.status_code, 401)
+
+    def test_user_sign_in_fail(self):
+        req_body = {
+            'nickname': '1234',
+            'password': '1235'
+        }
+
+        response = self.client.post('/user/signin/', data=req_body, follow=True)
+        self.assertEqual(response.status_code, 401)
