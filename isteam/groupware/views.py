@@ -12,8 +12,6 @@ class GroupwareMainPage(LoginRequiredMixin, DetailView):
 
     context_object_name = 'member_info'
 
-    template_name = 'groupware.html'
-
     def get_object(self):
         return self.request.user
 
@@ -33,5 +31,6 @@ class GroupwareMainPage(LoginRequiredMixin, DetailView):
             context['selected'] = list(tabs.keys())[0]
         
         context['tabs'] = tabs.items()
+        self.template_name = context['selected'] + ".html"
 
         return context
