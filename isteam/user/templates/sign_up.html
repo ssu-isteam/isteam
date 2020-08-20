@@ -3,28 +3,37 @@
 <html>
 <head>
     <link href="{% static 'styles/common.css' %}" type="text/css" rel="stylesheet">
+    <link href="{% static 'styles/form.css' %}" type="text/css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ISTEAM 회원가입</title>
 </head>
 <body>
     <div class="container">
-        <div style="width: auto; height: 50px;">
-            {% include 'includes/isteam_logo.html' with custom_name='sign-up' %}
+        <div id="wrapper">
+            <div style="width: auto; height: 50px;">
+                {% include 'includes/isteam_logo.html' with custom_name='sign-up' %}
+            </div>
+            <form method="POST" action=".">
+                <div class="form">
+                    {% csrf_token %}
+                    {% for field in form %}
+                    <div>
+                        <label class="category-label" for="{{ field.id_for_label }}">{{ field.label }}</label>
+                        <input class="category-input" type="{{ field.field.widget.input_type }}" id="{{ field.id_for_label }}" placeholder="{{ field.label }}" name="{{ field.name }}">
+                    </div>
+                    {% if field.errors %}
+                        <div class="error-box">
+                            <span style="color: red">{{ field.errors }}</span>
+                        </div>
+                    {% endif %}
+                    {% endfor %}
+                    <div class="submit">
+                        <button type="submit" class="btn btn-primary">회원가입</button>
+                    </div>
+                </div>
+            </form>
         </div>
 
-        <form method="POST" action=".">
-            {% csrf_token %}
-            {% for field in form %}
-            <div>
-                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
-                <input type="{{ field.field.widget.input_type }}" id="{{ field.id_for_label }}" placeholder="{{ field.label }}" name="{{ field.name }}">
-            </div>
-            {% if field.errors %}
-                <span style="color: red">{{ field.errors }}</span>
-            {% endif %}
-            {% endfor %}
-            <button type="submit" class="btn btn-primary">회원가입</button>
-        </form>
     </div>
 </body>
 </html>
