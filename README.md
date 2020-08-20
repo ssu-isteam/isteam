@@ -1,4 +1,4 @@
-# ISTeam
+# ISTeam [![Build Status](https://travis-ci.com/5d-jh/isteam.svg?token=3WQchpJY137XqN7bpXmB&branch=master)](https://travis-ci.com/5d-jh/isteam)
  * 에디터: Visual Studio Code
  * Python 버전: => 3.7
  * 프레임워크: Django
