@@ -40,7 +40,7 @@
 }
 
 .category-input {
-    background-color: #E8F0FE;
+    background-color: white;
     height: 30px;
     width: 240px;
     padding-left: 9px;
@@ -49,6 +49,10 @@
     border-radius: 6px;
     font-size: 14px;
     margin-bottom: 20px;
+}
+
+.category-input:focus {
+    background-color: #E8F0FE;
 }
 
 .submit {
