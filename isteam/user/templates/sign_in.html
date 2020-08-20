@@ -10,10 +10,10 @@
 </head>
 <body>
     <div class="container">
-        <div style="width: auto; height: 50px;">
-            {% include 'includes/isteam_logo.html' with custom_name='sign-in' %}
-        </div>
         <div id="wrapper">
+            <div style="width: auto; height: 50px; padding: 0;">
+                {% include 'includes/isteam_logo.html' with custom_name='sign-in ' %}
+            </div>
             <form action="." method="post">
                 {% csrf_token %}
                 <div class="form">
