@@ -14,6 +14,8 @@ import os
 
 from decouple import config
 
+from .base import *
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -30,32 +32,6 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
-# Application definition
-
-INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'main_page.apps.MainPageConfig',
-    'user.apps.UserConfig',
-    'groupware.apps.GroupwareConfig'
-]
-
-MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-]
-
-ROOT_URLCONF = 'isteam.urls'
-
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -71,8 +47,6 @@ TEMPLATES = [
         },
     },
 ]
-
-WSGI_APPLICATION = 'isteam.wsgi.application'
 
 
 # Database
@@ -110,19 +84,6 @@ AUTH_PASSWORD_VALIDATORS = [
 AUTH_USER_MODEL = 'user.Member'
 
 SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
-
-# Internationalization
-# https://docs.djangoproject.com/en/3.0/topics/i18n/
-
-LANGUAGE_CODE = 'ko-kr'
-
-TIME_ZONE = 'Asia/Seoul'
-
-USE_I18N = True
-
-USE_L10N = True
-
-USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)

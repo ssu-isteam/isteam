@@ -1,6 +1,6 @@
 from django.views.generic import FormView
 from django.contrib.auth import authenticate, login
-from django.contrib.auth.hashers import check_password
+
 
 from user.forms.sign_in import SignInForm
 
@@ -16,8 +16,10 @@ class SignIn(FormView):
         password = form.data['password']
         member = authenticate(username=nickname, password=password)
 
-        if member is not None:
+        if member is not None and member.email_verified == True:
             login(self.request, member)
             return super().form_valid(form)
         else:
-            return super().form_invalid(form)
+            response = super().form_invalid(form)
+            response.status_code = 401
+            return response

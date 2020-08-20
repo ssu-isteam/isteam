@@ -5,13 +5,25 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Python: Django test",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/isteam/manage.py",
+            "args": [
+                "test",
+            ],
+            "django": true
+        },
+        {
             "name": "Python: Django",
             "type": "python",
             "request": "launch",
             "program": "${workspaceFolder}/isteam/manage.py",
             "args": [
                 "runserver",
-                "--noreload"
+                "--noreload",
+                "--settings",
+                "isteam.settings.development"
             ],
             "django": true
         }
