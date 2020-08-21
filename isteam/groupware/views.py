@@ -1,36 +1,46 @@
 from django.shortcuts import render
-from django.views.generic import DetailView
+from django.views.generic import DetailView, ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from user.models import Member
+from groupware.models import AccountBook
 
 
-class GroupwareMainPage(LoginRequiredMixin, DetailView):
+class GroupwareView(LoginRequiredMixin):
     login_url = '/user/signin/'
 
-    model = Member
+    tabs = {
+        'activities': '활동',
+        'users': '회원명단',
+        'accounts': '회계내역'
+    }
 
-    context_object_name = 'member_info'
+    tab_items = tabs.items()
 
-    def get_object(self):
-        return self.request.user
+    tab_keys = tabs.keys()
 
-    def get_context_data(self, **kwargs):
+    def select_tab(self, selected):
+        if selected is not None and selected in self.tabs.keys():
+            return selected
+        else:
+            return list(self.tab_keys)[0]
+
+
+class AccountBookListView(GroupwareView, ListView):
+    model = AccountBook
+
+    template_name = 'account.html'
+
+    context_object_name = 'accounts'
+
+    paginate_by = 2
+
+    tab_name = 'accounts'
+
+    def get_context_data(self):
         context = super().get_context_data()
 
-        tabs = {
-            'activities': '활동',
-            'users': '회원명단',
-            'account': '회계내역'
-        }
-        selected = self.request.GET.get('tab')
-
-        if selected is not None and selected in tabs.keys():
-            context['selected'] = selected
-        else:
-            context['selected'] = list(tabs.keys())[0]
-        
-        context['tabs'] = tabs.items()
-        self.template_name = context['selected'] + ".html"
+        context['tabs'] = self.tab_items
+        context['selected'] = self.select_tab(self.tab_name)
 
         return context
