@@ -1,6 +1,6 @@
 from django.urls import path
 
-from .views import AccountBookListView
+from groupware.views.accounts import AccountBookListView
 
 
 urlpatterns = [

@@ -2,28 +2,8 @@ from django.shortcuts import render
 from django.views.generic import DetailView, ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
 
-from user.models import Member
 from groupware.models import AccountBook
-
-
-class GroupwareView(LoginRequiredMixin):
-    login_url = '/user/signin/'
-
-    tabs = {
-        'activities': '활동',
-        'users': '회원명단',
-        'accounts': '회계내역'
-    }
-
-    tab_items = tabs.items()
-
-    tab_keys = tabs.keys()
-
-    def select_tab(self, selected):
-        if selected is not None and selected in self.tabs.keys():
-            return selected
-        else:
-            return list(self.tab_keys)[0]
+from groupware.views.base import GroupwareView
 
 
 class AccountBookListView(GroupwareView, ListView):
@@ -42,5 +22,6 @@ class AccountBookListView(GroupwareView, ListView):
 
         context['tabs'] = self.tab_items
         context['selected'] = self.select_tab(self.tab_name)
+        context['member_info'] = self.request.user
 
         return context
