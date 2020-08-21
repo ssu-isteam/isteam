@@ -31,6 +31,10 @@
     border-radius: 50%;
 }
 
+.timeline__content-card {
+    display: flex;
+}
+
 .timeline__content-card > * {
     width: 100%;
 }

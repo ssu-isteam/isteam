@@ -1,7 +1,7 @@
 from django.views.generic import ListView
 
 from groupware.views.base import GroupwareView
-from groupware.models import Activity
+from groupware.models import Activity, Session
 
 
 class ActivityListView(GroupwareView, ListView):
@@ -21,5 +21,9 @@ class ActivityListView(GroupwareView, ListView):
         context['tabs'] = self.tab_items
         context['selected'] = self.select_tab(self.tab_name)
         context['member_info'] = self.request.user
+
+        for activity in context[self.context_object_name]:
+            sessions = list(Session.objects.filter(activity=activity.id))
+            activity.sessions.extend(sessions)
 
         return context

@@ -18,6 +18,9 @@ class Semester(IntEnum):
 
 
 class Activity(models.Model):
+    class Meta():
+        db_table = 'activities'
+
     start_date = models.DateField(null=True, blank=False)
 
     end_date = models.DateField(null=True, blank=True)

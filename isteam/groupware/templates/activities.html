@@ -1,29 +1,31 @@
 {% extends "layout.html" %}
 
 {% block content %}
-{% for activity in activities %}
-<div class="timeline__content-container">
-    <h4 class="timeline__content-title"></h4>
-    <div class="timeline__content-card">
+<div class="timeline">
+    {% for activity in activities %}
+    <div class="timeline__content-container">
+        <h4 class="timeline__content-title">{{ activity.start_date }} ~ {{activity.end_date  }}</h4>
+        <div class="timeline__content-card">
 
-        <div class="timeline__content-card__img-cover">
-            <img src="https://images.unsplash.com/photo-1519241047957-be31d7379a5d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" class="timeline__content-card__img">
-        </div>
-
-        <div class="timeline__content-card__text">
-            <div class="timeline__content-card__title">{{ activity.title }}</div>
-            <div class="timeline__content-card__text__summary">
-                <ul>
-                    {% for session in activity.sessions %}
-
-                    <li>{{ session.title }}</li>
-
-                    {% endfor %}
-                </ul>
+            <div class="timeline__content-card__img">
+                <img src="https://images.unsplash.com/photo-1519241047957-be31d7379a5d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" class="timeline__content-card__img">
             </div>
-        </div>
 
+            <div class="timeline__content-card__text">
+                <div class="timeline__content-card__title">{{ activity.title }}</div>
+                <div class="timeline__content-card__text__summary">
+                    <ul>
+                        {% for session in activity.sessions %}
+
+                        <li>{{ session.title }}</li>
+
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+
+        </div>
     </div>
+    {% endfor %}
 </div>
-{% endfor %}
 {% endblock %}
