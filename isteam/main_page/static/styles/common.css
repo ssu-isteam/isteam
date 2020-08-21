@@ -3,6 +3,7 @@
 @import url('./navbar.css');
 @import url('./timeline.css');
 @import url('./button.css');
+@import url('./table.css');
 
 * {
     font-family: sans-serif;

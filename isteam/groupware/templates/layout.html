@@ -19,7 +19,7 @@
 
         <div class="navbar rounded-gray">
             {% for k, v in tabs %}
-            <a class="navbar__btn center {% if k == selected %} selected {% endif %}" href="?tab={{ k }}">
+            <a class="navbar__btn center {% if k == selected %} selected {% endif %}" href="/groupware/{{ k }}">
                 {{ v }}
             </a>
             {% endfor %}
