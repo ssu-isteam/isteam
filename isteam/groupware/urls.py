@@ -1,8 +1,8 @@
 from django.urls import path
 
-from .views import GroupwareMainPage
+from groupware.views.accounts import AccountBookListView
 
 
 urlpatterns = [
-    path('', GroupwareMainPage.as_view(), name='groupware_main')
+    path('accounts/', AccountBookListView.as_view(), name='groupware_accounts')
 ]

@@ -1,3 +1,5 @@
 from django.contrib import admin
 
-# Register your models here.
+from groupware.models import AccountBook
+
+admin.site.register(AccountBook)

@@ -1,7 +1,9 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vS8JRrEoFpxB6s3fyBVyFMYB-xL9QhUgbrW7jW1qxh7tBK3oSxNhz-kr88SGHdKB0n92wTz_LjhBSRJ/pubhtml"
+{% for account in accounts %}
+<iframe src="{{ account.embedded_link }}"
         style="width: 100%; height: 700px;">
 </iframe>
+{% endfor %}
 {% endblock %}
