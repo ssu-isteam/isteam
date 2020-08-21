@@ -1,7 +1,5 @@
 # ISTeam [![Build Status](https://travis-ci.com/5d-jh/isteam.svg?token=3WQchpJY137XqN7bpXmB&branch=master)](https://travis-ci.com/5d-jh/isteam)
- * 에디터: Visual Studio Code
- * Python 버전: => 3.7
- * 프레임워크: Django
+<img src="https://user-images.githubusercontent.com/24839897/90855719-383af980-e3bb-11ea-82e3-b28afa9e1531.png" alt="고로_숭실" width="auto" height="50px">
 
 ## 모듈 설명
 ### index
@@ -15,6 +13,10 @@
  * 진행한 활동 기록, 팀 프로젝트 생성 등
  
 ## 실행방법
+ * 에디터: Visual Studio Code
+ * Python 버전: => 3.7
+ * 프레임워크: Django
+ 
 ```sh
 python3 -m venv venv
 ```
