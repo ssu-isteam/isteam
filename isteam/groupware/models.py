@@ -1,8 +1,20 @@
+from enum import IntEnum
+
 from django.db import models
 from django import forms
 from django.contrib.auth.models import AbstractUser
 
 from user.models import Member
+
+
+class Semester(IntEnum):
+    FIRST = 1
+
+    SECOND = 2
+
+    @classmethod
+    def choices(cls):
+        return [(key.value, key.name) for key in cls]
 
 
 class Activity(models.Model):
@@ -26,3 +38,11 @@ class Session(models.Model):
     description = models.TextField(null=True, blank=False)
 
     activity = models.ForeignKey(Activity, on_delete=models.CASCADE, null=True, blank=True)
+
+
+class AccountBook(models.Model):
+    year = models.PositiveIntegerField()
+
+    semester = models.IntegerField(choices=Semester.choices(), default=Semester.FIRST)
+
+    embedded_link = models.CharField(max_length=200)
