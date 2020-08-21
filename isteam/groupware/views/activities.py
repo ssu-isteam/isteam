@@ -1,19 +1,19 @@
 from django.views.generic import ListView
 
-from groupware.models import AccountBook
 from groupware.views.base import GroupwareView
+from groupware.models import Activity
 
 
-class AccountBookListView(GroupwareView, ListView):
-    model = AccountBook
+class ActivityListView(GroupwareView, ListView):
+    model = Activity
 
-    template_name = 'account.html'
+    template_name = 'activities.html'
 
-    context_object_name = 'accounts'
+    tab_name = 'activities'
+
+    context_object_name = 'activities'
 
     paginate_by = 2
-
-    tab_name = 'accounts'
 
     def get_context_data(self):
         context = super().get_context_data()

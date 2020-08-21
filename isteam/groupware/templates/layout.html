@@ -14,12 +14,11 @@
                 {% include 'includes/isteam_logo.html' with custom_name='groupware' %}
             </div>
             <h1>{{ member_info.last_name }}{{ member_info.first_name }}</h1>
-            
         </div>
 
         <div class="navbar rounded-gray">
             {% for k, v in tabs %}
-            <a class="navbar__btn center {% if k == selected %} selected {% endif %}" href="?tab={{ k }}">
+            <a class="navbar__btn center {% if k == selected %} selected {% endif %}" href="/groupware/{{ k }}">
                 {{ v }}
             </a>
             {% endfor %}
