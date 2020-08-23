@@ -53,7 +53,7 @@ class SignUpForm(forms.Form):
 
         if password != re_password:
             self.add_error('re_password', '비밀번호가 일치하지 않습니다.')
-        elif Member.objects.filter(nickname=nickname).exists():
+        elif Member.objects.filter(username=nickname).exists():
             self.add_error('nickname', '이미 존재하는 닉네임입니다.')
         elif Member.objects.filter(email=email).exists():
             self.add_error('email', '이미 존재하는 이메일입니다.')
