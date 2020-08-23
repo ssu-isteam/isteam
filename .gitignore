@@ -143,3 +143,5 @@ dmypy.json
 .idea/
 
 node_modules/
+
+bundles/
