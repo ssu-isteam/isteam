@@ -1,6 +1,4 @@
-from django.shortcuts import render
-from django.views.generic import DetailView, ListView
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic import ListView
 
 from groupware.models import AccountBook
 from groupware.views.base import GroupwareView
