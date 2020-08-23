@@ -1,4 +1,28 @@
 {% extends "layout.html" %}
 
 {% block content %}
+    <div>
+        <table class="table-user">
+            <thead>
+                <tr>
+                    <td>#</td>
+                    <td>학번</td>
+                    <td>이름</td>
+                    <td>별명</td>
+                    <td>이메일</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in Users %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ user.student_id }}</td>
+                        <td>{{ user.last_name }}{{ user.first_name }}</td>
+                        <td>{{ user.username }}</td>
+                        <td>{{ user.email }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 {% endblock %}
