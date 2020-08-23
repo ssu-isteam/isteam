@@ -4,6 +4,7 @@
 @import url('./timeline.css');
 @import url('./button.css');
 @import url('./table.css');
+@import url('./form.css');
 
 * {
     font-family: sans-serif;
