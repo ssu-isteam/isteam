@@ -13,7 +13,12 @@
             <div style="font-size: 0.65em;">
                 {% include 'includes/isteam_logo.html' with custom_name='groupware' %}
             </div>
-            <h1>{{ member_info.last_name }}{{ member_info.first_name }}</h1>
+            <div class="user">
+                <h1 class="user-name">{{ member_info.last_name }}{{ member_info.first_name }}</h1>
+                <a class="signout" href="/user/signout">로그아웃</a>
+            </div>
+
+
         </div>
 
         <div class="navbar rounded-gray">

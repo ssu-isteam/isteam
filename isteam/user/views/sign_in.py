@@ -9,7 +9,7 @@ class SignIn(FormView):
 
     template_name = 'sign_in.html'
 
-    success_url = '/'
+    success_url = '/groupware/activities'
 
     def form_valid(self, form):
         nickname = form.data['nickname']
