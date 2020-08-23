@@ -1,8 +1,8 @@
-# ISTeam [![Build Status](https://travis-ci.com/5d-jh/isteam.svg?token=3WQchpJY137XqN7bpXmB&branch=master)](https://travis-ci.com/5d-jh/isteam)
+# ISTEAM [![Build Status](https://travis-ci.com/5d-jh/isteam.svg?token=3WQchpJY137XqN7bpXmB&branch=master)](https://travis-ci.com/5d-jh/isteam)
 <img src="https://user-images.githubusercontent.com/24839897/90855719-383af980-e3bb-11ea-82e3-b28afa9e1531.png" alt="고로_숭실" width="auto" height="50px">
 
 ## 모듈 설명
-### index
+### main_page
 메인 페이지
 
 ### user
@@ -33,6 +33,16 @@ DATABASE_NAME=isteam
 DATABASE_USER=root
 DATABASE_PASS=1234
 DATABASE_HOST=localhost
+```
+
+```sh
+cd isteam
+
+./manage.py migrate
+
+npm i
+
+npm run bundle
 ```
 
 좌측 디버거 탭(벌레모양+플레이버튼) 클릭 후 상단의 플레이버튼 클릭시 실행 가능

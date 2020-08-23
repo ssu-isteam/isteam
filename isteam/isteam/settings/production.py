@@ -84,11 +84,6 @@ AUTH_USER_MODEL = 'user.Member'
 SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.0/howto/static-files/
-
-STATIC_URL = '/static/'
-
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = config('EMAIL_HOST')
 EMAIL_PORT = config('EMAIL_PORT')

@@ -1,3 +1,10 @@
+import os
+
+
+# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -7,6 +14,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'webpack_loader',
     'main_page.apps.MainPageConfig',
     'user.apps.UserConfig',
     'groupware.apps.GroupwareConfig'
@@ -25,6 +33,23 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'isteam.urls'
 
 WSGI_APPLICATION = 'isteam.wsgi.application'
+
+
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/3.0/howto/static-files/
+
+STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, '../static')
+]
+
+WEBPACK_LOADER = {
+    'DEFAULT': {
+        'BUNDLE_DIR_NAME': 'bundles/',
+        'STATS_FILE': os.path.join(BASE_DIR, '../webpack-stats.json')
+    }
+}
 
 
 # Internationalization
