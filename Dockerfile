@@ -7,3 +7,9 @@ ENV PYTHONUNBUFFERED 1
 
 COPY . /src/
 RUN pip install -r requirements.txt
+
+# Installing Node.js
+RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
+RUN apt-get install -y nodejs
+RUN npm install
+RUN npm run bundle

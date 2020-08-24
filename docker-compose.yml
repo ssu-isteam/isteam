@@ -2,14 +2,12 @@ version: '3'
 
 services:
     django_app:
-        build:
-            context: .
-            dockerfile: Dockerfile
+        build: .
         command: gunicorn isteam.wsgi:application --bind 0.0.0.0:8000
-        expose:
-            - '8000'
+        ports:
+            - '8000:8000'
         env_file: 
-            - '.prod.env'
+            - './.prod.env'
         container_name: django_app
     
     nginx_web:
@@ -18,5 +16,6 @@ services:
             - '80:80'
         volumes:
             - './nginx.conf:/etc/nginx/nginx.conf'
+            - './static:/static'
         links: 
             - django_app
