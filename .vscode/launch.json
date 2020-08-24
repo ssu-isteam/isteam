@@ -8,7 +8,7 @@
             "name": "Python: Django test",
             "type": "python",
             "request": "launch",
-            "program": "${workspaceFolder}/isteam/manage.py",
+            "program": "${workspaceFolder}/manage.py",
             "args": [
                 "test",
             ],
@@ -18,7 +18,7 @@
             "name": "Python: Django",
             "type": "python",
             "request": "launch",
-            "program": "${workspaceFolder}/isteam/manage.py",
+            "program": "${workspaceFolder}/manage.py",
             "args": [
                 "runserver",
                 "--noreload",
