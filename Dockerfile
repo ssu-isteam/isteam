@@ -1,8 +1,8 @@
 FROM python:3
 
-ENV PYTHONUNBUFFERED 1
+WORKDIR /src
 
-WORKDIR /isteam
+ENV DJANGO_SETTINGS_MODULE isteam.settings.production
 
-ADD . /isteam/
+COPY . /src/
 RUN pip install -r requirements.txt
