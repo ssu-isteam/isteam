@@ -3,8 +3,6 @@ python:
 - '3.7'
 install:
 - pip install -r requirements.txt
-before_script:
-- cd isteam
 script:
 - "./manage.py test --settings isteam.settings.ci"
 env:
