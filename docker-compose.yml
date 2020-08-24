@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+    django_app:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        command:
+            gunicorn isteam.wsgi:application --bind 0.0.0.0:8000
+        expose:
+            - '8000'
+    
+    nginx_web:
+        image: nginx:latest
+        ports:
+            - '80:80'
+            - '443:443'
+        volumes:
+            - './nginx.conf:/etc/nginx/nginx.conf'
+            - '/etc/letsencrypt:/etc/letsencrypt'
