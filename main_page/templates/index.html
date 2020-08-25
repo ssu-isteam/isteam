@@ -1,12 +1,11 @@
 {% load render_bundle from webpack_loader %}
 {% load static %}
 
-{% render_bundle 'main' %}
-
 <!DOCTYPE html>
 <html>
     <head>
         <title>ISTeam</title>
+        {% render_bundle 'main' 'css' %}
         <link rel="stylesheet" href="{% static 'styles/index.css' %}">
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>

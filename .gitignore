@@ -110,6 +110,7 @@ celerybeat.pid
 
 # Environments
 .env
+.prod.env
 .venv
 env/
 venv/
@@ -145,3 +146,6 @@ dmypy.json
 node_modules/
 
 bundles/
+webpack-stats.json
+
+.DS_Store
