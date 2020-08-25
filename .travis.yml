@@ -20,7 +20,7 @@ script:
 
 after_script:
 - cp id_rsa ~/.ssh/
-- docker-compose up -d
+- docker-compose -H $DOCKER_HOST up -d
 
 env:
   global:
