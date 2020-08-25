@@ -3,9 +3,14 @@ python:
 - '3.7'
 services:
 - docker
+addons:
+  ssh_known_hosts:
+    - secure: ADXLXGP6xqH5fW4pB7hEfz1pfEVS7XHX70XRJoBmDCIrIqglXu9dSAKTG3Y2mzdD3/vMenOStQc91+UtMsVn2/jaY3vG/dAN2PtSNEQH7oa8YfK1+86VBEVqinQiSIB5eWAQ/WQImFcXX/hU6YU3F7DB7FiVU2TKaZHxBts5uHW37BzwaoVZ0O7HFxHT/7f43sYESoaaOAiWQYsM+KP63pNnwMzTXFpiIO1UewYoVCSurGAYcR1n1f6oJhVydZATbBUe6MNtrk2Fzws2A7pJQEDu5qdT0VAeH6D0zD82608SHqdyDRcHqddPktworhsPzB+2UhjMCPFvctzGmx9dVb7JbSsx3hPsx8xzAfDSYoLOBzgutDPHwqiurQpBKXWLrYGuoaFuQuHj76z1oOvoEc+ErJUtBeWyNEfgaOKo/iCd7trxeu4GACoVG4vLMOxOyuyogly+mXMScrRAD5mpj2WXEIwKeOnq+KDOJjgN5iVHj2nq5vHemDm6To5Q2dtjl6X7wnQr6PPE/vl8gEx600Wuwooq1aOtPXowsC+OSx2p5lK1w2nqFu6FoonNF3cqyCAYCZCy3mYGVsxAqRxJSo5uRKKpiebsPyLmO8RYJI3hSUvbs1bECwzhyojlICtQmCYzNgWZ12CDqzRV/jH1gZxsBo1Q0Yfrt+Ius35J5Mg=
 before_install:
-- openssl aes-256-cbc -K $encrypted_f217180e22ee_key -iv $encrypted_f217180e22ee_iv -in id_rsa.enc -out id_rsa -d
-- openssl aes-256-cbc -K $encrypted_f182de71524d_key -iv $encrypted_f182de71524d_iv -in .prod.env.enc -out .prod.env -d
+- openssl aes-256-cbc -K $encrypted_f217180e22ee_key -iv $encrypted_f217180e22ee_iv
+  -in id_rsa.enc -out id_rsa -d
+- openssl aes-256-cbc -K $encrypted_f182de71524d_key -iv $encrypted_f182de71524d_iv
+  -in .prod.env.enc -out .prod.env -d
 install:
 - pip install -r requirements.txt
 - npm i
