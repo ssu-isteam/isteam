@@ -16,7 +16,11 @@ script:
 - "./manage.py test --settings isteam.settings.ci"
 after_script:
 - cp id_rsa ~/.ssh/
-- docker-compose up -d
+deploy:
+  provider: script
+  script: docker-compose -H $DOCKER_HOST up -d
+  on:
+    branch: master
 env:
   global:
   - secure: DjEpJxxp8AZeFhTPdHKZr11e9JWwonvKzOcUc6U3EuSxUD6AsfWHQ+qdS8Wh1xLVU7wUNjar85BghNfOghtpkA1+LERIc/16pQWf25V4KEXfOCyINcgGBcdTd7bgDNvQoDFiSuW63zDLL7FNQkUkxo8ypfFjxmfBJ2Rv75u/WYpinWreF21vJGrNMmu4KBGanijaaYkF+tPq7HXqZZQXQPu3Wt4z7A6s6orHpgZxGO+0P8x62MhER8Dbwbos+fLjY/x3bii1Sh2GZwfQNwiwIraZw/McbtVl1CPr1/6eg2TD2xQ16WSHuaS77BJaZfH7lRezayjVw7CkRJbDFzNRWYHtgTAe4X969tLgLKmg/Mnmv5m69WHlmvek9b4f1w1Me2lXLo+91XGKjwETSHWWLGh/VgwEgIddhClgXdy4hpfzp8Uc3e+0qqysATrpBeoifRlfYYzAi12SohYHaidS3x7iCeqcn3FZYOVoLtYBwp9HD38SYTKzXjW0+2YkVUrMxTnf+pZEz1CqRxoxNXDQeZNkG7m9HYw2kEDyeRCJwSvO1J40rbxRfpekAftFzXFv5imldtdOxHJzdBxRHS1qjINwvNNfrybe7+Nco6eSLmsXAD8FgCp7x6HBT2yHbvLxenBLS/5ZcScrM2EkITp0IEeksKZUArr8ex8wrnOc0JI=
