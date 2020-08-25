@@ -4,6 +4,7 @@ from django.contrib.sites.shortcuts import get_current_site
 from django.contrib.auth.hashers import make_password
 from django.http import HttpResponseServerError
 from django.utils.encoding import force_bytes
+from django.db.models import Q
 
 from user.models import Member
 from user.forms.sign_up import SignUpForm
@@ -28,15 +29,18 @@ class SignUp(FormView):
 
     # 이 메소드는 POST 요청일 때만 실행됨 
     def form_valid(self, form):
-        member = Member(
-            last_name=form.data['name'][:1],
-            first_name=form.data['name'][1:],
-            username=form.data['nickname'],
-            student_id=form.data['student_id'],
-            email=form.data['email'],
-            password=make_password(form.data['password']),
-        )
-        member.save()
+        try:
+            member = Member.objects.get(
+                Q(student_id=form.data['student_id']) &
+                Q(first_name=form.data['name'][1:]) &
+                Q(last_name=form.data['name'][:1])
+            )
+            member.username = form.data['nickname']
+            member.email = form.data['email']
+            member.password = make_password(form.data['password'])
+            member.save()
+        except:
+            return HttpResponseServerError("부원으로 등록되어 있지 않습니다. 관리자에게 문의하여 주십시오.")
 
         try:
             email = build_template_email(

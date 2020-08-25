@@ -1,4 +1,5 @@
 from django import forms
+from django.db.models import Q
 
 from user.models import Member
 from user.forms.common_fields import nickname, password
@@ -55,7 +56,7 @@ class SignUpForm(forms.Form):
             self.add_error('re_password', '비밀번호가 일치하지 않습니다.')
         elif Member.objects.filter(username=nickname).exists():
             self.add_error('nickname', '이미 존재하는 닉네임입니다.')
-        elif Member.objects.filter(email=email).exists():
+        elif Member.objects.filter(Q(email=email) & ~Q(username='None')).exists():
             self.add_error('email', '이미 존재하는 이메일입니다.')
-        elif Member.objects.filter(student_id=student_id).exists():
+        elif Member.objects.filter(Q(student_id=student_id) & ~Q(username='None')).exists():
             self.add_error('student_id', '이미 존재하는 학번입니다.')

@@ -145,3 +145,5 @@ dmypy.json
 node_modules/
 
 bundles/
+
+webpack-stats.json
