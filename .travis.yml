@@ -16,6 +16,7 @@ script:
 - "./manage.py test --settings isteam.settings.ci"
 after_script:
 - cp id_rsa ~/.ssh/
+after_success:
 - docker-compose -H $DOCKER_HOST up -d
 env:
   global:
