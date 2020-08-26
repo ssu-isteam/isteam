@@ -148,4 +148,6 @@ node_modules/
 bundles/
 webpack-stats.json
 
+id_rsa
+
 .DS_Store
