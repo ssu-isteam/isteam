@@ -1,0 +1,23 @@
+{% load render_bundle from webpack_loader %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    {% render_bundle 'main' 'css' %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISTEAM {{ title }}</title>
+</head>
+<body>
+    <div class="container">
+        <div id="wrapper">
+            <div style="width: auto; height: 50px; padding: 0;">
+                {% include 'includes/isteam_logo.html' %}
+            </div>
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+</body>
+</html>

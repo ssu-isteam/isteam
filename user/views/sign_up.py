@@ -27,6 +27,11 @@ class SignUp(FormView):
             'token': account_activation_token.make_token(member)
         }
 
+    def get_context_data(self):
+        context = super().get_context_data()
+        context['title'] = '회원가입'
+        return context 
+
     # 이 메소드는 POST 요청일 때만 실행됨 
     def form_valid(self, form):
         try:

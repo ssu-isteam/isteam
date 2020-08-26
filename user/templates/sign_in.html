@@ -1,43 +1,26 @@
-{% load render_bundle from webpack_loader %}
-{% load static %}
+{% extends 'layout.html' %}
 
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    {% render_bundle 'main' 'css' %}
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ISTEAM 로그인</title>
-</head>
-<body>
-    <div class="container">
-        <div id="wrapper">
-            <div style="width: auto; height: 50px; padding: 0;">
-                {% include 'includes/isteam_logo.html' with custom_name='sign-in ' %}
+{% block content %}
+<form action="." method="post">
+    {% csrf_token %}
+    <div class="form">
+        {% for field in form %}
+        <div class="category">
+            <label class="category-label" for="{{ field.id_for_label }}">{{ field.label }}</label>
+            <input class="category-input" type="{{ field.field.widget.input_type }}" id="{{ field.id_for_label }}" placeholder="{{ field.label }}" name="{{ field.name }}">
+        </div>
+        {% if field.errors %}
+            <div class="error-box">
+                <span style="color: red">{{ field.errors }}</span>
             </div>
-            <form action="." method="post">
-                {% csrf_token %}
-                <div class="form">
-                    {% for field in form %}
-                    <div class="category">
-                        <label class="category-label" for="{{ field.id_for_label }}">{{ field.label }}</label>
-                        <input class="category-input" type="{{ field.field.widget.input_type }}" id="{{ field.id_for_label }}" placeholder="{{ field.label }}" name="{{ field.name }}">
-                    </div>
-                    {% if field.errors %}
-                        <div class="error-box">
-                            <span style="color: red">{{ field.errors }}</span>
-                        </div>
-                    {% endif %}
-                    {% endfor %}
-                    <div class="submit">
-                        <button type="submit" class="btn btn-primary">로그인</button>
-                    </div>
-                </div>
-            </form>
-            <div class="signup-link">
-                <a href="{% url 'signup' %}">회원가입</a>
-            </div>
+        {% endif %}
+        {% endfor %}
+        <div class="submit">
+            <button type="submit" class="btn btn-primary">로그인</button>
         </div>
     </div>
-</body>
-</html>
+</form>
+<div class="signup-link">
+    <a href="{% url 'signup' %}">회원가입</a>
+</div>
+{% endblock %}
