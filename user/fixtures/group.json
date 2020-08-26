@@ -1,0 +1,23 @@
+[
+    {
+        "model": "auth.Group",
+        "pk": 1,
+        "fields": {
+            "name": "manager"
+        }
+    },
+    {
+        "model": "auth.Group",
+        "pk": 2,
+        "fields": {
+            "name": "senior"
+        }
+    },
+    {
+        "model": "auth.Group",
+        "pk": 3,
+        "fields": {
+            "name": "jonior"
+        }
+    }
+]
