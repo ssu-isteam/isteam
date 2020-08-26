@@ -17,3 +17,11 @@ password = forms.CharField(
     widget=forms.PasswordInput,
     label='비밀번호'
 )
+
+student_id = forms.CharField(
+        error_messages={
+            'required': '학번을 입력해주세요.'
+        },
+        max_length=8,
+        label='학번'
+    )

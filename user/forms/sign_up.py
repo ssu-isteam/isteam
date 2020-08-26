@@ -2,7 +2,7 @@ from django import forms
 from django.db.models import Q
 
 from user.models import Member
-from user.forms.common_fields import nickname, password
+from user.forms.common_fields import nickname, password, student_id
 
 
 class SignUpForm(forms.Form):
@@ -16,13 +16,7 @@ class SignUpForm(forms.Form):
         label='이름'
     )
 
-    student_id = forms.CharField(
-        error_messages={
-            'required': '학번을 입력해주세요.'
-        },
-        max_length=8,
-        label='학번'
-    )
+    student_id = student_id
 
     email = forms.EmailField(
         error_messages={
@@ -46,17 +40,21 @@ class SignUpForm(forms.Form):
 
     def clean(self):
         cleaned_data = super().clean()
-        nickname = cleaned_data.get('nickname')
-        student_id = cleaned_data.get('student_id')
-        email = cleaned_data.get('email')
-        password = cleaned_data.get('password')
-        re_password = cleaned_data.get('re_password')
 
-        if password != re_password:
+        re_password_is_same = cleaned_data.get('password') != cleaned_data.get('re_password')
+
+        if re_password_is_same:
             self.add_error('re_password', '비밀번호가 일치하지 않습니다.')
-        elif Member.objects.filter(username=nickname).exists():
-            self.add_error('nickname', '이미 존재하는 닉네임입니다.')
-        elif Member.objects.filter(Q(email=email) & ~Q(username='None')).exists():
+            return
+
+        mail_already_exists = Member.objects.filter(Q(email=cleaned_data.get('email'))).exists()
+
+        if mail_already_exists:
             self.add_error('email', '이미 존재하는 이메일입니다.')
-        elif Member.objects.filter(Q(student_id=student_id) & ~Q(username='None')).exists():
-            self.add_error('student_id', '이미 존재하는 학번입니다.')
+            return
+
+        isteam_member = Member.objects.filter(Q(student_id=cleaned_data.get('student_id'))).exists()
+
+        if not isteam_member:
+            self.add_error('student_id', 'ISTEAM 부원이 아닙니다.')
+            return
