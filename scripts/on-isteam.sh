@@ -1,3 +1,5 @@
 #!/bin/bash
 
-echo "HELLO"
+cd ~/isteam
+unzip dist.zip
+ls
