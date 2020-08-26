@@ -3,94 +3,94 @@
 
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>ISTeam</title>
-        {% render_bundle 'main' 'css' %}
-        <link rel="stylesheet" href="{% static 'styles/index.css' %}">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-    </head>
-    <body>
-        <header class="main-title section main-intro">
-            <div class="section-container">
-                <div class="right-top-container">
-                    <div>
-                        <a href="{% url 'groupware_accounts' %}">부원 그룹웨어 로그인</a>
-                    </div>
-                    <div>
-                        Git repository
-                    </div>
-                </div>
-                {% include 'includes/isteam_logo.html' %}
-                
-                <div class="subtitle">
-                    <p>
-                        <span class="subtitle-word">숭실대학교</span>
-                        <span class="subtitle-word">소프트웨어학부</span>
-                    </p>
-                    <p>
-                        공식 소모임
-                    </p>
-                        
+<head>
+    <title>ISTeam</title>
+    {% render_bundle 'main' 'css' %}
+    <link rel="stylesheet" href="{% static 'styles/main_page/index.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <header class="main-title section main-intro">
+        <div class="section-container">
+            <div class="right-top-container">
+                <div>
+                    <a href="{% url 'groupware_accounts' %}">부원 그룹웨어 로그인</a>
                 </div>
                 <div>
-                    부원 신청하기
+                    Git repository
                 </div>
             </div>
-        </header>
+            {% include 'includes/isteam_logo.html' %}
             
-        <main>
-            
-            <section class="section recent-activity">
-                <div class="section-container">
-                    <h3 class="section-title">
-                    최근 활동
-                    </h3>
-                    <div>
-                        <div class="section-title__timeline">
-                            {% for activity in activities %}
+            <div class="subtitle">
+                <p>
+                    <span class="subtitle-word">숭실대학교</span>
+                    <span class="subtitle-word">소프트웨어학부</span>
+                </p>
+                <p>
+                    공식 소모임
+                </p>
+                    
+            </div>
+            <div>
+                부원 신청하기
+            </div>
+        </div>
+    </header>
+        
+    <main>
+        
+        <section class="section recent-activity">
+            <div class="section-container">
+                <h3 class="section-title">
+                최근 활동
+                </h3>
+                <div>
+                    <div class="section-title__timeline">
+                        {% for activity in activities %}
 
-                            <div class="timeline__content-container">
-                                <h4 class="timeline__content-title"></h4>
-                                <div class="timeline__content-card">
-                                    <div class="timeline__content-card__img-cover">
-                                        <img src="https://images.unsplash.com/photo-1519241047957-be31d7379a5d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" class="timeline__content-card__img">
-                                    </div>
-                                    <div class="timeline__content-card__text">
-                                        <div class="timeline__content-card__title">{{ activity.title }}</div>
-                                        <div class="timeline__content-card__text__summary">
-                                            <ul>
-                                                {% for session in activity.sessions %}
+                        <div class="timeline__content-container">
+                            <h4 class="timeline__content-title"></h4>
+                            <div class="timeline__content-card">
+                                <div class="timeline__content-card__img-cover">
+                                    <img src="https://images.unsplash.com/photo-1519241047957-be31d7379a5d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" class="timeline__content-card__img">
+                                </div>
+                                <div class="timeline__content-card__text">
+                                    <div class="timeline__content-card__title">{{ activity.title }}</div>
+                                    <div class="timeline__content-card__text__summary">
+                                        <ul>
+                                            {% for session in activity.sessions %}
 
-                                                <li>{{ session.title }}</li>
+                                            <li>{{ session.title }}</li>
 
-                                                {% endfor %}
-                                            </ul>
-                                        </div>
+                                            {% endfor %}
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
-
-                            {% endfor %}
                         </div>
+
+                        {% endfor %}
                     </div>
                 </div>
-            </section>
-            
-            <section class="section recent-activity">
-                <div class="section-container">
-                    <h3 class="section-title">
-                    ISteam 소개
-                    </h3>
-                    <div>
-                        <h2>숭실대학교 공식 소모임</h2>
-                    </div>
-                    <div>
-                        <h2>Naver D2 Campus</h2>
-                    </div>
+            </div>
+        </section>
+        
+        <section class="section recent-activity">
+            <div class="section-container">
+                <h3 class="section-title">
+                ISteam 소개
+                </h3>
+                <div>
+                    <h2>숭실대학교 공식 소모임</h2>
                 </div>
-            </section>
-            
-        </main>
-            
-    </body>
+                <div>
+                    <h2>Naver D2 Campus</h2>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+        
+</body>
 </html>
