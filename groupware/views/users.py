@@ -16,7 +16,7 @@ class UserListView(GroupwareView, ListView):
     tab_name = 'users'
 
     def get_queryset(self):
-        new_context = Member.objects.filter(email_verified=True).order_by('student_id')
+        new_context = Member.objects.filter(is_active=True).order_by('student_id')
         return new_context
 
     def get_context_data(self):
