@@ -31,6 +31,8 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['isteam.dev', 'localhost']
 
+CSRF_TRUSTED_ORIGINS = ['isteam.dev']
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
