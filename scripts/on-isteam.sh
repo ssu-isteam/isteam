@@ -20,4 +20,4 @@ npm run bundle -- --mode production
 
 echo "[LOG] Starting up the application"
 mv .prod.env .env
-timeout 10s gunicorn isteam.wsgi:application --bind 0.0.0.0:8000 || ( [[ $? -eq 124 ]] && echo "WARNING: Timeout reached, but that's OK" )
+timeout 10s gunicorn isteam.wsgi:application --bind 0.0.0.0:8000 & || ( [[ $? -eq 124 ]] && echo "WARNING: Timeout reached, but that's OK" )
