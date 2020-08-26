@@ -32,8 +32,8 @@ class SignUp(FormView):
             last_name=form.data['name'][:1].encode('utf8'),
             first_name=form.data['name'][1:].encode('utf8'),
             username=form.data['nickname'].encode('utf8'),
-            student_id=form.data['student_id'].encode('utf8'),
-            email=form.data['email'].encode('utf8'),
+            student_id=form.data['student_id'],
+            email=form.data['email'],
             password=make_password(form.data['password']),
         )
         member.save()
