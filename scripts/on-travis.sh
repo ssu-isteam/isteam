@@ -7,7 +7,7 @@ sudo apt install sshpass
 
 filename=$(date '+%Y-%m-%d')
 
-zip -r "${filename}.zip" ./* .*
+zip -r "${filename}.zip" .
 
 echo "[LOG] Uploading .zip file"
 sshpass -p "$SSH_PASS" scp ${filename}.zip $SSH_HOST:~/zips
