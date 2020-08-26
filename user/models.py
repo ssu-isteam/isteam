@@ -3,6 +3,9 @@ from django.contrib.auth.models import AbstractUser
 
 
 class Member(AbstractUser):
+
+    username = models.CharField(max_length=10, null=True, blank=False, unique=True)
+
     # 학번
     student_id = models.CharField(max_length=8)
 
