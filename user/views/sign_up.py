@@ -2,7 +2,6 @@ from django.views.generic import FormView
 from django.utils.http import urlsafe_base64_encode
 from django.contrib.sites.shortcuts import get_current_site
 from django.contrib.auth.hashers import make_password
-from django.contrib.auth.models import Group
 from django.http import HttpResponseServerError, HttpResponseNotAllowed
 from django.utils.encoding import force_bytes
 from django.db.models import Q
@@ -41,8 +40,6 @@ class SignUp(FormView):
             member.password = make_password(form.data['password'])
             member.did_sign_up = True
             member.save()
-            Group().permissions.set()
-
         except:
             return HttpResponseNotAllowed("부원으로 등록되어 있지 않습니다. 관리자에게 문의하여 주십시오.")
 

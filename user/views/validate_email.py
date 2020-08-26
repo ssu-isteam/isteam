@@ -2,6 +2,7 @@ from django.shortcuts import redirect
 from django.shortcuts import get_object_or_404
 from django.utils.encoding import force_text
 from django.utils.http import urlsafe_base64_decode
+from django.contrib.auth.models import Group
 
 
 from user.models import Member
@@ -14,7 +15,9 @@ def validate_email(request, uidb64, token):
         user = get_object_or_404(Member, pk=uid)
 
         if account_activation_token.check_token(user, token):
-            # TODO: 추후 member.user_permissions에 프로젝트 CRUD 할 수 있는 권한, 장부 볼 수 있는 권한 추가
+            junior_group = Group.objects.get(pk=1)
+            user.groups.add(junior_group)
+
             user.is_active = True
             user.save()
         return redirect('index')
