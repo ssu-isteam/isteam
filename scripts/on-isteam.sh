@@ -1,12 +1,11 @@
 #!/bin/bash
 
 echo "[LOG] Cleaning up the directory"
-cd ~/isteam
-rm -r ./*
+rm -r ~/isteam/*
 
 echo "[LOG] Setting up project"
 cd ~/zips
-unzip $(ls -t | head -n1) ~/isteam
+unzip $(ls -t | head -n1) -d ~/isteam
 cd ~/isteam
 
 echo "[LOG] Setting up python env"
