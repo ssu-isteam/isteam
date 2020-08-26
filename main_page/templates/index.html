@@ -12,28 +12,38 @@
 <body>
     <header class="main-title section main-intro">
         <div class="section-container">
-            <div class="right-top-container">
+            <div class="main__nav-container">
                 <div>
-                    <a href="{% url 'groupware_accounts' %}">부원 그룹웨어 로그인</a>
+                    {% include 'includes/isteam_logo.html' %}
                 </div>
-                <div>
-                    Git repository
+                <div class="main__nav-container__sidemenu mobile-hide">
+                    <div>
+                        <a href="{% url 'groupware_accounts' %}">부원 그룹웨어 로그인</a>
+                    </div>
+                    <div>
+                        Git repository
+                    </div>
                 </div>
             </div>
-            {% include 'includes/isteam_logo.html' %}
-            
             <div class="subtitle">
                 <p>
                     <span class="subtitle-word">숭실대학교</span>
                     <span class="subtitle-word">소프트웨어학부</span>
                 </p>
                 <p>
-                    공식 소모임
+                    <span class="subtitle-word">공식 소모임</span>
                 </p>
-                    
             </div>
-            <div>
-                부원 신청하기
+            <div class="main__bottom-container">
+                <div>
+                    부원 신청하기
+                </div>
+                <div class="desktop-hide">
+                    <a href="{% url 'groupware_accounts' %}">부원 그룹웨어 로그인</a>
+                </div>
+                <div class="desktop-hide">
+                    Git repository
+                </div>
             </div>
         </div>
     </header>
