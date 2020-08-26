@@ -5,7 +5,7 @@ openssl aes-256-cbc -K $encrypted_f182de71524d_key -iv $encrypted_f182de71524d_i
 sudo apt update
 sudo apt install sshpass
 
-filename=$(date + '%Y-%m-%d')
+filename=$(date '+%Y-%m-%d')
 
 zip "${filename}.zip" ./*
 
