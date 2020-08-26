@@ -12,7 +12,7 @@ class SignIn(FormView):
     success_url = '/groupware/activities'
 
     def form_valid(self, form):
-        nickname = form.data['nickname']
+        nickname = form.data['nickname'].encode('utf8')
         password = form.data['password']
         member = authenticate(username=nickname, password=password)
 
