@@ -7,9 +7,9 @@ sudo apt install sshpass
 
 filename=$(date '+%Y-%m-%d')
 
-zip -r "${filename}.zip" .
+zip -r -q "${filename}.zip" .
 
 echo "[LOG] Uploading ${filename}.zip"
 sshpass -p "$SSH_PASS" scp "${filename}.zip" ${SSH_HOST}:~/zips
 echo "[LOG] Connecting ssh"
-sshpass -p "$SSH_PASS" ssh -o StrictHostKeyChecking=no $SSH_HOST < scripts/on-isteam.shs
+sshpass -p "$SSH_PASS" ssh -o StrictHostKeyChecking=no $SSH_HOST < scripts/on-isteam.sh
