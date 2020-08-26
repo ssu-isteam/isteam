@@ -15,4 +15,4 @@ pip install -r requirements.txt
 
 echo "[LOG] Build CSS"
 npm i
-npm run bundle
+npm run bundle -- --mode production
