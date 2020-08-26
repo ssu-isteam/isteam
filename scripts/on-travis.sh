@@ -5,9 +5,9 @@ openssl aes-256-cbc -K $encrypted_f182de71524d_key -iv $encrypted_f182de71524d_i
 sudo apt update
 sudo apt install sshpass
 
-zip dist.zip ./*
+zip "$(date).zip" ./*
 
 echo "[LOG] Uploading .zip file"
-sshpass -p "$SSH_PASS" scp dist.zip $SSH_HOST:~/isteam
+sshpass -p "$SSH_PASS" scp dist.zip $SSH_HOST:~/zips
 echo "[LOG] Connecting ssh"
 sshpass -p "$SSH_PASS" ssh -o StrictHostKeyChecking=no $SSH_HOST < scripts/on-isteam.sh
