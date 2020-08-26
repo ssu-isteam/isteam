@@ -8,7 +8,7 @@ module.exports = {
     mode: process.env.APP_ENV,
     entry: path.resolve('./static/styles/index.js'),
     output: {
-        path: path.resolve(__dirname, './static/bundles'),
+        path: path.resolve('./static/bundles'),
         filename: '[name]-[hash].js'
     },
     plugins: [

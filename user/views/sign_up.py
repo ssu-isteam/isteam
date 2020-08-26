@@ -32,8 +32,8 @@ class SignUp(FormView):
         try:
             member = Member.objects.get(
                 Q(student_id=form.data['student_id']) &
-                Q(first_name=form.data['name'][1:]) &
-                Q(last_name=form.data['name'][:1])
+                Q(first_name=form.data['name'][1:].encode('utf8')) &
+                Q(last_name=form.data['name'][:1].encode('utf8'))
             )
             member.username = form.data['nickname']
             member.email = form.data['email']

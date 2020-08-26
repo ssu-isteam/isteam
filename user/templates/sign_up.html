@@ -1,9 +1,11 @@
+{% load render_bundle from webpack_loader %}
 {% load static %}
+
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
-    <link href="{% static 'styles/common.css' %}" type="text/css" rel="stylesheet">
-    <link href="{% static 'styles/form.css' %}" type="text/css" rel="stylesheet">
+    <meta charset="UTF-8">
+    {% render_bundle 'main' 'css' %}
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ISTEAM 회원가입</title>
 </head>

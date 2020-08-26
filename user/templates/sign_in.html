@@ -1,12 +1,11 @@
 {% load render_bundle from webpack_loader %}
 {% load static %}
 
-{% render_bundle 'main' %}
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
+    {% render_bundle 'main' 'css' %}
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ISTEAM 로그인</title>
 </head>

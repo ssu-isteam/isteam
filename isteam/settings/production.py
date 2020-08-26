@@ -29,7 +29,9 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['isteam.dev']
+ALLOWED_HOSTS = ['isteam.dev', 'localhost']
+
+CSRF_TRUSTED_ORIGINS = ['isteam.dev']
 
 TEMPLATES = [
     {
@@ -42,7 +44,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-            ],
+            ]
         },
     },
 ]
@@ -56,7 +58,10 @@ DATABASES = {
         'NAME': config('DATABASE_NAME'),
         'USER': config('DATABASE_USER'),
         'PASSWORD': config('DATABASE_PASS'),
-        'HOST': config('DATABASE_HOST')
+        'HOST': config('DATABASE_HOST'),
+        'OPTIONS': {
+            'charset': 'utf8mb4'
+        }
     }
 }
 

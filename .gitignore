@@ -110,6 +110,7 @@ celerybeat.pid
 
 # Environments
 .env
+.prod.env
 .venv
 env/
 venv/
@@ -147,3 +148,7 @@ node_modules/
 bundles/
 
 webpack-stats.json
+
+id_rsa
+
+.DS_Store
