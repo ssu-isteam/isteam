@@ -7,5 +7,7 @@ sudo apt install sshpass
 
 zip dist.zip ./*
 
-sshpass -p "$SSH_PASS" scp dist.zip @SSH_HOST:~/isteam
+echo "[LOG] Upliading .zip file"
+sshpass -p "$SSH_PASS" scp dist.zip $SSH_HOST:~/isteam
+echo "[LOG] Connecting ssh"
 sshpass -p "$SSH_PASS" ssh -o StrictHostKeyChecking=no $SSH_HOST < scripts/on-isteam.sh
