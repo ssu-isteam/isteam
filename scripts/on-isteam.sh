@@ -20,5 +20,4 @@ npm run bundle -- --mode production
 
 echo "[LOG] Starting up the application"
 mv .prod.env .env
-gunicorn isteam.wsgi:application --bind 0.0.0.0:8000 &
-exit 0
+gunicorn isteam.wsgi:application --bind 0.0.0.0:8000 --daemon
