@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>ISTeam</title>
+    <title>ISTEAM</title>
     {% render_bundle 'main' 'css' %}
     <link rel="stylesheet" href="{% static 'styles/main_page/index.css' %}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,12 +17,8 @@
                     {% include 'includes/isteam_logo.html' %}
                 </div>
                 <div class="main__nav-container__sidemenu mobile-hide">
-                    <div>
-                        <a href="{% url 'groupware_accounts' %}">부원 그룹웨어 로그인</a>
-                    </div>
-                    <div>
-                        Git repository
-                    </div>
+                    <a class="btn" href="{% url 'groupware_accounts' %}">부원 그룹웨어 로그인</a>
+                    <a class="btn" href="#">Git repository</a>
                 </div>
             </div>
             <div class="subtitle">
@@ -34,15 +30,11 @@
                     <span class="subtitle-word">공식 소모임</span>
                 </p>
             </div>
-            <div class="main__bottom-container">
-                <div>
-                    부원 신청하기
-                </div>
-                <div class="desktop-hide">
-                    <a href="{% url 'groupware_accounts' %}">부원 그룹웨어 로그인</a>
-                </div>
-                <div class="desktop-hide">
-                    Git repository
+            <div class="main__bottom-wrapper">
+                <div class="main__bottom-container">
+                    <a class="btn btn__left btn__no-color" href="#">부원 신청하기</a>
+                    <a class="btn btn__left btn__no-color desktop-hide" href="#">부원 그룹웨어 로그인</a>
+                    <a class="btn btn__left btn__no-color desktop-hide" href="#">Git repository</a>
                 </div>
             </div>
         </div>
@@ -89,7 +81,7 @@
         <section class="section recent-activity">
             <div class="section-container">
                 <h3 class="section-title">
-                ISteam 소개
+                ISTEAM 소개
                 </h3>
                 <div>
                     <h2>숭실대학교 공식 소모임</h2>

@@ -5,22 +5,18 @@
     {% csrf_token %}
     <div class="form">
         {% for field in form %}
-        <div class="category">
-            <label class="category-label" for="{{ field.id_for_label }}">{{ field.label }}</label>
-            <input class="category-input" type="{{ field.field.widget.input_type }}" id="{{ field.id_for_label }}" placeholder="{{ field.label }}" name="{{ field.name }}">
-        </div>
-        {% if field.errors %}
-            <div class="error-box">
-                <span style="color: red">{{ field.errors }}</span>
-            </div>
-        {% endif %}
+        <p>
+            <label class="form__label" for="{{ field.id_for_label }}">{{ field.label }}</label>
+            <input class="form__text" type="{{ field.field.widget.input_type }}" id="{{ field.id_for_label }}" placeholder="{{ field.label }}" name="{{ field.name }}">
+            {% if field.errors %}
+                <div class="error-box">
+                    <span style="color: red">{{ field.errors }}</span>
+                </div>
+            {% endif %}
+        </p>
         {% endfor %}
-        <div class="submit">
-            <button type="submit" class="btn btn-primary">로그인</button>
-        </div>
+        <button type="submit" class="form__submit btn user__btn-primary">로그인</button>
     </div>
 </form>
-<div class="signup-link">
-    <a href="{% url 'signup' %}">회원가입</a>
-</div>
+<a class="btn btn__no-color" href="{% url 'signup' %}">회원가입</a>
 {% endblock %}

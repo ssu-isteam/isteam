@@ -39,8 +39,8 @@
     align-items: center;
 }
 
-.main__nav-container__sidemenu > div {
-    padding: 10px;
+.main__nav-container__sidemenu > * {
+    margin-right: 10px !important;
 }
 
 .main__bottom-container {
@@ -48,8 +48,12 @@
     flex-direction: column;
 }
 
-.main__bottom-container > div {
-    padding-top: 10px;
+.main__bottom-container > * {
+    margin-bottom: 10px;
+}
+
+.main__bottom-wrapper {
+    max-width: fit-content;
 }
 
 .section {
@@ -61,7 +65,7 @@
 }
 
 .section-container {
-    padding: 25px 5px;
+    padding: 25px 9px;
     max-width: 800px;
     margin: auto;
 }

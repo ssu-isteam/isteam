@@ -6,13 +6,14 @@
 <head>
     <meta charset="UTF-8">
     {% render_bundle 'main' 'css' %}
+    <link rel="stylesheet" href="{% static 'styles/user/index.css' %}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ISTEAM {{ title }}</title>
 </head>
 <body>
     <div class="container">
-        <div id="wrapper">
-            <div style="width: auto; height: 50px; padding: 0;">
+        <div class="user__box">
+            <div style="width: auto; height: 50px; padding: 0; margin: auto;">
                 {% include 'includes/isteam_logo.html' %}
             </div>
             {% block content %}

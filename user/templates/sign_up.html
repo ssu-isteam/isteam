@@ -2,22 +2,20 @@
 
 {% block content %}
 <form method="POST" action=".">
-    <div class="form">
-        {% csrf_token %}
-        {% for field in form %}
-        <div>
-            <label class="category-label" for="{{ field.id_for_label }}">{{ field.label }}</label>
-            <input class="category-input" type="{{ field.field.widget.input_type }}" id="{{ field.id_for_label }}" placeholder="{{ field.label }}" name="{{ field.name }}">
-        </div>
+    {% csrf_token %}
+    {% for field in form %}
+    <p>
+        <label class="form__label" for="{{ field.id_for_label }}">{{ field.label }}</label>
+        <input class="form__text" type="{{ field.field.widget.input_type }}" id="{{ field.id_for_label }}" placeholder="{{ field.label }}" name="{{ field.name }}">
         {% if field.errors %}
             <div class="error-box">
                 <span style="color: red">{{ field.errors }}</span>
             </div>
         {% endif %}
-        {% endfor %}
-        <div class="submit">
-            <button type="submit" class="btn btn-primary">회원가입</button>
-        </div>
-    </div>
+    </p>
+    
+    
+    {% endfor %}
+    <button type="submit" class="form__submit btn user__btn-primary">회원가입</button>
 </form>
 {% endblock %}
