@@ -15,7 +15,7 @@ def validate_email(request, uidb64, token):
 
         if account_activation_token.check_token(user, token):
             # TODO: 추후 member.user_permissions에 프로젝트 CRUD 할 수 있는 권한, 장부 볼 수 있는 권한 추가
-            user.email_verified = True
+            user.is_active = True
             user.save()
         return redirect('index')
 

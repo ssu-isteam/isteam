@@ -2,7 +2,7 @@ from django.views.generic import FormView
 from django.utils.http import urlsafe_base64_encode
 from django.contrib.sites.shortcuts import get_current_site
 from django.contrib.auth.hashers import make_password
-from django.http import HttpResponseServerError
+from django.http import HttpResponseServerError, HttpResponseNotAllowed
 from django.utils.encoding import force_bytes
 from django.db.models import Q
 
@@ -32,15 +32,16 @@ class SignUp(FormView):
         try:
             member = Member.objects.get(
                 Q(student_id=form.data['student_id']) &
-                Q(first_name=form.data['name'][1:].encode('utf8')) &
-                Q(last_name=form.data['name'][:1].encode('utf8'))
+                Q(first_name=form.data['name'][1:]) &
+                Q(last_name=form.data['name'][:1])
             )
             member.username = form.data['nickname']
             member.email = form.data['email']
             member.password = make_password(form.data['password'])
+            member.did_sign_up = True
             member.save()
         except:
-            return HttpResponseServerError("부원으로 등록되어 있지 않습니다. 관리자에게 문의하여 주십시오.")
+            return HttpResponseNotAllowed("부원으로 등록되어 있지 않습니다. 관리자에게 문의하여 주십시오.")
 
         try:
             email = build_template_email(
