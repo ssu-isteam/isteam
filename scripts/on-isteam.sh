@@ -1,12 +1,13 @@
 #!/bin/bash
 
-echo "[LOG] Setting up project"
-cd ~/zips
-unzip $(ls -t | head -n1) ~/isteam
-
 echo "[LOG] Cleaning up the directory"
 cd ~/isteam
 rm -r ./*
+
+echo "[LOG] Setting up project"
+cd ~/zips
+unzip $(ls -t | head -n1) ~/isteam
+cd ~/isteam
 
 echo "[LOG] Setting up python env"
 python3 -m venv venv
