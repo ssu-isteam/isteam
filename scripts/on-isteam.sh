@@ -15,5 +15,4 @@ pip install -r requirements.txt
 
 echo "[LOG] Build CSS"
 npm i
-npm bundle
-
+npm run bundle
