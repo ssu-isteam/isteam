@@ -6,4 +6,4 @@ cp id_rsa ~/.ssh
 chmod 400 ~/.ssh/id_rsa
 
 ssh-add
-ssh -o StrictHostKeyChecking=no -o PasswordAuthentication=no -i './id_rsa' $SSH_HOST < scripts/on-isteam.sh
+ssh $SSH_HOST < scripts/on-isteam.sh
