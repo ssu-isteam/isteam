@@ -15,6 +15,6 @@ class Index(ListView):
 
         for activity in context[self.context_object_name]:
             sessions = list(Session.objects.filter(activity=activity.id))
-            activity.sessions.extend(sessions)
+            activity.sessions = sessions
 
         return context

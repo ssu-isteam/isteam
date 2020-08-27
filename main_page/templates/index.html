@@ -18,7 +18,6 @@
                 </div>
                 <div class="main__nav-container__sidemenu mobile-hide">
                     <a class="btn" href="{% url 'groupware_accounts' %}">부원 그룹웨어 로그인</a>
-                    <a class="btn" href="#">Git repository</a>
                 </div>
             </div>
             <div class="subtitle">
@@ -33,66 +32,73 @@
             <div class="main__bottom-wrapper">
                 <div class="main__bottom-container">
                     <a class="btn btn__left btn__no-color" href="#">부원 신청하기</a>
-                    <a class="btn btn__left btn__no-color desktop-hide" href="#">부원 그룹웨어 로그인</a>
-                    <a class="btn btn__left btn__no-color desktop-hide" href="#">Git repository</a>
+                    <a class="btn btn__left btn__no-color desktop-hide" href="{% url 'groupware_accounts' %}">부원 그룹웨어 로그인</a>
                 </div>
             </div>
         </div>
     </header>
-        
     <main>
-        
         <section class="section recent-activity">
             <div class="section-container">
                 <h3 class="section-title">
                 최근 활동
                 </h3>
-                <div>
-                    <div class="section-title__timeline">
-                        {% for activity in activities %}
-
-                        <div class="timeline__content-container">
-                            <h4 class="timeline__content-title"></h4>
-                            <div class="timeline__content-card">
-                                <div class="timeline__content-card__img-cover">
-                                    <img src="https://images.unsplash.com/photo-1519241047957-be31d7379a5d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" class="timeline__content-card__img">
-                                </div>
-                                <div class="timeline__content-card__text">
-                                    <div class="timeline__content-card__title">{{ activity.title }}</div>
-                                    <div class="timeline__content-card__text__summary">
-                                        <ul>
-                                            {% for session in activity.sessions %}
-
-                                            <li>{{ session.title }}</li>
-
-                                            {% endfor %}
-                                        </ul>
-                                    </div>
+                <div class="timeline">
+                    {% for activity in activities %}
+                    <div class="timeline__content-container">
+                        <h4 class="timeline__content-title">{{ activity.start_date }} ~ {{activity.end_date  }}</h4>
+                        <div class="timeline__content-card">
+                
+                            <div class="timeline__content-card__img">
+                                <img src="https://images.unsplash.com/photo-1519241047957-be31d7379a5d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" class="timeline__content-card__img">
+                            </div>
+                
+                            <div class="timeline__content-card__text">
+                                <div class="timeline__content-card__title">{{ activity.title }}</div>
+                                <div class="timeline__content-card__text__session-wrapper">
+                                    {% for session in activity.sessions %}
+                                    <div class="timeline__content-card__text__session">{{ session.title }}</div>
+                                    {% endfor %}
                                 </div>
                             </div>
                         </div>
-
-                        {% endfor %}
                     </div>
+                    {% endfor %}
                 </div>
             </div>
         </section>
         
-        <section class="section recent-activity">
+        <section class="section main__isteam-intro">
             <div class="section-container">
                 <h3 class="section-title">
                 ISTEAM 소개
                 </h3>
-                <div>
-                    <h2>숭실대학교 공식 소모임</h2>
+                <div class="main__isteam-intro__features">
+                    <div>
+                        <img src="{% static 'logos/ssu.jpg' %}" alt="ssu.jpg" class="main__isteam-intro__features__image">
+                        <h2>숭실대학교 공식 소모임</h2>
+                        <p class="main__isteam-intro__features__text">
+                            숭실대학교 공식 소프트웨어학부 소속 소모임으로써 강의실 지원을 받습니다.
+                        </p>
+                    </div>
+                    <div>
+                        <img src="{% static 'logos/d2.png' %}" alt="d2.jpg" class="main__isteam-intro__features__image">
+                        <h2>Naver D2 Campus</h2>
+                        <p class="main__isteam-intro__features__text">
+                            Naver D2 Campus에서 서버, 행사 등 여러가지 지원을 받는 Partner 동아리로 선정되었습니다.
+                        </p>
+                    </div>
                 </div>
-                <div>
-                    <h2>Naver D2 Campus</h2>
-                </div>
+                
             </div>
         </section>
         
     </main>
-        
+    <footer class="main__footer">
+        <div class="section-container">
+            <img src="{% static 'logos/isteam_soongsil.png' %}" alt="d2.jpg" class="main__footer__image">
+            <div>&copy; ISTeam, Soongsil University, Seoul</div>
+        </div>
+    </footer>
 </body>
 </html>

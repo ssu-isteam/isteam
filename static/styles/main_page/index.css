@@ -1,5 +1,9 @@
 .recent-activity {
-    background-color: #EEEEEE;
+    background-color: rgba(220, 220, 220, 0.4);
+}
+
+.main__isteam-intro {
+    background-color: white;
 }
 
 .main-title {
@@ -53,15 +57,37 @@
 }
 
 .section {
-    margin: 10px 0 0 0;
+    margin: 0;
 }
 
 .section-title {
     margin: 0 0 10px;
+    font-size: 0.9em;
+    text-align: left;
+}
+
+.main__isteam-intro__features {
+    text-align: center;
+    margin: auto;
+    width: 100%;
+}
+
+.main__isteam-intro__features > div {
+    margin-bottom: 50px;
+}
+
+.main__isteam-intro__features__image {
+    width: 200px;
+    height: 120px;
+    object-fit: cover;
+}
+
+.main__isteam-intro__features__text {
+    font-size: 1.1em;
 }
 
 .section-container {
-    padding: 25px 9px;
+    padding: 25px 11px;
     max-width: 800px;
     margin: auto;
 }
@@ -69,34 +95,6 @@
 .section-title__timeline {
     position: relative;
     margin: 0 auto;
-}
-
-.section-title__timeline::after {
-    content: '';
-    position: absolute;
-    width: 2px;
-    background-color: black;
-    top: 0;
-    bottom: 0;
-    left: 10px;
-    margin-left: -3px;
-}
-
-.timeline__content-container {
-    position: relative;
-    padding-left: 25px;
-}
-
-.timeline__content-container::after {
-    content: '';
-    position: absolute;
-    width: 16px;
-    height: 16px;
-    background-color: black;
-    left: 0px;
-    top: 0px;
-    z-index: 1;
-    border-radius: 50%;
 }
 
 .timeline__content-title {
@@ -115,16 +113,37 @@
 }
 
 .timeline__content-card__title {
-    margin: 10px 20px 20px;
     font-size: 2em;
+    margin: 0;
 }
 
 .timeline__content-card__img {
-    object-fit: cover;
     width: 100%;
-    height: 100%;
+    height: auto;
 }
 
-.timeline__content-card__text__summary {
-    font-size: 1.5em;
+.timeline__content-card__text__sessions {
+    font-size: 1.2em;
+    display: flex;
+    flex-direction: column;
+}
+
+.timeline__content-card__text__sessions > * {
+    margin-top: 10px;
+    border-radius: 7px;
+    padding: 10px;
+    background-color: rgba(46, 164, 79, 0.4);
+}
+
+.main__footer {
+    padding: 1em 0 3em;
+    background-color: rgba(220, 220, 220, 0.4);
+}
+
+.main__footer__image {
+    width: 200px;
+    height: auto;
+    display: block;
+    margin: 15px 0;
+    filter: grayscale(100%);
 }
