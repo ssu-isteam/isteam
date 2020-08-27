@@ -12,8 +12,8 @@ class SignIn(FormView):
 
     success_url = '/groupware/activities'
 
-    def get_context_data(self):
-        context = super().get_context_data()
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
         context['title'] = '로그인'
         return context  
 
