@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "[LOG] Cleaning up"
-rm -r ~/isteam/*
+rm -rf ~/isteam/*
 pkill gunicorn
 
 echo "[LOG] Setting up project"
