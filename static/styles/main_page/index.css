@@ -1,5 +1,9 @@
 .recent-activity {
-    background-color: #EEEEEE;
+    background-color: rgba(220, 220, 220, 0.4);
+}
+
+.main__isteam-intro {
+    background-color: white;
 }
 
 .main-title {
@@ -53,11 +57,33 @@
 }
 
 .section {
-    margin: 10px 0 0 0;
+    margin: 0;
 }
 
 .section-title {
     margin: 0 0 10px;
+    font-size: 0.9em;
+    text-align: left;
+}
+
+.main__isteam-intro__features {
+    text-align: center;
+    margin: auto;
+    width: 100%;
+}
+
+.main__isteam-intro__features > div {
+    margin-bottom: 50px;
+}
+
+.main__isteam-intro__features__image {
+    width: 200px;
+    height: 120px;
+    object-fit: cover;
+}
+
+.main__isteam-intro__features__text {
+    font-size: 1.1em;
 }
 
 .section-container {
