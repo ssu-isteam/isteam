@@ -1,15 +1,23 @@
+from django.shortcuts import render
 from django.shortcuts import redirect
 from django.shortcuts import get_object_or_404
 from django.utils.encoding import force_text
 from django.utils.http import urlsafe_base64_decode
 from django.contrib.auth.models import Group
 
-
 from user.models import Member
 from user.tokens import account_activation_token
 
 
-def validate_email(request, uidb64, token):
+def email_sent(request):
+    return render(request, 'email_sent.html', {})
+
+
+def email_verified(request):
+    return render(request, 'email_verified.html', {})
+
+
+def verify_email(request, uidb64, token):
     try:
         uid = force_text(urlsafe_base64_decode(uidb64))
         user = get_object_or_404(Member, pk=uid)
@@ -20,7 +28,7 @@ def validate_email(request, uidb64, token):
 
             user.is_active = True
             user.save()
-        return redirect('index')
+        return redirect('email_verified')
 
     except(TypeError, ValueError, OverflowError):
         return redirect('index')

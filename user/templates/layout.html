@@ -11,14 +11,12 @@
     <title>ISTEAM {{ title }}</title>
 </head>
 <body>
-    <div class="container">
-        <div class="user__box">
-            <div style="width: auto; height: 50px; padding: 0; margin: auto;">
-                {% include 'includes/isteam_logo.html' %}
-            </div>
-            {% block content %}
-            {% endblock %}
+    <div class="user__box">
+        <div style="width: auto; height: 50px; padding: 0; margin: auto;">
+            {% include 'includes/isteam_logo.html' %}
         </div>
+        {% block content %}
+        {% endblock %}
     </div>
 </body>
 </html>
