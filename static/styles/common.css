@@ -23,6 +23,7 @@
     text-decoration: none;
     display: inline-block;
     vertical-align: bottom;
+    font-weight: 400;
 }
 
 .custom-subtitle {
@@ -55,6 +56,10 @@
     display: inline;
     color: Blue;
     text-decoration-line: None;
+}
+
+.text-block {
+    display: inline-block;
 }
 
 @media only screen and (max-width: 600px) {
