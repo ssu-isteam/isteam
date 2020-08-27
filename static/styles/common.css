@@ -42,22 +42,6 @@
     top: 50%;
 }
 
-.user {
-    margin: 30px 0 30px 0;
-}
-
-.user-name {
-    display: inline;
-    margin-right: 8px;
-}
-
-.signout {
-    font-size: 15px;
-    display: inline;
-    color: Blue;
-    text-decoration-line: None;
-}
-
 .text-block {
     display: inline-block;
 }

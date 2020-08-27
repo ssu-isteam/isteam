@@ -6,6 +6,7 @@
 <head>
     <meta charset="UTF-8">
     {% render_bundle 'main' 'css' %}
+    <link rel="stylesheet" href="{% static 'styles/groupware/index.css' %}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ISTEAM 그룹웨어</title>
 </head>
@@ -15,12 +16,10 @@
             <div style="font-size: 0.65em;">
                 {% include 'includes/isteam_logo.html' with custom_name='groupware' %}
             </div>
-            <div class="user">
-                <h1 class="user-name">{{ member_info.last_name }}{{ member_info.first_name }}</h1>
-                <a class="signout" href="/user/signout">로그아웃</a>
+            <div class="groupware__user">
+                <div class="groupware__user-name">{{ member_info.last_name }}{{ member_info.first_name }}</div>
+                <a class="btn groupware__btn-signout btn__no-color" href="/user/signout">로그아웃</a>
             </div>
-
-
         </div>
 
         <div class="navbar rounded-gray">
