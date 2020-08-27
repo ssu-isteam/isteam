@@ -1,13 +1,12 @@
 {% load render_bundle from webpack_loader %}
 {% load static %}
+{% render_bundle 'main' %}
 
 <!DOCTYPE html>
 <html>
 <head>
     <title>ISTEAM</title>
-    {% render_bundle 'main' 'css' %}
     <link rel="icon" href="{% static 'logos/isteam.svg' %}" sizes="any" type="image/svg+xml">
-    <link rel="stylesheet" href="{% static 'styles/main_page/index.css' %}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
@@ -25,7 +24,7 @@
             <div class="subtitle">
                 <p>
                     <span class="text-block">숭실대학교</span>
-                    <span class="text-block">소프트웨어학부</span>
+                    <span class="text-block" style="padding-right: 1em;">소프트웨어학부</span>
                 </p>
                 <p>
                     <span class="text-block">공식 소모임</span>
