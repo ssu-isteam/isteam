@@ -1,0 +1,29 @@
+.groupware__btn-signout {
+    vertical-align: bottom;
+    font-size: 1em;
+    padding: calc(8px + 0.5em);
+}
+
+.groupware__btn-signout:hover {
+    vertical-align: bottom;
+    font-size: 1em;
+    padding: calc(8px + 0.5em);
+}
+
+.groupware__user {
+    display: flex;
+    padding: 0.7em 0 0.5em;
+}
+
+.groupware__user-name {
+    font-size: 1.5em;
+    padding: 8px;
+    padding-left: 0;
+    margin-right: 10px;
+    vertical-align: text-bottom;
+}
+
+.groupware__table {
+    width: 100%;
+    overflow: scroll;
+}

@@ -9,7 +9,7 @@ from groupware.views.base import GroupwareView
 class UserListView(GroupwareView, ListView):
     model = Member
 
-    template_name = 'users.html'
+    template_name = 'groupware/users.html'
 
     context_object_name = 'Users'
 

@@ -1,0 +1,31 @@
+.btn {
+    padding: 9px;
+    background-color: rgba(220, 220, 220, 0.4);
+    border-radius: 5px;
+    display: block;
+    color: rgb(42, 103, 139);
+    text-decoration: none;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+.btn__no-color {
+    background: none !important;
+    border: none;
+    font-size: 1em !important;
+}
+
+.btn__left {
+    text-align: left !important;
+    padding-left: 0 !important;
+}
+
+.btn:hover {
+    padding: 9px;
+    background-color: rgba(220, 220, 220, 0.8);
+    border-radius: 5px;
+    display: inherit;
+    color: rgb(42, 103, 139);
+    text-decoration: inherit;
+    transition: 0.2s;
+}

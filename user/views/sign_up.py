@@ -17,7 +17,7 @@ class SignUp(FormView):
 
     template_name = 'sign_up.html'
 
-    success_url = '/'
+    success_url = '/user/email/sent'
 
     def create_template_email_context(self, form, member):        
         return {
@@ -26,6 +26,11 @@ class SignUp(FormView):
             'uid': urlsafe_base64_encode(force_bytes(member.id)),
             'token': account_activation_token.make_token(member)
         }
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = '회원가입'
+        return context 
 
     # 이 메소드는 POST 요청일 때만 실행됨 
     def form_valid(self, form):

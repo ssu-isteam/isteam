@@ -1,0 +1,10 @@
+{% extends "groupware/layout.html" %}
+
+{% block content %}
+{% for account in accounts %}
+<div class="groupware__account-table">
+    <iframe src="{{ account.embedded_link }}" style="width: 100%; height: 700px;">
+    </iframe>
+</div>
+{% endfor %}
+{% endblock %}

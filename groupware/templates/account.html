@@ -1,9 +1,0 @@
-{% extends "layout.html" %}
-
-{% block content %}
-{% for account in accounts %}
-<iframe src="{{ account.embedded_link }}"
-        style="width: 100%; height: 700px;">
-</iframe>
-{% endfor %}
-{% endblock %}

@@ -7,7 +7,7 @@ from groupware.views.base import GroupwareView
 class AccountBookListView(GroupwareView, ListView):
     model = AccountBook
 
-    template_name = 'account.html'
+    template_name = 'groupware/account.html'
 
     context_object_name = 'accounts'
 

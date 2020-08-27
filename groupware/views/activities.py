@@ -7,13 +7,13 @@ from groupware.models import Activity, Session
 class ActivityListView(GroupwareView, ListView):
     model = Activity
 
-    template_name = 'activities.html'
+    template_name = 'groupware/activities.html'
 
     tab_name = 'activities'
 
     context_object_name = 'activities'
 
-    paginate_by = 2
+    # paginate_by = 2
 
     def get_context_data(self):
         context = super().get_context_data()
