@@ -11,11 +11,11 @@ class SignIn(FormView):
     template_name = 'sign_in.html'
 
     success_url = '/groupware/activities'
-
-    def get_context_data(self):
-        context = super().get_context_data()
+ 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
         context['title'] = '로그인'
-        return context  
+        return context
 
     def form_valid(self, form):
         nickname = form.data['nickname']

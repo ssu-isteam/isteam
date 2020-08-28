@@ -9,7 +9,7 @@ install:
 - npm i
 - npm run bundle
 script:
-- "./manage.py test --settings isteam.settings.ci || true"
+- "./manage.py test --settings isteam.settings.ci"
 deploy:
   provider: script
   script: bash scripts/on-travis.sh
