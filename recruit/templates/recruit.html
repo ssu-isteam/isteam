@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<form method="POST" action=".">
+    {% csrf_token %}
+    {% for field in form %}
+    <p>
+        <label class="form__label" for="{{ field.id_for_label }}">{{ field.label }}</label>
+        <input class="form__text" type="{{ field.field.widget.input_type }}" id="{{ field.id_for_label }}" placeholder="{{ field.label }}" name="{{ field.name }}">
+        {% if field.errors %}
+            <div class="error-box">
+                <span style="color: red">{{ field.errors }}</span>
+            </div>
+        {% endif %}
+    </p>
+    
+    
+    {% endfor %}
+    <button type="submit" class="form__submit btn user__btn-primary">회원가입</button>
+</form>
+{% endblock %}

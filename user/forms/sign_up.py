@@ -4,6 +4,8 @@ from django.db.models import Q
 from user.models import Member
 from user.forms.common_fields import nickname, password, student_id
 
+from recruit.models import GroupMember
+
 
 class SignUpForm(forms.Form):
     nickname = nickname
@@ -30,8 +32,12 @@ class SignUpForm(forms.Form):
             self.add_error('re_password', '비밀번호가 일치하지 않습니다.')
             return
 
-        isteam_member = Member.objects.filter(Q(student_id=cleaned_data.get('student_id'))).exists()
+        isteam_member = GroupMember.objects.filter(Q(student_id=cleaned_data.get('student_id'))).exists()
 
         if not isteam_member:
             self.add_error('student_id', 'ISTEAM 부원이 아닙니다.')
+            return
+        else:
+            if Member.objects.filter(username=cleaned_data.get('nickname')):
+                self.add_error('nickname', '이미 존재하는 닉네임입니다.')
             return
