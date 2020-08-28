@@ -36,12 +36,9 @@ class SignUp(FormView):
     def form_valid(self, form):
         try:
             member = Member.objects.get(
-                Q(student_id=form.data['student_id']) &
-                Q(first_name=form.data['name'][1:]) &
-                Q(last_name=form.data['name'][:1])
+                Q(student_id=form.data['student_id'])
             )
             member.username = form.data['nickname']
-            member.email = form.data['email']
             member.password = make_password(form.data['password'])
             member.did_sign_up = True
             member.save()
@@ -55,8 +52,10 @@ class SignUp(FormView):
                 context=self.create_template_email_context(form.data, member),
                 to=form.data['email']
             )
+            self.success_url += f'?address={member.email}'
             email.send()
             return super().form_valid(form)
-        except:
+        except Exception as e:
             member.delete()
+            print(e)
             return HttpResponseServerError("500 내부 서버 오류. 이메일 전송에 실패하였습니다. 회원가입을 다시 진행해 주세요.")
