@@ -7,8 +7,7 @@ class Member(AbstractUser):
     # 학번
     student_id = models.CharField(max_length=8)
 
-    # @soongsil.ac.kr로 끝나는 이메일
-    email = models.CharField(max_length=30, null=True, blank=False)
+    email = models.CharField(max_length=30, default='')
 
     password = models.CharField(max_length=128, null=True, blank=False)
 

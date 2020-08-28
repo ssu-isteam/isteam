@@ -10,7 +10,9 @@ from user.tokens import account_activation_token
 
 
 def email_sent(request):
-    return render(request, 'email_sent.html', {})
+    return render(request, 'email_sent.html', {
+        'address': request.GET.get('address')
+    })
 
 
 def email_verified(request):

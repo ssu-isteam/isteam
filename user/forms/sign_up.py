@@ -8,24 +8,7 @@ from user.forms.common_fields import nickname, password, student_id
 class SignUpForm(forms.Form):
     nickname = nickname
 
-    name = forms.CharField(
-        error_messages={
-            'required': '이름을 입력해주세요.'
-        },
-        max_length=15,
-        label='이름'
-    )
-
     student_id = student_id
-
-    email = forms.EmailField(
-        error_messages={
-            'required': '이메일을 입력해주세요.'
-        },
-        widget=forms.EmailInput,
-        max_length=64,
-        label='이메일'
-    )
 
     password = password
 
@@ -45,12 +28,6 @@ class SignUpForm(forms.Form):
 
         if re_password_is_same:
             self.add_error('re_password', '비밀번호가 일치하지 않습니다.')
-            return
-
-        mail_already_exists = Member.objects.filter(Q(email=cleaned_data.get('email'))).exists()
-
-        if mail_already_exists:
-            self.add_error('email', '이미 존재하는 이메일입니다.')
             return
 
         isteam_member = Member.objects.filter(Q(student_id=cleaned_data.get('student_id'))).exists()
