@@ -31,7 +31,8 @@ class SignInViewTest(TestCase):
             last_name='정현',
             student_id='12345678',
             password='1234',
-            email_verified=True
+            is_active=True,
+            did_sign_up=True
         )
 
     def test_user_sign_in_success(self):
