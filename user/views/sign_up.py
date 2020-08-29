@@ -17,7 +17,7 @@ from recruit.models import GroupMember
 class SignUp(FormView):
     form_class = SignUpForm    
 
-    template_name = 'sign_up.html'
+    template_name = 'user/sign_up.html'
 
     success_url = '/user/email/sent'
 
