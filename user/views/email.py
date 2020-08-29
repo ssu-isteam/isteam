@@ -25,8 +25,8 @@ def verify_email(request, uidb64, token):
         user = get_object_or_404(Member, pk=uid)
 
         if account_activation_token.check_token(user, token):
-            junior_group = Group.objects.get(pk=1)
-            user.groups.add(junior_group)
+            # junior_group = Group.objects.get(pk=1)
+            # user.groups.add(junior_group)
 
             user.is_active = True
             user.save()
