@@ -11,6 +11,8 @@ from user.forms.sign_up import SignUpForm
 from user.tokens import account_activation_token
 from user.utils.email import build_template_email
 
+from recruit.models import GroupMember
+
 
 class SignUp(FormView):
     form_class = SignUpForm    
@@ -35,12 +37,22 @@ class SignUp(FormView):
     # 이 메소드는 POST 요청일 때만 실행됨 
     def form_valid(self, form):
         try:
-            member = Member.objects.get(
-                Q(student_id=form.data['student_id'])
+            applicant = GroupMember.objects.get(student_id=form.data['student_id'])
+
+            if not applicant.approval:
+                return HttpResponseNotAllowed("부원 신청 진행중입니다. 관리자에게 문의하여 주십시오.")
+
+            member = Member(
+                last_name=applicant.username[:1],
+                first_name=applicant.username[1:],
+                email=applicant.email,
+                student_id=applicant.student_id,
+                username=form.data['nickname'],
+                password=make_password(form.data['password']),
+                did_sign_up=True
             )
-            member.username = form.data['nickname']
-            member.password = make_password(form.data['password'])
-            member.did_sign_up = True
+
+            member.save()
         except:
             return HttpResponseNotAllowed("부원으로 등록되어 있지 않습니다. 관리자에게 문의하여 주십시오.")
 
