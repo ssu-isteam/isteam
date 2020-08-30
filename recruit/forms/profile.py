@@ -1,7 +1,7 @@
 from django import forms
 
 
-class RecruitForm(forms.Form):
+class ProfileForm(forms.Form):
     username = forms.CharField(
         error_messages={
             'required': '이름을 입력해주세요.'
