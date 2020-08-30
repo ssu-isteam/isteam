@@ -10,3 +10,6 @@ class QuestionFormView(FormView):
     template_name = 'recruit/question.html'
 
     success_url = '/'
+
+    def get_context_data(self, **kwargs):
+        pass
