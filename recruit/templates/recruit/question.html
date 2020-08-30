@@ -6,7 +6,7 @@
     {% csrf_token %}
     <div class="form">
         {% for field in form %}
-        {{ field.label }}
+        <label class="form__label" for="{{ field.id_for_label }}">{{ field.label }}</label>
         {{ field }}
         {% endfor %}
         <button type="submit" class="form__submit btn user__btn-primary">제출하기</button>
