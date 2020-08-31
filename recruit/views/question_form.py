@@ -29,26 +29,27 @@ class QuestionFormView(FormView):
         applicant_name = self.applicant_profile['username']
         applicant_email = self.applicant_profile['email']
 
-        applicant = Applicant(
-            recruitment=recruitment,
-            name=self.applicant_profile['username'],
+        applicant, created = Applicant.objects.update_or_create(
             student_id=self.applicant_profile['student_id'],
-            email=self.applicant_profile['email'],
-            phone_number=self.applicant_profile['phone_number'],
-            passed=False
+            defaults={
+                'recruitment': recruitment,
+                'name': self.applicant_profile['username'],
+                'email': self.applicant_profile['email'],
+                'phone_number': self.applicant_profile['phone_number'],
+                'passed': False
+            }
         )
-        applicant.save()
 
         answers = []
         for q in questions:
-            answers.append(
-                Answer(
-                    question=q,
-                    answer=str(form.data[str(q.pk)]),
-                    applicant=applicant
-                )
+            answer, created = Answer.objects.update_or_create(
+                question=q,
+                applicant=applicant,
+                defaults={
+                    'answer': str(form.data[str(q.pk)])
+                }
             )
-        Answer.objects.bulk_create(answers)
+            answers.append(answer)
 
         send_template_email(
             title=f'{applicant.name}님, ISTEAM에 지원해 주셔서 감사합니다!',
