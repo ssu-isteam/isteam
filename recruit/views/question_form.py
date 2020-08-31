@@ -6,6 +6,7 @@ from django.urls import reverse
 
 from recruit.forms.question import QuestionForm
 from recruit.models import Recruitment, Question, Applicant, Answer
+from utils.email import send_template_email
 
 
 class QuestionFormView(FormView):
@@ -24,6 +25,9 @@ class QuestionFormView(FormView):
 
         questions = Question.objects.filter(id__in=map(int, ids), recruitment=recruitment)
         questions = list(questions)
+
+        applicant_name = self.applicant_profile['username']
+        applicant_email = self.applicant_profile['email']
 
         applicant = Applicant(
             recruitment=recruitment,
@@ -45,6 +49,16 @@ class QuestionFormView(FormView):
                 )
             )
         Answer.objects.bulk_create(answers)
+
+        send_template_email(
+            title=f'{applicant.name}님, ISTEAM에 지원해 주셔서 감사합니다!',
+            template_name='recruit/email_body.html',
+            to=applicant.email,
+            context={
+                'applicant': applicant,
+                'answers': answers
+            }
+        )
 
         return super().form_valid(form)
 

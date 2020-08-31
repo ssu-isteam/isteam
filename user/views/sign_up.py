@@ -9,7 +9,7 @@ from django.db.models import Q
 from user.models import Member
 from user.forms.sign_up import SignUpForm
 from user.tokens import account_activation_token
-from utils.email import build_template_email
+from utils.email import send_template_email
 
 
 class SignUp(FormView):
@@ -45,15 +45,15 @@ class SignUp(FormView):
             return HttpResponseNotAllowed("부원으로 등록되어 있지 않습니다. 관리자에게 문의하여 주십시오.")
 
         try:
-            email = build_template_email(
+            send_template_email(
                 title='계정 활성화 확인 이메일', 
                 template_name='email_body/activation.html', 
                 context=self.create_template_email_context(form.data, member),
                 to=member.email
             )
+
             self.success_url += f'?address={member.email}'
             member.save()
-            email.send()
             return super().form_valid(form)
         except Exception as e:
             print(e)
