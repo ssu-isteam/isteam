@@ -16,8 +16,9 @@ class Index(ListView):
 
         try:
             context['recruit_url'] = reverse('recruit')
+            context['recruit_available'] = True
         except:
-            context['recruit_url'] = '/'
+            context['recruit_available'] = False
 
         for activity in context[self.context_object_name]:
             sessions = list(Session.objects.filter(activity=activity.id))
