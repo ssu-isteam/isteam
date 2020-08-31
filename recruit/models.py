@@ -15,12 +15,6 @@ class Question(models.Model):
     recruitment = models.ForeignKey(Recruitment, on_delete=models.CASCADE)
 
 
-class Answer(models.Model):
-    answer = models.TextField()
-
-    question = models.ForeignKey(Question, on_delete=models.CASCADE)
-
-
 class Applicant(models.Model):
     name = models.CharField(max_length=5)
 
@@ -33,3 +27,11 @@ class Applicant(models.Model):
     passed = models.BooleanField(default=False)
 
     recruitment = models.ForeignKey(Recruitment, on_delete=models.CASCADE)
+
+
+class Answer(models.Model):
+    answer = models.TextField()
+
+    question = models.ForeignKey(Question, on_delete=models.CASCADE)
+
+    applicant = models.ForeignKey(Applicant, on_delete=models.CASCADE, default=1)
