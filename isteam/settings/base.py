@@ -17,8 +17,8 @@ INSTALLED_APPS = [
     'webpack_loader',
     'main_page.apps.MainPageConfig',
     'user.apps.UserConfig',
-    'groupware.apps.GroupwareConfig',
-    'recruit.apps.RecruitConfig'
+    'groupware.apps.GroupwareConfig'
+    # 'recruit.apps.RecruitConfig'
 ]
 
 MIDDLEWARE = [

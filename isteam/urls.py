@@ -21,6 +21,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('main_page.urls')),
     path('user/', include('user.urls')),
-    path('groupware/', include('groupware.urls')),
-    path('recruit/', include('recruit.urls'))
+    path('groupware/', include('groupware.urls'))
 ]
+
+try:
+    urlpatterns.append(path('recruit/', include('recruit.urls')))
+except:
+    pass
