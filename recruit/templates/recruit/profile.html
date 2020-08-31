@@ -2,6 +2,7 @@
 
 {% block content %}
 <form action="." method="post">
+    <p><span class="text-block">부원 지원</span> </p>
     {% csrf_token %}
     <div class="form">
         {% for field in form %}
@@ -21,8 +22,7 @@
             <p>회원가입을 다시 진행하고 싶다면 운영진에게 문의해 주세요.</p>
         </div>
         {% endif %}
-        <button type="submit" class="form__submit btn user__btn-primary">로그인</button>
+        <button type="submit" class="form__submit btn user__btn-primary">다음 단계로(1/2)</button>
     </div>
 </form>
-<a class="btn btn__no-color" href="{% url 'signup' %}">회원가입</a>
 {% endblock %}

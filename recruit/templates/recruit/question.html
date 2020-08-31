@@ -1,0 +1,15 @@
+{% extends 'form_layout.html' %}
+
+{% block content %}
+<form method="post">
+    <p><span class="text-block">부원 지원</span> </p>
+    {% csrf_token %}
+    <div class="form">
+        {% for field in form %}
+        <label class="form__label" for="{{ field.id_for_label }}">{{ field.label }}</label>
+        {{ field }}
+        {% endfor %}
+        <button type="submit" class="form__submit btn user__btn-primary">제출하기</button>
+    </div>
+</form>
+{% endblock %}
