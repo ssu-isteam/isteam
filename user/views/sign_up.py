@@ -9,7 +9,7 @@ from django.db.models import Q
 from user.models import Member
 from user.forms.sign_up import SignUpForm
 from user.tokens import account_activation_token
-from user.utils.email import build_template_email
+from utils.email import build_template_email
 
 
 class SignUp(FormView):
