@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import ListView
+from django.urls import reverse
 
 from groupware.models import Activity, Session
 
@@ -12,6 +13,11 @@ class Index(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context[self.context_object_name] = list(context[self.context_object_name])[:3]
+
+        try:
+            context['recruit_url'] = reverse('recruit')
+        except:
+            context['recruit_url'] = '/'
 
         for activity in context[self.context_object_name]:
             sessions = list(Session.objects.filter(activity=activity.id))
