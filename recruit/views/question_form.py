@@ -77,3 +77,8 @@ class QuestionFormView(FormView):
             return super().get(*args, **kwargs)
         except:
             return HttpResponseRedirect(reverse('recruit'))
+
+    def get_success_url(self):
+        profile = self.request.COOKIES.get('profile')
+        profile = json.loads(profile)
+        return f'{reverse("recruit_email_sent")}?address={profile["email"]}'

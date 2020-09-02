@@ -1,0 +1,12 @@
+{% extends 'form_layout.html' %}
+
+{% block content %}
+<h1><span class="text-block">안내 메일이 </span><span class="text-block">전송되었습니다.</span></h1>
+<p>
+    {{ address }}
+</p>
+<p>
+    이메일을 받지 못하셨다면 verify.isteam.ssu@gmail.com으로 문의해 주세요.
+</p>
+<a class="btn" href="/">홈으로</a>
+{% endblock %}
