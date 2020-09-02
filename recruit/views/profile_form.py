@@ -1,6 +1,9 @@
 import json
 
-from django.http import HttpRequest
+import requests
+from decouple import config
+
+from django.http import HttpRequest, HttpResponseBadRequest
 from django.views.generic import FormView
 from django.shortcuts import redirect
 from django.urls import reverse
@@ -15,7 +18,20 @@ class ProfileFormView(FormView):
 
     def form_valid(self, form):
         response = super().form_valid(form)
-        
+
+        try:
+            res = requests.post('https://www.google.com/recaptcha/api/siteverify', data={
+                'secret': config('RECAPTCHA_SECRET'),
+                'response': form.data['g-recaptcha-response']
+            })
+            body = res.json()
+            success = body['success']
+            
+            if res.status_code != 200 or not success:
+                raise Exception('Captcha failed.')
+        except:
+            return HttpResponseBadRequest('캡챠 인증에 실패했습니다. 부원 신청을 다시 진행해 주세요.')
+
         cookie_profile = json.dumps({
             'username': form.cleaned_data['username'],
             'student_id': form.cleaned_data['student_id'],
