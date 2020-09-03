@@ -22,6 +22,10 @@ body {
     vertical-align: middle;
 }
 
+.text-left {
+    text-align: left;
+}
+
 .title-txt > * {
     font-family: 'Lexend Deca', sans-serif;
     color: #5d5d5d;

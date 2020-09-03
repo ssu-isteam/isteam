@@ -9,12 +9,18 @@ from django.shortcuts import redirect
 from django.urls import reverse
 
 from recruit.forms.profile import ProfileForm
+from recruit.models import Recruitment
 
 
 class ProfileFormView(FormView):
     form_class = ProfileForm
 
     template_name = 'recruit/profile.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['recruitment'] = Recruitment.objects.order_by('year', 'semester').first()
+        return context
 
     def form_valid(self, form):
         response = super().form_valid(form)
