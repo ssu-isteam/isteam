@@ -17,6 +17,23 @@ from decouple import config
 from .base import *
 
 
+# Application definition
+
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'webpack_loader',
+    'main_page.apps.MainPageConfig',
+    'user.apps.UserConfig',
+    'groupware.apps.GroupwareConfig',
+    'recruit.apps.RecruitConfig'
+]
+
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
