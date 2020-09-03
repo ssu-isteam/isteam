@@ -20,6 +20,12 @@
     padding-left: 0 !important;
 }
 
+.btn__disabled {
+    pointer-events: none;
+    cursor: default;
+    color: gray;
+}
+
 .btn:hover {
     padding: 9px;
     background-color: rgba(220, 220, 220, 0.8);

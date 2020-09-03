@@ -1,8 +1,22 @@
 {% extends 'form_layout.html' %}
 
+{% block head %}
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<script>
+    function onSubmit(token) {
+        console.log('on submit invokes')
+        document.getElementById("apply-form").submit();
+    }
+</script>
+<title>ISTEAM 부원 지원</title>
+{% endblock %}
+
 {% block content %}
-<form action="." method="post">
-    <p><span class="text-block">부원 지원</span> </p>
+<form action="?" method="post" id="apply-form">
+    <div class="text-left">
+        <h3>부원 모집 안내사항</h3>
+        <p>{{ recruitment.information|linebreaks }}</p>
+    </div>
     {% csrf_token %}
     <div class="form">
         {% for field in form %}
@@ -22,7 +36,7 @@
             <p>회원가입을 다시 진행하고 싶다면 운영진에게 문의해 주세요.</p>
         </div>
         {% endif %}
-        <button type="submit" class="form__submit btn user__btn-primary">다음 단계로(1/2)</button>
+        <button class="form__submit btn user__btn-primary g-recaptcha" data-sitekey="6LdoyMYZAAAAAME6PL5CU64kJFUMwmOzG-oPn935" data-callback='onSubmit' data-action='submit'>인적사항 작성 완료(1/2)</button>
     </div>
 </form>
 {% endblock %}

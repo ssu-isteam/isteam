@@ -6,6 +6,8 @@ from groupware.models import Semester
 class Recruitment(models.Model):
     year = models.IntegerField()
 
+    information = models.TextField()
+
     semester = models.IntegerField(choices=Semester.choices(), default=Semester.FIRST)
 
 
