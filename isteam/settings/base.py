@@ -45,6 +45,8 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, '../static')
 ]
 
+STATIC_ROOT = os.path.join(BASE_DIR, '../static')
+
 WEBPACK_LOADER = {
     'DEFAULT': {
         'BUNDLE_DIR_NAME': 'bundles/',
