@@ -15,7 +15,6 @@ deploy:
   script: bash scripts/on-travis.sh
   on:
     branch:
-    - master
     - deploy-recruit-closed
     - deploy-recruit-opened
 env:
