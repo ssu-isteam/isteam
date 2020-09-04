@@ -2,7 +2,7 @@ from django.views.generic import FormView
 from django.utils.http import urlsafe_base64_encode
 from django.contrib.sites.shortcuts import get_current_site
 from django.contrib.auth.hashers import make_password
-from django.http import HttpResponseServerError, HttpResponseNotAllowed
+from django.http import HttpResponseServerError, HttpResponseNotAllowed, HttpResponseBadRequest
 from django.utils.encoding import force_bytes
 from django.db.models import Q
 
@@ -34,6 +34,16 @@ class SignUp(FormView):
 
     # 이 메소드는 POST 요청일 때만 실행됨 
     def form_valid(self, form):
+        try:
+            res = get_captcha_data(form.data['g-recaptcha-response'])
+            body = res.json()
+            success = body['success']
+            
+            if res.status_code != 200 or not success:
+                raise Exception('Captcha failed.')
+        except:
+            return HttpResponseBadRequest('캡챠 인증에 실패했습니다.')
+
         try:
             member = Member.objects.get(
                 Q(student_id=form.data['student_id'])

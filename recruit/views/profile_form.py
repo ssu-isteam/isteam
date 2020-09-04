@@ -10,6 +10,7 @@ from django.urls import reverse
 
 from recruit.forms.profile import ProfileForm
 from recruit.models import Recruitment
+from utils.recaptcha import get_captcha_data
 
 
 class ProfileFormView(FormView):
@@ -26,17 +27,14 @@ class ProfileFormView(FormView):
         response = super().form_valid(form)
 
         try:
-            res = requests.post('https://www.google.com/recaptcha/api/siteverify', data={
-                'secret': config('RECAPTCHA_SECRET'),
-                'response': form.data['g-recaptcha-response']
-            })
+            res = get_captcha_data(form.data['g-recaptcha-response'])
             body = res.json()
             success = body['success']
             
             if res.status_code != 200 or not success:
                 raise Exception('Captcha failed.')
         except:
-            return HttpResponseBadRequest('캡챠 인증에 실패했습니다. 부원 신청을 다시 진행해 주세요.')
+            return HttpResponseBadRequest('캡챠 인증에 실패했습니다.')
 
         cookie_profile = json.dumps({
             'username': form.cleaned_data['username'],
