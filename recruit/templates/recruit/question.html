@@ -1,18 +1,25 @@
 {% extends 'form_layout.html' %}
 
 {% block head %}
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<script>
+    function onSubmit(token) {
+        document.getElementById("apply-form").submit();
+    }
+</script>
 <title>ISTEAM 부원 지원</title>
 {% endblock %}
 
 {% block content %}
 <form method="post">
+    <p>서류 질문지는 임시저장되지 않습니다.</p>
     {% csrf_token %}
     <div class="form">
         {% for field in form %}
         <label class="form__label" for="{{ field.id_for_label }}">{{ field.label }}</label>
         {{ field }}
         {% endfor %}
-        <button type="submit" class="form__submit btn user__btn-primary">서류 평가지 제출 완료 (2/2)</button>
+        <button type="submit" class="form__submit btn user__btn-primary g-recaptcha" data-sitekey="6LdoyMYZAAAAAME6PL5CU64kJFUMwmOzG-oPn935" data-callback='onSubmit' data-action='submit'>서류 평가지 제출 완료 (2/2)</button>
     </div>
 </form>
 {% endblock %}

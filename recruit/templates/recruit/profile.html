@@ -4,7 +4,6 @@
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <script>
     function onSubmit(token) {
-        console.log('on submit invokes')
         document.getElementById("apply-form").submit();
     }
 </script>
@@ -12,10 +11,32 @@
 {% endblock %}
 
 {% block content %}
-<form action="?" method="post" id="apply-form">
+<form method="post" id="apply-form">
     <div class="text-left">
         <h3>부원 모집 안내사항</h3>
         <p>{{ recruitment.information|linebreaks }}</p>
+    </div>
+    <div class="text-left">
+        <h3>개인 정보 처리 안내사항</h3>
+        <p>ISTEAM은 지원자의 다음과 같은 정보를 수집하고 있습니다.</p>
+        <ul>
+            <li>수집하는 정보: 이름, 학번, 이메일, 전화번호</li>
+            <li>수집 사유: 지원자 관리, 합격자에게 그룹웨어 제공</li>
+        </ul>
+        <p>다음과 같은 경우 개인 정보를 파기합니다.</p>
+        <ul>
+            <li>ISTEAM 탈퇴시 최대 1년동안 보관 후 파기합니다.</li>
+            <li>그룹웨어 시스템 탈퇴 의사를 밝힐 시 최대 1년동안 보관 후 파기합니다.</li>
+            <li><strong>ISTEAM 모집에서 탈락 시 즉시 파기합니다.</strong></li>
+            <li>개인정보 책임자는 그룹웨어 시스템 관리자로 합니다.</li>
+        </ul>
+        <p>
+            관리자 정보
+            <ul>
+                <li>성명: 이정현</li>
+                <li>이메일: jeonghyun0126@outlook.com</li>
+            </ul>
+        </p>
     </div>
     {% csrf_token %}
     <div class="form">
