@@ -16,6 +16,23 @@ from decouple import config
 
 from .base import *
 
+
+# Application definition
+
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'webpack_loader',
+    'main_page.apps.MainPageConfig',
+    'user.apps.UserConfig',
+    'groupware.apps.GroupwareConfig',
+    'recruit.apps.RecruitConfig'
+]
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
