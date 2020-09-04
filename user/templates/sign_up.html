@@ -1,6 +1,34 @@
 {% extends 'form_layout.html' %}
 
 {% block content %}
+<div class="text-left">
+    <p><strong>본 ISTeam 그룹웨어는 ISTeam 회원만 이용할 수 있습니다. </strong>이용약관은 ISTeam 회칙으로 갈음합니다.</p>
+    <p>&#9;개인정보 취급방침</p>
+    <p>2020년 9월 5일 시행, 2020년 9월 5일 수정</p>
+    <p>
+        ISTeam은 부원 여러분들의 편의를 위하여 다음 정보를 수집·제공하고 있습니다.
+        <ul>
+            <li>수집하는 정보: 이름, 학번, 이메일, 아이디, 비밀번호</li>
+            <li>수집 사유: 그룹웨어에서 다른 부원에게 제공, 프로젝트 관리, 시스템 관리</li>
+        </ul>
+        수집 사유에 규정되지 않은 경우에는 제 3자에게 개인정보를 제공하지 않습니다.
+        다음과 같은 경우에 개인정보를 파기합니다.
+    </p>
+    <p>
+        <ul>
+            <li>ISTeam 탈퇴시 최대 1년동안 보관 후 파기합니다.</li>
+            <li>그룹웨어 시스템 탈퇴 의사를 밝힐 시 최대 1년동안 보관 후 파기합니다.</li>
+            <li>개인정보 책임자는 그룹웨어 시스템 관리자로 합니다.</li>
+        </ul>
+    </p>
+    <p>
+        관리자 정보
+        <ul>
+            <li>성명: 이정현</li>
+            <li>이메일: jeonghyun0126@soongsil.ac.kr</li>
+        </ul>
+    </p>
+</div>
 <form method="POST" action=".">
     {% csrf_token %}
     {% for field in form %}
@@ -13,8 +41,6 @@
             </div>
         {% endif %}
     </p>
-    
-    
     {% endfor %}
     <button type="submit" class="form__submit btn user__btn-primary">회원가입</button>
 </form>
