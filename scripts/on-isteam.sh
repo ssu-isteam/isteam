@@ -20,6 +20,9 @@ echo "[LOG] Building CSS"
 npm i
 npm run bundle -- --mode production
 
+echo "[LOG] Collecting static file"
+./manage.py collectstatic --settings isteam.settings.production
+
 echo "[LOG] Starting up the application"
 mv .prod.env .env
 gunicorn isteam.wsgi:application --bind 0.0.0.0:8000 --daemon
