@@ -17,7 +17,8 @@ INSTALLED_APPS = [
     'webpack_loader',
     'main_page.apps.MainPageConfig',
     'user.apps.UserConfig',
-    'groupware.apps.GroupwareConfig'
+    'groupware.apps.GroupwareConfig',
+    'recruit.apps.RecruitConfig'
 ]
 
 MIDDLEWARE = [
@@ -50,6 +51,24 @@ WEBPACK_LOADER = {
         'STATS_FILE': os.path.join(BASE_DIR, '../webpack-stats.json')
     }
 }
+
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [
+            os.path.join(BASE_DIR, '../templates')
+        ],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
 
 
 # Internationalization

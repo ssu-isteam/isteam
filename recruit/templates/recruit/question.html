@@ -1,0 +1,18 @@
+{% extends 'form_layout.html' %}
+
+{% block head %}
+<title>ISTEAM 부원 지원</title>
+{% endblock %}
+
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    <div class="form">
+        {% for field in form %}
+        <label class="form__label" for="{{ field.id_for_label }}">{{ field.label }}</label>
+        {{ field }}
+        {% endfor %}
+        <button type="submit" class="form__submit btn user__btn-primary">서류 평가지 제출 완료 (2/2)</button>
+    </div>
+</form>
+{% endblock %}

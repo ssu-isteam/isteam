@@ -1,0 +1,15 @@
+<div>
+    <p>
+        <div style="font-size: large;">{{ applicant.name }}님, ISTEAM에 지원해 주셔서 감사합니다!</div>
+    </p>
+    <p>
+        <div style="font-size: 1.2em;">아래는 {{ applicant.name }}님이 작성하신 서류 질문의 답변입니다.</div>
+    </p>
+    {% for a in answers %}
+    <p>
+        <div><strong>Q. {{ a.question.question }}</strong></div>
+        <div>{{ a.answer }}</div>
+    </p>
+    {% endfor %}
+    <p><strong>제출한 내용은 다시 수정할 수 있습니다.</strong> 학번을 제외한 모든 사항을 수정할 수 있습니다. 다시 한 번 부원 신청하기 페이지에서 같은 과정을 진행해 주세요.</p>
+</div>

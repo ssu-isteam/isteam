@@ -8,6 +8,10 @@
     margin: 0;
 }
 
+.form {
+    margin-top: 1.5em;
+}
+
 .form__label {
     display: block;
     width: 100%;
