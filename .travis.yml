@@ -17,6 +17,7 @@ install:
   - npm i
   - npm run bundle
   - ./manage.py migrate --settings isteam.settings.ci
+  - ./manage.py migrate auth --settings isteam.settings.ci
 
 script:
   - "./manage.py test --settings isteam.settings.ci"
