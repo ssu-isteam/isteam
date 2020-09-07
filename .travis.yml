@@ -6,9 +6,6 @@ addons:
   ssh_known_hosts:
     - 220.230.122.142
 
-before_install:
-  - mysql -e 'CREATE DATABASE isteam;'
-
 install:
   - pip install -r requirements.txt
   - npm i
