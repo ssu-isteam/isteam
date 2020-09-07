@@ -25,8 +25,8 @@ deploy:
   script: bash scripts/on-travis.sh
   on:
     branch:
-      loy-recruit-closed
-    - deploy-recruit-opened
+      - deploy-recruit-closed
+      - deploy-recruit-opened
 
 env:
   global:
