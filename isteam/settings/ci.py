@@ -51,14 +51,8 @@ ALLOWED_HOSTS = []
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'isteam',
-        'USER': 'travis',
-        'PASSWORD': '',
-        'HOST': 'localhost',
-        'OPTIONS': {
-            'charset': 'utf8mb4'
-        }
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'isteam_testing',
     }
 }
 
