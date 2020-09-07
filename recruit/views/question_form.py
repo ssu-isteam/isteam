@@ -32,7 +32,7 @@ class QuestionFormView(FormView):
 
         recruitment = Recruitment.objects.order_by('year', 'semester').first()
 
-        ids = list(form.cleaned_data.keys())[1:]
+        ids = list(form.cleaned_data.keys())
 
         questions = Question.objects.filter(id__in=map(int, ids), recruitment=recruitment)
         questions = list(questions)
@@ -57,7 +57,7 @@ class QuestionFormView(FormView):
                 question=q,
                 applicant=applicant,
                 defaults={
-                    'answer': str(form.data[str(q.pk)])
+                    'answer': str(form.cleaned_data[str(q.pk)])
                 }
             )
             answers.append(answer)
