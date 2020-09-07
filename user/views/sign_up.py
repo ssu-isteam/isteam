@@ -10,6 +10,7 @@ from user.models import Member
 from user.forms.sign_up import SignUpForm
 from user.tokens import account_activation_token
 from utils.email import send_template_email
+from utils.recaptcha import get_captcha_data
 
 
 class SignUp(FormView):
