@@ -10,11 +10,17 @@ class Recruitment(models.Model):
 
     semester = models.IntegerField(choices=Semester.choices(), default=Semester.FIRST)
 
+    def __str__(self):
+        return f'{self.year}-{self.semester}'
+
 
 class Question(models.Model):
     question = models.TextField()
 
     recruitment = models.ForeignKey(Recruitment, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'{self.recruitment.year}-{self.recruitment.semester} {self.question[:10]}... ({self.pk})'
 
 
 class Applicant(models.Model):
@@ -30,6 +36,9 @@ class Applicant(models.Model):
 
     recruitment = models.ForeignKey(Recruitment, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return f'{self.name}({self.student_id})'
+
 
 class Answer(models.Model):
     answer = models.TextField()
@@ -37,3 +46,6 @@ class Answer(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
 
     applicant = models.ForeignKey(Applicant, on_delete=models.CASCADE, default=1)
+
+    def __str__(self):
+        return f'[{self.applicant.student_id}] {self.question.question[:10]}... ({self.pk})'

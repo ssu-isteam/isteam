@@ -13,8 +13,8 @@ echo "[LOG] Setting up python env"
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
-./manage.py migrate
-./manage.py loaddata user/fixtures/groups.json
+./manage.py migrate auth --settings isteam.settings.production
+./manage.py migrate --settings isteam.settings.production
 
 echo "[LOG] Building CSS"
 npm i

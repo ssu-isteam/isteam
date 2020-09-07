@@ -10,13 +10,13 @@ from user.tokens import account_activation_token
 
 
 def email_sent(request):
-    return render(request, 'email_sent.html', {
+    return render(request, 'user/email_sent.html', {
         'address': request.GET.get('address')
     })
 
 
 def email_verified(request):
-    return render(request, 'email_verified.html', {})
+    return render(request, 'user/email_verified.html', {})
 
 
 def verify_email(request, uidb64, token):
@@ -25,7 +25,7 @@ def verify_email(request, uidb64, token):
         user = get_object_or_404(Member, pk=uid)
 
         if account_activation_token.check_token(user, token):
-            junior_group = Group.objects.get(pk=1)
+            junior_group = Group.objects.get(name='junior')
             user.groups.add(junior_group)
 
             user.is_active = True

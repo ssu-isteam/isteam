@@ -7,6 +7,7 @@ from django.urls import reverse
 from recruit.forms.question import QuestionForm
 from recruit.models import Recruitment, Question, Applicant, Answer
 from utils.email import send_template_email
+from utils.recaptcha import get_captcha_data
 
 
 class QuestionFormView(FormView):
@@ -31,7 +32,7 @@ class QuestionFormView(FormView):
 
         recruitment = Recruitment.objects.order_by('year', 'semester').first()
 
-        ids = list(form.data.keys())[1:]
+        ids = list(form.cleaned_data.keys())
 
         questions = Question.objects.filter(id__in=map(int, ids), recruitment=recruitment)
         questions = list(questions)
@@ -56,7 +57,7 @@ class QuestionFormView(FormView):
                 question=q,
                 applicant=applicant,
                 defaults={
-                    'answer': str(form.data[str(q.pk)])
+                    'answer': str(form.cleaned_data[str(q.pk)])
                 }
             )
             answers.append(answer)

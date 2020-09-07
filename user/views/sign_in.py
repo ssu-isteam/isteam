@@ -8,7 +8,7 @@ from user.models import Member
 class SignIn(FormView):
     form_class = SignInForm
 
-    template_name = 'sign_in.html'
+    template_name = 'user/sign_in.html'
 
     success_url = '/groupware/activities'
  

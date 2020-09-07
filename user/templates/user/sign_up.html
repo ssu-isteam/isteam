@@ -4,7 +4,7 @@
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <script>
     function onSubmit(token) {
-        document.getElementById("apply-form").submit();
+        document.getElementById("sign-up-form").submit();
     }
 </script>
 <title>ISTEAM 회원가입</title>
@@ -39,7 +39,7 @@
         </ul>
     </p>
 </div>
-<form method="POST" action=".">
+<form method="POST" action="."  id="sign-up-form">
     {% csrf_token %}
     {% for field in form %}
     <p>

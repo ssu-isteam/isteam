@@ -10,12 +10,13 @@ from user.models import Member
 from user.forms.sign_up import SignUpForm
 from user.tokens import account_activation_token
 from utils.email import send_template_email
+from utils.recaptcha import get_captcha_data
 
 
 class SignUp(FormView):
     form_class = SignUpForm    
 
-    template_name = 'sign_up.html'
+    template_name = 'user/sign_up.html'
 
     success_url = '/user/email/sent'
 
@@ -57,7 +58,7 @@ class SignUp(FormView):
         try:
             send_template_email(
                 title='계정 활성화 확인 이메일', 
-                template_name='email_body/activation.html', 
+                template_name='user/email_body/activation.html', 
                 context=self.create_template_email_context(form.data, member),
                 to=member.email
             )
