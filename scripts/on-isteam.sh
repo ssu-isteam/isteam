@@ -21,7 +21,7 @@ npm i
 npm run bundle -- --mode production
 
 echo "[LOG] Collecting static file"
-./manage.py collectstatic --settings isteam.settings.production
+./manage.py collectstatic --noinput --settings isteam.settings.production
 
 echo "[LOG] Starting up the application"
 mv .prod.env .env
