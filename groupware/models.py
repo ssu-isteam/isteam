@@ -22,7 +22,7 @@ class Activity(models.Model):
 
     end_date = models.DateField(null=True, blank=True)
 
-    title = models.CharField(max_length=30)
+    title = models.CharField(max_length=75)
 
     cover_photo_url = models.CharField(max_length=100, default='')
 
