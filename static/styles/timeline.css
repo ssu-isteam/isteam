@@ -31,15 +31,17 @@
     border-radius: 50%;
 }
 
+.timeline__content-container:last-child {
+    padding-bottom: 20px;
+}
+
 .timeline__content-card {
     display: flex;
+    padding-bottom: 10px;
 }
 
 .timeline__content-card > * {
-    margin: 10px;
-}
-
-.timeline__content-card > * {
+    margin-right: 10px;
     width: 100%;
 }
 
@@ -77,5 +79,9 @@
 
     .timeline__content-card__title {
         font-size: 2em;
+    }
+
+    .timeline__content-card > * {
+        margin-bottom: 10px;
     }
 }
