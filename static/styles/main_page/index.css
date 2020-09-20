@@ -116,11 +116,6 @@
     width: 100%;
 }
 
-.timeline__content-card__title {
-    font-size: 2em;
-    margin: 0;
-}
-
 .timeline__content-card__img {
     width: 100%;
     height: auto;
