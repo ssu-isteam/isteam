@@ -52,7 +52,12 @@
                 <div class="timeline">
                     {% for activity in activities %}
                     <div class="timeline__content-container">
+                        {% if activity.end_date %}
                         <h4 class="timeline__content-title">{{ activity.start_date }} ~ {{activity.end_date  }}</h4>
+                        {% else %}
+                        <h4 class="timeline__content-title">{{ activity.start_date }}</h4>
+                        {% endif %}
+                        
                         <div class="timeline__content-card">
                 
                             <div class="timeline__content-card__img">
@@ -63,7 +68,14 @@
                                 <div class="timeline__content-card__title">{{ activity.title }}</div>
                                 <div class="timeline__content-card__text__session-wrapper">
                                     {% for session in activity.sessions %}
-                                    <div class="timeline__content-card__text__session">{{ session.title }}</div>
+                                    <div class="timeline__content-card__text__session">
+                                        <p class="timeline__content-card__text__session__title">
+                                            {{ session.title }}
+                                        </p>
+                                        <p class="timeline__content-card__text__session__creator">
+                                            - {{ session.creator.username }}
+                                        </p>
+                                    </div>
                                     {% endfor %}
                                 </div>
                             </div>

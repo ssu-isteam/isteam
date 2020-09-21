@@ -2,6 +2,10 @@
     background-color: rgba(220, 220, 220, 0.4);
 }
 
+.recent-activity > * {
+    padding-bottom: 0 !important;
+}
+
 .main__isteam-intro {
     background-color: white;
 }
@@ -110,11 +114,6 @@
 
 .timeline__content-card > * {
     width: 100%;
-}
-
-.timeline__content-card__title {
-    font-size: 2em;
-    margin: 0;
 }
 
 .timeline__content-card__img {

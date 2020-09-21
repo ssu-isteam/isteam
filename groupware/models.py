@@ -33,11 +33,13 @@ class Activity(models.Model):
 
 
 class Session(models.Model):
-    title = models.CharField(max_length=30)
+    title = models.TextField(null=True, blank=False)
 
     description = models.TextField(null=True, blank=False)
 
     activity = models.ForeignKey(Activity, on_delete=models.CASCADE, null=True, blank=True)
+
+    creator = models.ForeignKey(Member, on_delete=models.CASCADE, null=True, blank=True)
 
 
 class AccountBook(models.Model):
