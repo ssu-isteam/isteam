@@ -91,3 +91,8 @@ body {
     display: flex;
     flex-direction: column;
 }
+
+.material-icons {
+    font-size: 1em !important;
+    vertical-align: -1.5px;
+}

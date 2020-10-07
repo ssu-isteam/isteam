@@ -32,7 +32,7 @@
 
 .form__text:focus {
     outline: none;
-    border: 2px solid rgb(0, 191, 188);
+    border: 2px solid black;
 }
 
 .form__input {

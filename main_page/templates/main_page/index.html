@@ -9,7 +9,7 @@
                 {% include 'includes/isteam_logo.html' %}
             </div>
             <div class="main__nav-container__sidemenu mobile-hide">
-                <a class="btn" href="{% url 'groupware_accounts' %}">부원 그룹웨어 로그인</a>
+                <a class="btn" href="{% url 'groupware_accounts' %}"><i class="material-icons">login</i> 부원 그룹웨어 로그인</a>
             </div>
         </div>
         <div class="subtitle">
@@ -25,9 +25,9 @@
             <div class="main__bottom-container">
                 <a class="btn btn__left btn__no-color {% if not recruit_available %} btn__disabled {% endif %}" href="{{ recruit_url }}">
                     {% if recruit_available %}
-                    부원 신청하기
+                    <i class="material-icons">login</i> 부원 신청하기
                     {% else %}
-                    부원 신청 기간이 아닙니다
+                    <i class="material-icons">event_busy</i> 부원 신청 기간이 아닙니다
                     {% endif %}
                 </a>
                 <a class="btn btn__left btn__no-color desktop-hide" href="{% url 'groupware_accounts' %}">부원 그룹웨어 로그인</a>
@@ -45,9 +45,9 @@
                 {% for activity in activities %}
                 <div class="timeline__content-container">
                     {% if activity.end_date %}
-                    <h4 class="timeline__content-title">{{ activity.start_date }} ~ {{activity.end_date  }}</h4>
+                    <h4 class="timeline__content-title"><i class="material-icons">calendar_today</i>  {{ activity.start_date }} ~ {{activity.end_date  }}</h4>
                     {% else %}
-                    <h4 class="timeline__content-title">{{ activity.start_date }}</h4>
+                    <h4 class="timeline__content-title"><i class="material-icons">calendar_today</i> {{ activity.start_date }}</h4>
                     {% endif %}
                     
                     <div class="timeline__content-card">
@@ -66,7 +66,7 @@
                                     </p>
                                     {% if session.creator %}
                                     <p class="timeline__content-card__text__session__creator">
-                                        - {{ session.creator.username }}
+                                        <i class="material-icons">person</i> {{ session.creator.username }}
                                     </p>
                                     {% endif %}
                                 </div>
