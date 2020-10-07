@@ -1,23 +1,11 @@
-{% load render_bundle from webpack_loader %}
-{% load static %}
+{% extends 'layout.html' %}
 
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    {% render_bundle 'main' 'css' %}
-    <link rel="icon" href="{% static 'logos/isteam.svg' %}" sizes="any" type="image/svg+xml">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    {% block head %}
-    {% endblock %}
-</head>
-<body>
-    <div class="user__box">
-        <div style="width: auto; height: 50px; padding: 0; margin: auto;">
-            {% include 'includes/isteam_logo.html' %}
-        </div>
-        {% block content %}
-        {% endblock %}
+{% block body %}
+<div class="user__box">
+    <div style="width: auto; height: 50px; padding: 0; margin: auto;">
+        {% include 'includes/isteam_logo.html' %}
     </div>
-</body>
-</html>
+    {% block content %}
+    {% endblock %}
+</div>
+{% endblock %}
