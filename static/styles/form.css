@@ -22,12 +22,17 @@
 
 .form__text {
     padding: 9px;
-    background-color: rgba(220, 220, 220, 0.4);
+    border: 2px solid rgba(220, 220, 220);
     border-radius: 5px;
     color: black;
-    border: none;
     width: 100%;
     box-sizing: border-box;
+    font-size: 16px;
+}
+
+.form__text:focus {
+    outline: none;
+    border: 2px solid rgb(0, 191, 188);
 }
 
 .form__input {
