@@ -12,7 +12,17 @@
     {% endblock %}
 </head>
 <body>
-    {% block body %}
-    {% endblock %}
+    <div class="body-container">
+        {% block body %}
+        {% endblock %}
+        <footer class="footer">
+            <div class="footer-body">
+                <div class="section-container">
+                    <img src="{% static 'logos/isteam_soongsil.png' %}" alt="d2.jpg" class="footer__image">
+                    <div>&copy; ISTEAM, Soongsil University, Seoul</div>
+                </div>
+            </div>
+        </footer>
+    </div>
 </body>
 </html>

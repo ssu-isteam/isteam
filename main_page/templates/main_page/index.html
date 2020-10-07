@@ -1,0 +1,108 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block body %}
+<header class="main-title section main-intro">
+    <div class="section-container">
+        <div class="main__nav-container">
+            <div>
+                {% include 'includes/isteam_logo.html' %}
+            </div>
+            <div class="main__nav-container__sidemenu mobile-hide">
+                <a class="btn" href="{% url 'groupware_accounts' %}">부원 그룹웨어 로그인</a>
+            </div>
+        </div>
+        <div class="subtitle">
+            <p>
+                <span class="text-block">숭실대학교</span>
+                <span class="text-block" style="padding-right: 1em;">소프트웨어학부</span>
+            </p>
+            <p>
+                <span class="text-block">공식 소모임</span>
+            </p>
+        </div>
+        <div class="main__bottom-wrapper">
+            <div class="main__bottom-container">
+                <a class="btn btn__left btn__no-color {% if not recruit_available %} btn__disabled {% endif %}" href="{{ recruit_url }}">
+                    {% if recruit_available %}
+                    부원 신청하기
+                    {% else %}
+                    부원 신청 기간이 아닙니다
+                    {% endif %}
+                </a>
+                <a class="btn btn__left btn__no-color desktop-hide" href="{% url 'groupware_accounts' %}">부원 그룹웨어 로그인</a>
+            </div>
+        </div>
+    </div>
+</header>
+<main>
+    <section class="section recent-activity">
+        <div class="section-container">
+            <h3 class="section-title">
+            최근 활동
+            </h3>
+            <div class="timeline">
+                {% for activity in activities %}
+                <div class="timeline__content-container">
+                    {% if activity.end_date %}
+                    <h4 class="timeline__content-title">{{ activity.start_date }} ~ {{activity.end_date  }}</h4>
+                    {% else %}
+                    <h4 class="timeline__content-title">{{ activity.start_date }}</h4>
+                    {% endif %}
+                    
+                    <div class="timeline__content-card">
+            
+                        <div class="timeline__content-card__img">
+                            <img src="{{ activity.cover_photo_url }}" class="timeline__content-card__img">
+                        </div>
+            
+                        <div class="timeline__content-card__text">
+                            <div class="timeline__content-card__title">{{ activity.title }}</div>
+                            <div class="timeline__content-card__text__session-wrapper">
+                                {% for session in activity.sessions %}
+                                <div class="timeline__content-card__text__session">
+                                    <p class="timeline__content-card__text__session__title">
+                                        {{ session.title }}
+                                    </p>
+                                    {% if session.creator %}
+                                    <p class="timeline__content-card__text__session__creator">
+                                        - {{ session.creator.username }}
+                                    </p>
+                                    {% endif %}
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    
+    <section class="section main__isteam-intro">
+        <div class="section-container">
+            <h3 class="section-title">
+            ISTEAM 소개
+            </h3>
+            <div class="main__isteam-intro__features">
+                <div>
+                    <img src="{% static 'logos/ssu.jpg' %}" alt="ssu.jpg" class="main__isteam-intro__features__image">
+                    <h2>숭실대학교 공식 소모임</h2>
+                    <p class="main__isteam-intro__features__text">
+                        숭실대학교 공식 소프트웨어학부 소속 소모임으로써 강의실 지원을 받습니다.
+                    </p>
+                </div>
+                <div>
+                    <img src="{% static 'logos/d2.png' %}" alt="d2.jpg" class="main__isteam-intro__features__image">
+                    <h2>Naver D2 Campus</h2>
+                    <p class="main__isteam-intro__features__text">
+                        Naver D2 Campus에서 서버, 행사 등 여러가지 지원을 받는 Partner 동아리로 선정되었습니다.
+                    </p>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+</main>
+{% endblock %}

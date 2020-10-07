@@ -67,3 +67,27 @@ body {
         display: none !important;
     }
 }
+
+.footer {
+    height: 200px;
+    background-color: rgba(220, 220, 220, 0.4);
+}
+
+.footer-body {
+    position: relative;
+    top: calc(50% - 66px);
+}
+
+.footer__image {
+    width: auto;
+    height: 34px;
+    display: block;
+    margin-bottom: 15px;
+    filter: grayscale(100%);
+}
+
+.body-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
