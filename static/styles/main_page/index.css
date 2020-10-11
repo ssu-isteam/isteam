@@ -133,16 +133,3 @@
     padding: 10px;
     background-color: rgba(46, 164, 79, 0.4);
 }
-
-.main__footer {
-    padding: 1em 0 3em;
-    background-color: rgba(220, 220, 220, 0.4);
-}
-
-.main__footer__image {
-    width: 200px;
-    height: auto;
-    display: block;
-    margin: 15px 0;
-    filter: grayscale(100%);
-}
