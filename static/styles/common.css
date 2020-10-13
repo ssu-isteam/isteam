@@ -41,12 +41,6 @@ body {
     color: black;
 }
 
-.container {
-    max-width: 800px;
-    margin: auto;
-    padding: 25px 17px;
-}
-
 .right-top-container {
     float: right;
     top: 50%;
@@ -60,11 +54,22 @@ body {
     .mobile-hide {
         display: none !important;
     }
+
+    .container {
+        padding: 25px 17px;
+    }
 }
 
 @media only screen and (min-width: 600px) {
     .desktop-hide {
         display: none !important;
+    }
+
+    .container {
+        max-width: 800px;
+        width: 100%;
+        margin: 0 auto;
+        padding: 25px 17px;
     }
 }
 

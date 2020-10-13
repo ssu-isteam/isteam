@@ -15,9 +15,7 @@ class UserListView(GroupwareView, ListView):
 
     tab_name = 'users'
 
-    def get_queryset(self):
-        new_context = Member.objects.filter(is_active=True).order_by('student_id')
-        return new_context
+    paginate_by = 10
 
     def get_context_data(self):
         context = super().get_context_data()

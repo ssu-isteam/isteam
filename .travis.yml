@@ -10,7 +10,7 @@ install:
   - pip install -r requirements.txt
   - npm i
   - npm run bundle
-  - ./manage.py migrate auth --settings isteam.settings.ci
+  - ./manage.py migrate groupware --settings isteam.settings.ci
   - ./manage.py migrate --settings isteam.settings.ci  
 
 script:

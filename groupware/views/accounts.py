@@ -15,6 +15,10 @@ class AccountBookListView(GroupwareView, ListView):
 
     tab_name = 'accounts'
 
+    ordering = '-id'
+
+    ordering
+
     def get_context_data(self):
         context = super().get_context_data()
 

@@ -1,27 +1,21 @@
-{% load render_bundle from webpack_loader %}
+{% extends 'layout.html' %}
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    {% render_bundle 'main' 'css' %}
-    <link rel="icon" href="{% static 'logos/isteam.svg' %}" sizes="any" type="image/svg+xml">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ISTEAM 그룹웨어</title>
-</head>
-<body>
+{% block body %}
     <div class="container">
-        <div class="title">
+        <div class="main__nav-container">
             <div style="font-size: 0.65em;">
                 {% include 'includes/isteam_logo.html' with custom_name='groupware' %}
             </div>
-            <div class="groupware__user">
-                <div class="groupware__user-name">{{ member_info.last_name }}{{ member_info.first_name }}</div>
-                <a class="btn groupware__btn-signout btn__no-color" href="/user/signout">로그아웃</a>
+            <div class="main__nav-container__sidemenu mobile-hide">
+                <div class="">{{ member_info.last_name }}{{ member_info.first_name }}</div>
+                <a class="btn btn__no-color" href="/user/signout">로그아웃</a>
             </div>
         </div>
-
+        <div class="groupware__user desktop-hide">
+            <div class="groupware__user-name">{{ member_info.last_name }}{{ member_info.first_name }}</div>
+            <a class="btn btn__no-color desktop-hide" href="/user/signout">로그아웃</a>
+        </div>
         <div class="navbar rounded-gray">
             {% for k, v in tabs %}
             <a class="navbar__btn center {% if k == selected %} selected {% endif %}" href="/groupware/{{ k }}">
@@ -32,5 +26,4 @@
         {% block content %}
         {% endblock %}
     </div>
-</body>
-</html>
+{% endblock %}
