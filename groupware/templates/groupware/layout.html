@@ -16,7 +16,6 @@
             <div class="groupware__user-name">{{ member_info.last_name }}{{ member_info.first_name }}</div>
             <a class="btn btn__no-color desktop-hide" href="/user/signout">로그아웃</a>
         </div>
-
         <div class="navbar rounded-gray">
             {% for k, v in tabs %}
             <a class="navbar__btn center {% if k == selected %} selected {% endif %}" href="/groupware/{{ k }}">
