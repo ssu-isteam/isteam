@@ -1,5 +1,10 @@
 {% extends "groupware/layout.html" %}
 
+{% block head %}
+<title>ISTEAM 그룹웨어 | 활동</title>
+{% endblock %}
+
 {% block content %}
 {% include 'includes/activity_timeline.html' %}
+{% include 'includes/page_navigator.html' %}
 {% endblock %}
