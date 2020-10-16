@@ -3,7 +3,7 @@
         href="{% if page_obj.has_previous %} ?page={{ page_obj.previous_page_number }} {% endif %}" 
         class="btn {% if not page_obj.has_previous %} btn__disabled {% endif %}"><i class="material-icons">navigate_before</i></a>
     <div class="page__num">
-        {{ page_obj.number }}
+        {{ page_obj.number }} / {{ page_obj.paginator.num_pages }}
     </div>
     <a 
         href="{% if page_obj.has_next %} ?page={{ page_obj.next_page_number }} {% endif %}" 
