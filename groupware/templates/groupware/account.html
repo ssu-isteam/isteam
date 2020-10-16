@@ -1,5 +1,9 @@
 {% extends "groupware/layout.html" %}
 
+{% block head %}
+<title>ISTEAM 그룹웨어 | 회계내역</title>
+{% endblock %}
+
 {% block content %}
 {% for account in accounts %}
 <div class="groupware__account-table">

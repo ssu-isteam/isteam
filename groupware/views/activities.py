@@ -13,7 +13,9 @@ class ActivityListView(GroupwareView, ListView):
 
     context_object_name = 'activities'
 
-    # paginate_by = 2
+    paginate_by = 3
+
+    ordering = '-start_date'
 
     def get_context_data(self):
         context = super().get_context_data()

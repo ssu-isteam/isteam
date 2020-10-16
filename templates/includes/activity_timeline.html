@@ -1,0 +1,36 @@
+<div class="timeline">
+    {% for activity in activities %}
+    <div class="timeline__content-container">
+        {% if activity.end_date %}
+        <h4 class="timeline__content-title"><i class="material-icons">calendar_today</i>  {{ activity.start_date }} ~ {{activity.end_date  }}</h4>
+        {% else %}
+        <h4 class="timeline__content-title"><i class="material-icons">calendar_today</i> {{ activity.start_date }}</h4>
+        {% endif %}
+        
+        <div class="timeline__content-card">
+
+            <div class="timeline__content-card__img">
+                <img src="{{ activity.cover_photo_url }}" class="timeline__content-card__img" loading="lazy">
+            </div>
+
+            <div class="timeline__content-card__text">
+                <div class="timeline__content-card__title">{{ activity.title }}</div>
+                <div class="timeline__content-card__text__session-wrapper">
+                    {% for session in activity.sessions %}
+                    <div class="timeline__content-card__text__session">
+                        <p class="timeline__content-card__text__session__title">
+                            {{ session.title }}
+                        </p>
+                        {% if session.creator %}
+                        <p class="timeline__content-card__text__session__creator">
+                            <i class="material-icons">person</i> {{ session.creator.username }}
+                        </p>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
