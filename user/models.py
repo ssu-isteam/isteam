@@ -11,6 +11,8 @@ class Member(AbstractUser):
 
     password = models.CharField(max_length=128, null=True, blank=False)
 
+    is_regular_member = models.BooleanField(default=False)
+
     # 회원가입 여부
     did_sign_up = models.BooleanField(default=False)
 
