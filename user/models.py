@@ -15,4 +15,4 @@ class Member(AbstractUser):
     did_sign_up = models.BooleanField(default=False)
 
     def __str__(self):
-        return f'{self.student_id} {self.username}'
+        return f'{self.student_id} {self.last_name}{self.first_name}'
