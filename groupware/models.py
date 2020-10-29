@@ -29,7 +29,7 @@ class Activity(models.Model):
     sessions = []
 
     def __str__(self):
-        return f'Title: {self.title}'
+        return f'{self.title}'
 
 
 class Session(models.Model):
@@ -41,6 +41,9 @@ class Session(models.Model):
 
     creator = models.ForeignKey(Member, on_delete=models.CASCADE, null=True, blank=True)
 
+    def __str__(self):
+        return f'{self.activity.title[:10]}... {self.title}'
+
 
 class AccountBook(models.Model):
     year = models.PositiveIntegerField()
@@ -48,3 +51,6 @@ class AccountBook(models.Model):
     semester = models.IntegerField(choices=Semester.choices(), default=Semester.FIRST)
 
     embedded_link = models.CharField(max_length=200)
+
+    def __str__(self):
+        return f'{self.year}년 {self.semester+1}학기'

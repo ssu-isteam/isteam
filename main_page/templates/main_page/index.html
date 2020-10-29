@@ -26,7 +26,7 @@
             </p>
         </div>
         <div class="main__bottom-wrapper">
-            <div class="main__bottom-container">
+            <p>
                 <a class="btn btn__left btn__no-color {% if not recruit_available %} btn__disabled {% endif %}" href="{{ recruit_url }}">
                     {% if recruit_available %}
                     <i class="material-icons">login</i> 부원 신청하기
@@ -34,8 +34,13 @@
                     <i class="material-icons">event_busy</i> 부원 신청 기간이 아닙니다
                     {% endif %}
                 </a>
+            </p>
+            <p>
+                <a href="#isteam-intro" class="btn btn__left btn__no-color">ISTEAM 소개</a>
+            </p>
+            <p>
                 <a class="btn btn__left btn__no-color desktop-hide" href="{% url 'groupware_accounts' %}">부원 그룹웨어 로그인</a>
-            </div>
+            </p>
         </div>
     </div>
 </header>
@@ -47,7 +52,7 @@
         </div>
     </section>
     
-    <section class="section main__isteam-intro">
+    <section class="section main__isteam-intro" id="isteam-intro">
         <div class="section-container">
             <h3 class="section-title">
             ISTEAM 소개
