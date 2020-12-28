@@ -74,13 +74,19 @@ body {
 }
 
 .footer {
-    height: 200px;
     background-color: rgba(220, 220, 220, 0.4);
-}
-
-.footer-body {
     position: relative;
     top: calc(50% - 66px);
+}
+
+.footer__text {
+    display: block;
+    font-family: 'Lexend Deca', sans-serif;
+    color: #5d5d5d;
+}
+
+.footer__text > * {
+    font-family: 'Lexend Deca', sans-serif;
 }
 
 .footer__image {
