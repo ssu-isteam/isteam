@@ -13,15 +13,24 @@
     {% endblock %}
 </head>
 <body>
-    <div class="body-container">
+    <div class="    -container">
         {% block body %}
         {% endblock %}
         <footer class="footer">
-            <div class="footer-body">
-                <div class="section-container title-txt">
+            <div class="section-container">
+                <p>
                     <img src="{% static 'logos/isteam_soongsil.png' %}" alt="d2.jpg" class="footer__image">
-                    <div>&copy; ISTEAM, Soongsil University, Seoul</div>
-                </div>
+                </p>
+                <p class="footer__text">
+                    ISTEAM은 숭실대학교 소프트웨어학부 학생회에 정식으로 등록된 소모임이며, 숭실대학교의 공식 입장을 대변하지는 않습니다.
+                </p>
+                <p class="footer__text">
+                    <span class="text-block">이 홈페이지는 NAVER D2에서 제공하는</span> <span class="text-block">서버로 운영되고 있습니다.</span>
+                </p>
+                
+                <p class="footer__text">
+                    &copy; ISTEAM, Soongsil University, Seoul
+                </p>
             </div>
         </footer>
     </div>
