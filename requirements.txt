@@ -5,13 +5,14 @@ botocore==1.17.55
 certifi==2020.6.20
 chardet==3.0.4
 Django==3.0.8
-django-storages==1.10
+django-storages==1.11.1
 django-webpack-loader==0.7.0
 docutils==0.15.2
 gunicorn==20.0.4
 idna==2.10
 jmespath==0.10.0
 mysqlclient==2.0.1
+Pillow==8.0.1
 python-dateutil==2.8.1
 python-decouple==3.3
 pytz==2020.1

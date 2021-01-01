@@ -24,7 +24,7 @@ class Activity(models.Model):
 
     title = models.CharField(max_length=75)
 
-    cover_photo_url = models.CharField(max_length=100, default='')
+    cover_photo = models.ImageField(upload_to='media/', default='media/default.png')
 
     sessions = []
 
