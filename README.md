@@ -1,7 +1,7 @@
+[![Build Status](https://travis-ci.com/5d-jh/isteam.svg?token=3WQchpJY137XqN7bpXmB&branch=master)](https://travis-ci.com/5d-jh/isteam)
+
 <p align="center">
  <img src="https://user-images.githubusercontent.com/24839897/90855719-383af980-e3bb-11ea-82e3-b28afa9e1531.png" alt="고로_숭실" width="auto" height="50px">
- 
- [![Build Status](https://travis-ci.com/5d-jh/isteam.svg?token=3WQchpJY137XqN7bpXmB&branch=master)](https://travis-ci.com/5d-jh/isteam)
 </p>
 
 ## 모듈 설명
