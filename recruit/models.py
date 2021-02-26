@@ -1,14 +1,19 @@
 from django.db import models
 
 from groupware.models import Semester
+from .admin_actions import make_published
 
 
 class Recruitment(models.Model):
     year = models.IntegerField()
 
+    semester = models.IntegerField(choices=Semester.choices(), default=Semester.FIRST)
+
     information = models.TextField()
 
-    semester = models.IntegerField(choices=Semester.choices(), default=Semester.FIRST)
+    is_published = models.BooleanField(default=False)
+
+    actions = [make_published]
 
     def __str__(self):
         return f'{self.year}-{self.semester}'
