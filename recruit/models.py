@@ -1,7 +1,6 @@
 from django.db import models
 
 from groupware.models import Semester
-from .admin_actions import make_published
 
 
 class Recruitment(models.Model):
@@ -12,8 +11,6 @@ class Recruitment(models.Model):
     information = models.TextField()
 
     is_published = models.BooleanField(default=False)
-
-    actions = [make_published]
 
     def __str__(self):
         return f'{self.year}-{self.semester}'

@@ -1,4 +1,5 @@
 from django.views.generic import ListView
+from typing import Dict
 
 from groupware.views.base import GroupwareView
 from groupware.models import Activity, Session
