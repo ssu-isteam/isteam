@@ -7,7 +7,7 @@ from django.urls import reverse
 from recruit.forms.question import QuestionForm
 from recruit.models import Recruitment, Question, Applicant, Answer
 from utils.email import send_template_email
-from utils.recaptcha import get_captcha_data
+from utils.recaptcha import validate_captcha
 
 
 class QuestionFormView(FormView):
@@ -20,15 +20,9 @@ class QuestionFormView(FormView):
     applicant_profile = {}
 
     def form_valid(self, form):
-        try:
-            res = get_captcha_data(form.data['g-recaptcha-response'])
-            body = res.json()
-            success = body['success']
-            
-            if res.status_code != 200 or not success:
-                raise Exception('Captcha failed.')
-        except:
-            return HttpResponseBadRequest('캡챠 인증에 실패했습니다.')
+        bad_request = validate_captcha(form.data['g-recaptcha-response'])
+        if bad_request:
+            return bad_request
 
         recruitment = Recruitment.objects.order_by('year', 'semester').first()
 
