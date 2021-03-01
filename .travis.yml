@@ -20,9 +20,7 @@ deploy:
   provider: script
   script: bash scripts/on-travis.sh
   on:
-    branch:
-      - deploy-recruit-closed
-      - deploy-recruit-opened
+    branch: master
 
 env:
   global:
