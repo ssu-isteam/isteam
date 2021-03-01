@@ -14,7 +14,7 @@ def make_published(modeladmin, request, queryset: QuerySet):
     queryset.update(is_published=True)
 
 
-make_published.short_description = "모집 공개하기"
+make_published.short_description = '모집 공개하기'
 
 
 class RecruitmentAdmin(admin.ModelAdmin):
