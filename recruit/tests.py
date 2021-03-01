@@ -1,6 +1,5 @@
 from django.test import TestCase
 from django.urls import reverse
-from django.contrib.admin import ACTION_CHECKBOX_NAME
 
 from typing import List
 
@@ -63,7 +62,7 @@ class RecruitmentMakePublishedTest(TestCase):
         url = reverse('admin:recruit_recruitment_changelist')
         request_body = {
                 'action': 'make_published',
-                ACTION_CHECKBOX_NAME: [target.pk]
+                '_selected_action': [target.pk]
             }
         self.client.force_login(self.admin)
         response = self.client.post(url, request_body)
