@@ -1,16 +1,11 @@
 import json
 
-import requests
-from decouple import config
-
-from django.http import HttpRequest, HttpResponseBadRequest
 from django.views.generic import FormView
-from django.shortcuts import redirect
 from django.urls import reverse
 
 from recruit.forms.profile import ProfileForm
 from recruit.models import Recruitment
-from utils.recaptcha import get_captcha_data
+from utils.recaptcha import validate_captcha
 
 
 class ProfileFormView(FormView):
@@ -26,15 +21,9 @@ class ProfileFormView(FormView):
     def form_valid(self, form):
         response = super().form_valid(form)
 
-        try:
-            res = get_captcha_data(form.data['g-recaptcha-response'])
-            body = res.json()
-            success = body['success']
-            
-            if res.status_code != 200 or not success:
-                raise Exception('Captcha failed.')
-        except:
-            return HttpResponseBadRequest('캡챠 인증에 실패했습니다.')
+        bad_request = validate_captcha(form.data['g-recaptcha-response'])
+        if bad_request:
+            return bad_request
 
         cookie_profile = json.dumps({
             'username': form.cleaned_data['username'],
