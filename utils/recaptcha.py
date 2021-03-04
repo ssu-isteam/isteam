@@ -8,7 +8,7 @@ GOOGLE_CAPTCHA_API_URL = 'https://www.google.com/recaptcha/api/siteverify'
 
 
 def validate_captcha(g_recaptcha_response: str) -> HttpResponseBadRequest:
-    if config('APP_ENV') == 'development':
+    if config('APP_ENV') in ('development', 'ci'):
         return None
 
     res = requests.post(
