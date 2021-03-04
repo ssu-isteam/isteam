@@ -25,8 +25,6 @@ def create_mock_recruitments(howmany: int) -> List[Recruitment]:
             )
         )
 
-    mock_recruitments[0].is_published = False
-
     Recruitment.objects.bulk_create(mock_recruitments)
     return Recruitment.objects.all()
 

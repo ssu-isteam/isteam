@@ -17,30 +17,41 @@ class QuestionFormView(FormView):
 
     success_url = '/'
 
-    applicant_profile = {}
+    def get_applicant_profile_from_cookie(self):
+        applicant_profile = {}
+
+        raw_data = self.request.COOKIES.get('profile')
+        json_data = json.loads(raw_data)
+
+        for key in ('username', 'student_id', 'email', 'phone_number'):
+            if type(json_data[key]) is not str:
+                raise Exception()
+            else:
+                applicant_profile[key] = json_data[key]
+
+        return applicant_profile
 
     def form_valid(self, form):
         bad_request = validate_captcha(form.data['g-recaptcha-response'])
         if bad_request:
             return bad_request
 
-        recruitment = Recruitment.objects.order_by('year', 'semester').first()
+        recruitment = Recruitment.objects.filter(is_published=True).first()
 
         ids = list(form.cleaned_data.keys())
 
         questions = Question.objects.filter(id__in=map(int, ids), recruitment=recruitment)
         questions = list(questions)
 
-        applicant_name = self.applicant_profile['username']
-        applicant_email = self.applicant_profile['email']
+        applicant_profile = self.get_applicant_profile_from_cookie()
 
         applicant, created = Applicant.objects.update_or_create(
-            student_id=self.applicant_profile['student_id'],
+            student_id=applicant_profile['student_id'],
             defaults={
                 'recruitment': recruitment,
-                'name': self.applicant_profile['username'],
-                'email': self.applicant_profile['email'],
-                'phone_number': self.applicant_profile['phone_number'],
+                'name': applicant_profile['username'],
+                'email': applicant_profile['email'],
+                'phone_number': applicant_profile['phone_number'],
                 'passed': False
             }
         )
@@ -69,19 +80,12 @@ class QuestionFormView(FormView):
         return super().form_valid(form)
 
     def get(self, *args, **kwargs):
-        try:
-            profile = self.request.COOKIES.get('profile')
-            profile = json.loads(profile)
+        raw_data = self.request.COOKIES.get('profile')
 
-            for key in ('username', 'student_id', 'email', 'phone_number'):
-                if type(profile[key]) is not str:
-                    raise Exception()
-                else:
-                    self.applicant_profile[key] = profile[key]
-            
-            return super().get(*args, **kwargs)
-        except:
+        if raw_data is None:
             return HttpResponseRedirect(reverse('recruit'))
+
+        return super().get(*args, **kwargs)
 
     def get_success_url(self):
         profile = self.request.COOKIES.get('profile')
