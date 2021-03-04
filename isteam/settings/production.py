@@ -30,7 +30,7 @@ INSTALLED_APPS = [
     'main_page.apps.MainPageConfig',
     'user.apps.UserConfig',
     'groupware.apps.GroupwareConfig',
-    #'recruit.apps.RecruitConfig' !!!절대로 이 부분 수정하지 말 것!!!
+    'recruit.apps.RecruitConfig'
 ]
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
