@@ -24,8 +24,8 @@
  * 데이터베이스: MySQL 5
  
  ---
-1. Poetry 설치
 
+### 1. Poetry 설치
 Linux, macOS, Git bash on Windows 등등:
 ```shell
 curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
@@ -36,18 +36,18 @@ Windows PowerShell:
 (Invoke-WebRequest -Uri https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py -UseBasicParsing).Content | python -
 ```
 
-
-2. Poetry가 가상 환경을 생성하도록 설정
+### 2. Poetry가 가상 환경을 생성하도록 설정
 ```sh
 poetry config virtualenvs.in-project true
 ```
 
-3. 패키지 설치
+### 3. 패키지 설치
 ```sh
 poetry install
 ```
 
-4. 프로젝트 최상단에 `.env`파일 생성 후 다음과 같이 작성 (예시) (데이터베이스, 이메일, 캡챠, S3는 직접 세팅해야함)
+### 4. 프로젝트 최상단에 `.env`파일 생성 후 아래와 같이 작성
+예시:
 ```
 DATABASE_NAME=isteam
 DATABASE_USER=root
@@ -63,23 +63,21 @@ SERVER_EMAIL=foo@gmail.com
 DEFAULT_FROM_EMAIL=EMAIL_HOST_USER
 
 RECAPTCHA_SECRET=foobar
-
-AWS_STORAGE_BUCKET_NAME=isteam
-AWS_ACCESS_KEY_ID=foobar
-AWS_SECRET_ACCESS_KEY=foobar
 ```
 
-5. 모델 마이그레이션
+데이터베이스, 이메일, 캡챠는 직접 세팅해야 합니다.
+
+### 5. 모델 마이그레이션
 ```sh
 cd isteam
 ./manage.py migrate
 ```
 
-6. CSS 파일 빌드
+### 6. CSS 파일 빌드
 ```
 npm i
 npm run bundle
 ```
 
-7. (선택사항) PyCharm을 사용하는 경우 [Poetry 플러그인](https://plugins.jetbrains.com/plugin/14307-poetry) 설치
+### 7. (선택사항) PyCharm을 사용하는 경우 [Poetry 플러그인](https://plugins.jetbrains.com/plugin/14307-poetry) 설치
 
