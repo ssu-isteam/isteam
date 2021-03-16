@@ -10,9 +10,11 @@ unzip -q -o $(ls -t | head -n1) -d ~/isteam
 cd ~/isteam
 
 echo "[LOG] Setting up python env"
-python3 -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
+curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python3 -
+exec bash
+poetry config virtualenvs.in-project true
+poetry install
+source .venv/bin/activate
 ./manage.py migrate groupware --settings isteam.settings.production
 ./manage.py migrate --settings isteam.settings.production
 
