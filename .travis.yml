@@ -8,6 +8,7 @@ addons:
 
 install:
   - curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python3 -
+  - exec bash
   - poetry install
   - npm i
   - npm run bundle
