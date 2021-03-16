@@ -19,29 +19,54 @@
 * 부원 모집 관련(비활성화 시에도 애플리케이션 실행 가능)
  
 ## 실행방법
- * 에디터: Visual Studio Code
+ * 패키지 관리자: [Poetry](https://python-poetry.org)
  * Python 버전: 3.7 이상
  * 데이터베이스: MySQL 5
  
  ---
- 1. Python 가상 환경 생성
-```sh
-python3 -m venv venv
+1. Poetry 설치
+
+Linux, macOS, Git bash on Windows 등등:
+```shell
+curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
 ```
 
-2. 에디터 좌측 하단에 `Python 3.7.x (venv:venv)`로 바뀌었는지 확인
+Windows PowerShell:
+```shell
+(Invoke-WebRequest -Uri https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py -UseBasicParsing).Content | python -
+```
+
+
+2. Poetry가 가상 환경을 생성하도록 설정
+```sh
+poetry config virtualenvs.in-project true
+```
 
 3. 패키지 설치
 ```sh
-pip install -r requirements.txt
+poetry install
 ```
 
-4. 프로젝트 최상단에 `.env`파일 생성 후 다음과 같이 작성 (예시)
+4. 프로젝트 최상단에 `.env`파일 생성 후 다음과 같이 작성 (예시) (데이터베이스, 이메일, 캡챠, S3는 직접 세팅해야함)
 ```
 DATABASE_NAME=isteam
 DATABASE_USER=root
 DATABASE_PASS=1234
 DATABASE_HOST=localhost
+
+EMAIL_HOST=smtp.gmail.com
+EMAIL_PORT=587
+EMAIL_HOST_USER=foo@gmail.com
+EMAIL_HOST_PASSWORD=foobar
+EMAIL_USE_TLS=True
+SERVER_EMAIL=foo@gmail.com
+DEFAULT_FROM_EMAIL=EMAIL_HOST_USER
+
+RECAPTCHA_SECRET=foobar
+
+AWS_STORAGE_BUCKET_NAME=isteam
+AWS_ACCESS_KEY_ID=foobar
+AWS_SECRET_ACCESS_KEY=foobar
 ```
 
 5. 모델 마이그레이션
@@ -56,4 +81,5 @@ npm i
 npm run bundle
 ```
 
-7. 좌측 디버거 탭(벌레모양+플레이버튼) 클릭 후 상단의 플레이버튼 클릭시 실행 가능
+7. (선택사항) PyCharm을 사용하는 경우 [Poetry 플러그인](https://plugins.jetbrains.com/plugin/14307-poetry) 설치
+
