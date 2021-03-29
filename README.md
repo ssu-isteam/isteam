@@ -81,3 +81,10 @@ npm run bundle
 
 ### 7. (선택사항) PyCharm을 사용하는 경우 [Poetry 플러그인](https://plugins.jetbrains.com/plugin/14307-poetry) 설치
 
+---
+## docker 사용시
+1. ```shell
+   docker build -t isteam_web .
+   docker run -dp 80:80 isteam_web
+    ```
+1. http://localhost 에 브라우저로 접속
