@@ -1,0 +1,6 @@
+node_modules/
+.github/
+.venv/
+.vscode/
+.travis.yml
+README.md
