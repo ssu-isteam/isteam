@@ -1,11 +1,21 @@
-FROM python:3.8
-
-COPY . /app/
+FROM node:lts
 WORKDIR /app
+COPY . .
+RUN npm i
+RUN npm run bundle -- --mode production
 
-RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
-RUN $HOME/.poetry/bin/poetry config virtualenvs.in-project true
-RUN $HOME/.poetry/bin/poetry install
-RUN .venv/bin/python manage.py migrate
-RUN $HOME/.poetry/bin/poetry build
-CMD [".venv/bin/python", "manage.py", "runserver", "0.0.0.0:80"]
+FROM python:3.8
+RUN pip install gunicorn
+RUN pip install poetry
+
+WORKDIR /app
+COPY --from=0 /app/ .
+
+RUN poetry config virtualenvs.create false
+RUN poetry install --no-dev
+
+RUN ./manage.py migrate groupware --settings isteam.settings.production
+RUN ./manage.py migrate --settings isteam.settings.production
+# Static file 업로드
+RUN ./manage.py collectstatic --noinput --settings isteam.settings.production
+CMD gunicorn isteam.wsgi:application --bind 0.0.0.0:8000
