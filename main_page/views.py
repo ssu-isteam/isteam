@@ -4,6 +4,8 @@ from django.urls import reverse
 from groupware.models import Activity, Session
 from recruit.functions import is_recruitment_available
 
+from .models import Introduction
+
 
 class Index(ListView):
     model = Activity
@@ -23,5 +25,7 @@ class Index(ListView):
         for activity in context[self.context_object_name]:
             sessions = list(Session.objects.filter(activity=activity.id))
             activity.sessions = sessions
+
+        context['introductions'] = Introduction.objects.filter(activation=True)
 
         return context
