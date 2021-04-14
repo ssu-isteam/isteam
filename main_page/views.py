@@ -1,9 +1,8 @@
-from django.views.generic import ListView
 from django.urls import reverse
+from django.views.generic import ListView
 
 from groupware.models import Activity, Session
 from recruit.functions import is_recruitment_available
-
 from .models import Introduction
 
 
