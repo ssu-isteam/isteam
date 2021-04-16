@@ -58,7 +58,7 @@
             ISTEAM 소개
             </h3>
                 {% for intro in introductions %}
-                    <div class="main__isteam-intro__features">
+                    <div class="main__isteam-intro__features" id="{{ intro.title }}">
                         <img src={{ intro.photo.name }} alt={{ intro.title }} class="main__isteam-intro__features__image"/>
                         <h2>{{ intro.title }}</h2>
                         <p class="main__isteam-intro__features__text">
