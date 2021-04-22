@@ -57,23 +57,16 @@
             <h3 class="section-title">
             ISTEAM 소개
             </h3>
-            <div class="main__isteam-intro__features">
-                <div>
-                    <img src="{% static 'logos/ssu.jpg' %}" alt="ssu.jpg" class="main__isteam-intro__features__image">
-                    <h2>숭실대학교 공식 소모임</h2>
-                    <p class="main__isteam-intro__features__text">
-                        숭실대학교 공식 소프트웨어학부 소속 소모임으로써 강의실 지원을 받습니다.
-                    </p>
-                </div>
-                <div>
-                    <img src="{% static 'logos/d2.png' %}" alt="d2.jpg" class="main__isteam-intro__features__image">
-                    <h2>Naver D2 Campus</h2>
-                    <p class="main__isteam-intro__features__text">
-                        Naver D2 Campus에서 서버, 행사 등 여러가지 지원을 받는 Partner 동아리로 선정되었습니다.
-                    </p>
-                </div>
+                {% for intro in introductions %}
+                    <div class="main__isteam-intro__features" id="{{ intro.title }}">
+                        <img src={{ intro.photo.name }} alt={{ intro.title }} class="main__isteam-intro__features__image"/>
+                        <h2>{{ intro.title }}</h2>
+                        <p class="main__isteam-intro__features__text">
+                            {{ intro.body }}
+                        </p>
+                    </div>
+                {% endfor %}
             </div>
-            
         </div>
     </section>
 </main>
