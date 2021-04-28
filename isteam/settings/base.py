@@ -1,9 +1,7 @@
 import os
 
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -18,7 +16,6 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'isteam.urls'
 
 WSGI_APPLICATION = 'isteam.wsgi.application'
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
@@ -47,6 +44,7 @@ TEMPLATES = [
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
+                'django.template.context_processors.media',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'isteam.context_processor.media_url_root'
@@ -54,7 +52,6 @@ TEMPLATES = [
         },
     },
 ]
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
