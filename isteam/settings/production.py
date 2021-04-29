@@ -114,6 +114,7 @@ STATIC_URL = 'https://{%s}/{%s}/'%(AWS_S3_CUSTOM_DOMAIN, config('STATIC_PATH'))
 STATIC_ROOT = STATIC_URL
 STATICFILES_STORAGE = 'isteam.settings.s3utils.StaticRootS3BotoStorage'
 
+
 MEDIA_URL = 'https://%s/%s/'%(AWS_S3_CUSTOM_DOMAIN, config('MEDIA_PATH'))
 MEDIA_ROOT = MEDIA_URL
 DEFAULT_FILE_STORAGE = 'isteam.settings.s3utils.MediaRootS3BotoStorage'

@@ -16,7 +16,6 @@ from decouple import config
 
 from .base import *
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -36,7 +35,6 @@ INSTALLED_APPS = [
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
@@ -47,7 +45,6 @@ SECRET_KEY = 'e6r7sdnr=*z_!kyf2@a%my96&5f$s)^l5@zy-47qyakh%%t@g!'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
@@ -64,7 +61,6 @@ DATABASES = {
         }
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -88,7 +84,6 @@ AUTH_USER_MODEL = 'user.Member'
 
 SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
 
-
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = config('EMAIL_HOST')
 EMAIL_PORT = config('EMAIL_PORT')
@@ -97,6 +92,7 @@ EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 EMAIL_USE_TLS = config('EMAIL_USE_TLS')
 SERVER_EMAIL = config('SERVER_EMAIL')
 DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL')
+
 
 MEDIA_ROOT = config('MEDIA_PATH') + '/'
 MEDIA_URL = MEDIA_ROOT
