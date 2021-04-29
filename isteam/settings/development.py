@@ -95,3 +95,4 @@ DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL')
 
 MEDIA_URL = 'media/'
 MEDIA_ROOT = './media/'
+LOCAL_MEDIA = True
