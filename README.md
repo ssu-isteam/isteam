@@ -63,6 +63,9 @@ SERVER_EMAIL=foo@gmail.com
 DEFAULT_FROM_EMAIL=EMAIL_HOST_USER
 
 RECAPTCHA_SECRET=foobar
+
+STATIC_PATH=static
+MEDIA_PATH=media
 ```
 
 데이터베이스, 이메일, 캡챠는 직접 세팅해야 합니다.
