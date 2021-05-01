@@ -29,7 +29,7 @@ INSTALLED_APPS = [
     'main_page.apps.MainPageConfig',
     'user.apps.UserConfig',
     'groupware.apps.GroupwareConfig',
-    'recruit.apps.RecruitConfig'
+    'recruit.apps.RecruitConfig',
 ]
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -93,6 +93,7 @@ EMAIL_USE_TLS = config('EMAIL_USE_TLS')
 SERVER_EMAIL = config('SERVER_EMAIL')
 DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL')
 
-MEDIA_URL = 'media/'
-MEDIA_ROOT = './media/'
+
+MEDIA_ROOT = config('MEDIA_PATH') + '/'
+MEDIA_URL = MEDIA_ROOT
 LOCAL_MEDIA = True

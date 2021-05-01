@@ -100,6 +100,8 @@ EMAIL_USE_TLS = config('EMAIL_USE_TLS')
 SERVER_EMAIL = config('SERVER_EMAIL')
 DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL')
 
+STATIC_PATH = config('STATIC_PATH')
+MEDIA_PATH = config('MEDIA_PATH')
 
 AWS_REGION = 'ap-northeast-2'
 AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME')
@@ -108,11 +110,11 @@ AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
 AWS_S3_HOST = f's3.{AWS_REGION}.amazonaws.com'
 AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_REGION}.amazonaws.com'
 
-STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/media/'
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATIC_URL = 'https://{%s}/{%s}/'%(AWS_S3_CUSTOM_DOMAIN, config('STATIC_PATH'))
+STATIC_ROOT = STATIC_URL
+STATICFILES_STORAGE = 'isteam.settings.s3utils.StaticRootS3BotoStorage'
 
-MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/static/'
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
-STATIC_ROOT = f'{STATIC_URL}/static/'
-MEDIA_ROOT = f'{STATIC_URL}/media/'
+MEDIA_URL = 'https://%s/%s/'%(AWS_S3_CUSTOM_DOMAIN, config('MEDIA_PATH'))
+MEDIA_ROOT = MEDIA_URL
+DEFAULT_FILE_STORAGE = 'isteam.settings.s3utils.MediaRootS3BotoStorage'
