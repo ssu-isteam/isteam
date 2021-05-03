@@ -25,6 +25,14 @@
  
  ---
 
+### 단순 실행방법
+- linux
+    ```shell
+    chmod 711 ./scripts/local-init.sh ./scripts/run-local.sh
+    ./scripts/local-init.sh
+    ./scripts/run-local.sh
+    ```
+
 ### 1. Poetry 설치
 Linux, macOS, Git bash on Windows 등등:
 ```shell
