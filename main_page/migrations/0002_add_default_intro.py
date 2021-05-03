@@ -12,7 +12,7 @@ def forwards_func(apps, schema_editor):
                      photo="intro/ssu.png", activation=1),
         Introduction(title="Naver D2 Campus",
                      body="Naver D2 Campus에서 서버, 행사 등 여러가지 지원을 받는 Partner 동아리로 선정되었습니다.",
-                     photo="media/intro/d2.png", activation=1),
+                     photo="intro/d2.png", activation=1),
     ])
 
 
@@ -27,7 +27,7 @@ def reverse_func(apps, schema_editor):
     Introduction.objects.using(db_alias).filter(
         title="Naver D2 Campus",
         body="Naver D2 Campus에서 서버, 행사 등 여러가지 지원을 받는 Partner 동아리로 선정되었습니다.",
-        photo="media/intro/d2.png", activation=1
+        photo="intro/d2.png", activation=1
     ).delete()
 
 
