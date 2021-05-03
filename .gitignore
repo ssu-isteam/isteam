@@ -143,7 +143,7 @@ dmypy.json
 
 .idea/
 
-./local_static/
+local_static/
 
 node_modules/
 
