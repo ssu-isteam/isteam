@@ -93,8 +93,7 @@ EMAIL_USE_TLS = config('EMAIL_USE_TLS')
 SERVER_EMAIL = config('SERVER_EMAIL')
 DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL')
 
+MEDIA_URL = 'media/'
+MEDIA_ROOT = './media/'
 STATIC_ROOT = 'local_static/'
-
-MEDIA_ROOT = 'media/'
-MEDIA_URL = MEDIA_ROOT
 LOCAL_MEDIA = True
