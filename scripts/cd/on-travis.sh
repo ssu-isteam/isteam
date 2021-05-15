@@ -13,4 +13,4 @@ echo "[LOG] Uploading ${filename}.zip"
 sshpass -p "$SSH_PASS" scp "${filename}.zip" ${SSH_HOST}:~/zips
 
 echo "[LOG] Connecting ssh"
-sshpass -p "$SSH_PASS" ssh -o StrictHostKeyChecking=no $SSH_HOST < scripts/on-isteam.sh
+sshpass -p "$SSH_PASS" ssh -o StrictHostKeyChecking=no $SSH_HOST < scripts/cd/on-isteam.sh

@@ -21,7 +21,7 @@ script:
 
 deploy:
   provider: script
-  script: bash scripts/on-travis.sh
+  script: bash scripts/cd/on-travis.sh
   on:
     branch: master
 
