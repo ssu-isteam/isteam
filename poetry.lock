@@ -11,20 +11,20 @@ tests = ["pytest", "pytest-asyncio"]
 
 [[package]]
 name = "boto3"
-version = "1.17.72"
+version = "1.17.78"
 description = "The AWS SDK for Python"
 category = "main"
 optional = false
 python-versions = ">= 2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, !=3.5.*"
 
 [package.dependencies]
-botocore = ">=1.20.72,<1.21.0"
+botocore = ">=1.20.78,<1.21.0"
 jmespath = ">=0.7.1,<1.0.0"
 s3transfer = ">=0.4.0,<0.5.0"
 
 [[package]]
 name = "botocore"
-version = "1.20.72"
+version = "1.20.78"
 description = "Low-level, data-driven core of boto 3."
 category = "main"
 optional = false
@@ -185,7 +185,7 @@ brotli = ["brotlipy (>=0.6.0)"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "cd8114bff1c0e3ae5a7308515cd4c8cdcfc4e3250291b56051986e59e2b6c045"
+content-hash = "409329ff5532c9d54356f7582890421555c2677cc5f310bf4680c44cf0416d29"
 
 [metadata.files]
 asgiref = [
@@ -193,12 +193,12 @@ asgiref = [
     {file = "asgiref-3.3.1.tar.gz", hash = "sha256:7162a3cb30ab0609f1a4c95938fd73e8604f63bdba516a7f7d64b83ff09478f0"},
 ]
 boto3 = [
-    {file = "boto3-1.17.72-py2.py3-none-any.whl", hash = "sha256:ee3317fd79b443ef102469fac393a1ffb650ea51ac4fc27464013872c5e1ce31"},
-    {file = "boto3-1.17.72.tar.gz", hash = "sha256:3317722a1e9acbfc0d30cdf273d1708c823ceb19309e9cd91cac8a3604762341"},
+    {file = "boto3-1.17.78-py2.py3-none-any.whl", hash = "sha256:1a87855123df1f18081a5fb8c1abde28d0096a03f6f3ebb06bcfb77cdffdae5e"},
+    {file = "boto3-1.17.78.tar.gz", hash = "sha256:2a5caee63d45fbdcc85e710c7f4146112f5d10b22fd0176643d2f2914cce54df"},
 ]
 botocore = [
-    {file = "botocore-1.20.72-py2.py3-none-any.whl", hash = "sha256:2aaf439e3683e4ac7e0a4f5fc3cd6779418456f3bd6f40b3e474cb151bbceab9"},
-    {file = "botocore-1.20.72.tar.gz", hash = "sha256:0fa93a2e2daad5791c63ee526ada66896cc483d04cb2d32bfcadfeb881203453"},
+    {file = "botocore-1.20.78-py2.py3-none-any.whl", hash = "sha256:37105b9434d73f9c4d4960ee54c8eb129120f4c6681eb16edf483f03c5e2326d"},
+    {file = "botocore-1.20.78.tar.gz", hash = "sha256:e74775f9e64e975787d76390fc5ac5aba875d726bb9ece3b7bd900205b430389"},
 ]
 django = [
     {file = "Django-3.1.8-py3-none-any.whl", hash = "sha256:c348b3ddc452bf4b62361f0752f71a339140c777ebea3cdaaaa8fdb7f417a862"},
