@@ -11,20 +11,20 @@ tests = ["pytest", "pytest-asyncio"]
 
 [[package]]
 name = "boto3"
-version = "1.17.72"
+version = "1.17.88"
 description = "The AWS SDK for Python"
 category = "main"
 optional = false
 python-versions = ">= 2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, !=3.5.*"
 
 [package.dependencies]
-botocore = ">=1.20.72,<1.21.0"
+botocore = ">=1.20.88,<1.21.0"
 jmespath = ">=0.7.1,<1.0.0"
 s3transfer = ">=0.4.0,<0.5.0"
 
 [[package]]
 name = "botocore"
-version = "1.20.72"
+version = "1.20.88"
 description = "Low-level, data-driven core of boto 3."
 category = "main"
 optional = false
@@ -185,7 +185,7 @@ brotli = ["brotlipy (>=0.6.0)"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "cd8114bff1c0e3ae5a7308515cd4c8cdcfc4e3250291b56051986e59e2b6c045"
+content-hash = "8db820c5e3c9077f5784e84ebe853a56ac3b6076cbcf273bcdbaeb0709966b23"
 
 [metadata.files]
 asgiref = [
@@ -193,12 +193,12 @@ asgiref = [
     {file = "asgiref-3.3.1.tar.gz", hash = "sha256:7162a3cb30ab0609f1a4c95938fd73e8604f63bdba516a7f7d64b83ff09478f0"},
 ]
 boto3 = [
-    {file = "boto3-1.17.72-py2.py3-none-any.whl", hash = "sha256:ee3317fd79b443ef102469fac393a1ffb650ea51ac4fc27464013872c5e1ce31"},
-    {file = "boto3-1.17.72.tar.gz", hash = "sha256:3317722a1e9acbfc0d30cdf273d1708c823ceb19309e9cd91cac8a3604762341"},
+    {file = "boto3-1.17.88-py2.py3-none-any.whl", hash = "sha256:13afcc5e2fcc5e4f9eab1ee46a769cf738a259dcd45f71ee79255f18973e4584"},
+    {file = "boto3-1.17.88.tar.gz", hash = "sha256:a715ca6c4457d56ea3e3efde9bdc8be41c29b2f2a904fbd12befdb9cb5e289e4"},
 ]
 botocore = [
-    {file = "botocore-1.20.72-py2.py3-none-any.whl", hash = "sha256:2aaf439e3683e4ac7e0a4f5fc3cd6779418456f3bd6f40b3e474cb151bbceab9"},
-    {file = "botocore-1.20.72.tar.gz", hash = "sha256:0fa93a2e2daad5791c63ee526ada66896cc483d04cb2d32bfcadfeb881203453"},
+    {file = "botocore-1.20.88-py2.py3-none-any.whl", hash = "sha256:be3cb73fab60a2349e2932bd0cbbe7e7736e3a2cd8c05b539d362ff3e406be76"},
+    {file = "botocore-1.20.88.tar.gz", hash = "sha256:bc989edab52d4788aadd8d1aff925f5c6a7cbc68900bfdb8e379965aeac17317"},
 ]
 django = [
     {file = "Django-3.1.8-py3-none-any.whl", hash = "sha256:c348b3ddc452bf4b62361f0752f71a339140c777ebea3cdaaaa8fdb7f417a862"},
@@ -253,6 +253,7 @@ pillow = [
     {file = "Pillow-8.2.0-pp37-pypy37_pp73-manylinux2010_i686.whl", hash = "sha256:aac00e4bc94d1b7813fe882c28990c1bc2f9d0e1aa765a5f2b516e8a6a16a9e4"},
     {file = "Pillow-8.2.0-pp37-pypy37_pp73-manylinux2010_x86_64.whl", hash = "sha256:22fd0f42ad15dfdde6c581347eaa4adb9a6fc4b865f90b23378aa7914895e120"},
     {file = "Pillow-8.2.0-pp37-pypy37_pp73-win32.whl", hash = "sha256:e98eca29a05913e82177b3ba3d198b1728e164869c613d76d0de4bde6768a50e"},
+    {file = "Pillow-8.2.0-pp37-pypy37_pp73-win_amd64.whl", hash = "sha256:8b56553c0345ad6dcb2e9b433ae47d67f95fc23fe28a0bde15a120f25257e291"},
     {file = "Pillow-8.2.0.tar.gz", hash = "sha256:a787ab10d7bb5494e5f76536ac460741788f1fbce851068d73a87ca7c35fc3e1"},
 ]
 python-dateutil = [
