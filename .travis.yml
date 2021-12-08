@@ -4,7 +4,7 @@ python:
 
 addons:
   ssh_known_hosts:
-    - 220.230.122.142
+    - 101.101.211.206
 
 before_install:
   - pip install poetry
@@ -23,7 +23,7 @@ deploy:
   provider: script
   script: bash scripts/cd/on-travis.sh
   on:
-    branch: master
+    branch: 'hotfix/deploy'
 
 env:
   global:
