@@ -23,7 +23,7 @@ deploy:
   provider: script
   script: bash scripts/cd/on-travis.sh
   on:
-    branch: 'hotfix/deploy'
+    branch: master
 
 env:
   global:
