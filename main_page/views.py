@@ -11,6 +11,8 @@ class Index(ListView):
 
     context_object_name = 'activities'
 
+    queryset = Activity.objects.order_by('-start_date')
+
     template_name = 'main_page/index.html'
 
     def get_context_data(self, **kwargs):
