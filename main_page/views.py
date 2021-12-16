@@ -18,7 +18,6 @@ class Index(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context[self.context_object_name] = list(context[self.context_object_name])[:3]
-        context[self.context_object_name].reverse()
 
         context['recruit_available'] = is_recruitment_available()
         context['recruit_url'] = reverse('recruit')
