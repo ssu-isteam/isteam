@@ -46,9 +46,9 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['isteam.dev', 'localhost']
+ALLOWED_HOSTS = ['*']
 
-CSRF_TRUSTED_ORIGINS = ['isteam.dev']
+CSRF_TRUSTED_ORIGINS = ['ssu-is.team']
 
 
 # Database
