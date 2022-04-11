@@ -76,7 +76,7 @@ sftp = ["paramiko"]
 
 [[package]]
 name = "django-webpack-loader"
-version = "0.7.0"
+version = "1.5.0"
 description = "Transparently use webpack with django"
 category = "main"
 optional = false
@@ -185,7 +185,7 @@ brotli = ["brotlipy (>=0.6.0)"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "07dd6562ef12447c2b5aa78ca79bee76130adec682909ec34337fdabcaada3a9"
+content-hash = "72de26ac4bfc6e58bba84744fb0e93192f7ab0cb50058cf55378176a646cf631"
 
 [metadata.files]
 asgiref = [
@@ -209,8 +209,8 @@ django-storages = [
     {file = "django_storages-1.11.1-py3-none-any.whl", hash = "sha256:f28765826d507a0309cfaa849bd084894bc71d81bf0d09479168d44785396f80"},
 ]
 django-webpack-loader = [
-    {file = "django-webpack-loader-0.7.0.tar.gz", hash = "sha256:7a3c88201aa54481f9399465615cbe7b9aece8081496a6d0287b7cb8e232f447"},
-    {file = "django_webpack_loader-0.7.0-py2.py3-none-any.whl", hash = "sha256:d28a276ed3d89e97a313b74967e373693f8b86afe629f4c91eea91c5b4f2ec20"},
+    {file = "django-webpack-loader-1.5.0.tar.gz", hash = "sha256:f97f56200cfc206553dc8be850e100a7711a66bc568bce267bc67b4f56d22ca4"},
+    {file = "django_webpack_loader-1.5.0-py3-none-any.whl", hash = "sha256:5e199ab2e069cc747088e9d017409a2adb7b7bdea4aad37ebcfde3b29f66b2e4"},
 ]
 gunicorn = [
     {file = "gunicorn-20.1.0-py3-none-any.whl", hash = "sha256:9dcc4547dbb1cb284accfb15ab5667a0e5d1881cc443e0677b4882a4067a807e"},
